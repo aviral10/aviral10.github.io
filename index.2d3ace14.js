@@ -2943,19 +2943,16 @@ $parcel$ReactRefreshHelpers$2a8f.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _app = require("./view/App");
 var _appDefault = parcelHelpers.interopDefault(_app);
 let rootElement = document.getElementById("root");
 let root = (0, _clientDefault.default).createRoot(rootElement);
-root.render(// <StrictMode>
-/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
     fileName: "src/index.tsx",
-    lineNumber: 9,
-    columnNumber: 5
+    lineNumber: 6,
+    columnNumber: 13
 }, undefined));
 
   $parcel$ReactRefreshHelpers$2a8f.postlude(module);
@@ -2963,7 +2960,7 @@ root.render(// <StrictMode>
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./view/App":"hKpfw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./view/App":"hKpfw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27159,203 +27156,23 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _utils = require("../model/utils");
 var _fallbackConfigJson = require("../model/fallbackConfig.json");
 var _fallbackConfigJsonDefault = parcelHelpers.interopDefault(_fallbackConfigJson);
-var _useWindowDimensions = require("./hooks/useWindowDimensions");
-var _useWindowDimensionsDefault = parcelHelpers.interopDefault(_useWindowDimensions);
-var _appContext = require("./components/AppContext");
-var _appContextDefault = parcelHelpers.interopDefault(_appContext);
-var _channels = require("./components/Channels");
-var _channelsDefault = parcelHelpers.interopDefault(_channels);
 var _config = require("../model/Config");
 var _configDefault = parcelHelpers.interopDefault(_config);
 var _dataModelJson = require("../model/DataModelJson");
 var _dataModelJsonDefault = parcelHelpers.interopDefault(_dataModelJson);
-var _globalStateContext = require("./components/GlobalStateContext");
-var _globalStateContextDefault = parcelHelpers.interopDefault(_globalStateContext);
 var _idStore = require("../model/IdStore");
 var _idStoreDefault = parcelHelpers.interopDefault(_idStore);
-var _messages = require("./components/Messages");
-var _messagesDefault = parcelHelpers.interopDefault(_messages);
-var _myProfile = require("./components/MyProfile");
-var _myProfileDefault = parcelHelpers.interopDefault(_myProfile);
-var _searchbar = require("./components/Searchbar");
-var _searchbarDefault = parcelHelpers.interopDefault(_searchbar);
-var _sidebar = require("./components/Sidebar");
-var _sidebarDefault = parcelHelpers.interopDefault(_sidebar);
 var _shimmer = require("./components/Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
-var _anonymousAnimal = require("../model/AnonymousAnimal");
-var _anonymousAnimalDefault = parcelHelpers.interopDefault(_anonymousAnimal);
 var _imageCache = require("../model/ImageCache");
 var _imageCacheDefault = parcelHelpers.interopDefault(_imageCache);
-var _analytics = require("../model/Analytics/Analytics");
-var _analyticsDefault = parcelHelpers.interopDefault(_analytics);
-var _s = $RefreshSig$(), _s1 = $RefreshSig$();
-function HomeScreen(props) {
-    _s();
-    // Refs
-    const serverList = props.serverList;
-    // State
-    const server = props.server;
-    const setServer = props.setServer;
-    const [hamburgerClicked, setHamburgerClicked] = (0, _react.useState)(true);
-    const [selectedChannel, setSelectedChannel] = (0, _react.useState)("0-0-0");
-    const [selectedServer, setSelectedServer] = (0, _react.useState)(0);
-    const { width } = (0, _useWindowDimensionsDefault.default)();
-    const [serverId, channelGroupId, channelId] = (0, _utils.splitIds)(selectedChannel);
-    // Initialise Anonymous animals, so animal image is prefetched
-    (0, _anonymousAnimalDefault.default).getInstance();
-    // Initialize Analytics
-    (0, _analyticsDefault.default).getInstance();
-    const toShowOrNotToShow = ()=>{
-        return width >= (0, _utils.mediumScreen) ? "translate-x-0" : hamburgerClicked ? "-translate-x-32" : "-translate-x-[calc(100%+80px)]";
-    };
-    (0, _react.useEffect)(()=>{
-        let pageName = serverList[serverId].channelGroups[channelGroupId].channelItems[channelId].name.toLowerCase();
-        (0, _analyticsDefault.default).sendPageView(pageName);
-    }, [
-        selectedChannel
-    ]);
-    width < (0, _utils.mediumScreen) && registerSwipes(setHamburgerClicked);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appContextDefault.default).Provider, {
-        value: {
-            server: server,
-            setServer: setServer,
-            serverList: serverList
-        },
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _globalStateContextDefault.default).Provider, {
-            value: {
-                hamburgerClicked,
-                setHamburgerClicked,
-                selectedChannel,
-                setSelectedChannel,
-                selectedServer,
-                setSelectedServer
-            },
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "fixed md:block flex flex-col h-full w-full bg-gray-900",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "w-full bg-gray-900 flex-shrink-0 h-4 text-gray-500 font-[900] text-[12px] pl-2",
-                        children: "BigPanda"
-                    }, void 0, false, {
-                        fileName: "src/view/App.tsx",
-                        lineNumber: 73,
-                        columnNumber: 21
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: `flex h-full`,
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {
-                                serverList: serverList,
-                                selectedServer: selectedServer,
-                                setSelectedServer: setSelectedServer
-                            }, void 0, false, {
-                                fileName: "src/view/App.tsx",
-                                lineNumber: 77,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "flex w-full",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _channelsDefault.default), {
-                                        selectedChannel: selectedChannel,
-                                        setSelectedChannel: setSelectedChannel
-                                    }, void 0, false, {
-                                        fileName: "src/view/App.tsx",
-                                        lineNumber: 84,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: `flex flex-col h-full w-full ease-in-out duration-300 ${toShowOrNotToShow()}`,
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchbarDefault.default), {}, void 0, false, {
-                                                fileName: "src/view/App.tsx",
-                                                lineNumber: 91,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "flex w-full h-full overflow-hidden",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _messagesDefault.default), {
-                                                        messageHeader: server.channelGroups[channelGroupId].channelItems[channelId].messageHeader,
-                                                        messageGroups: server.channelGroups[channelGroupId].channelItems[channelId].messageGroups
-                                                    }, void 0, false, {
-                                                        fileName: "src/view/App.tsx",
-                                                        lineNumber: 93,
-                                                        columnNumber: 37
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _myProfileDefault.default), {}, void 0, false, {
-                                                        fileName: "src/view/App.tsx",
-                                                        lineNumber: 105,
-                                                        columnNumber: 37
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/view/App.tsx",
-                                                lineNumber: 92,
-                                                columnNumber: 33
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/view/App.tsx",
-                                        lineNumber: 88,
-                                        columnNumber: 29
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/view/App.tsx",
-                                lineNumber: 83,
-                                columnNumber: 25
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/view/App.tsx",
-                        lineNumber: 76,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/view/App.tsx",
-                lineNumber: 72,
-                columnNumber: 17
-            }, this)
-        }, void 0, false, {
-            fileName: "src/view/App.tsx",
-            lineNumber: 62,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "src/view/App.tsx",
-        lineNumber: 55,
-        columnNumber: 9
-    }, this);
-}
-_s(HomeScreen, "sOEtaAMa/Z7wS16yqWN0D6qol+c=", false, function() {
-    return [
-        (0, _useWindowDimensionsDefault.default)
-    ];
-});
-_c = HomeScreen;
-const registerSwipes = (setHamburgerClicked)=>{
-    let touchstartX = 0;
-    let touchendX = 0;
-    function commenceAction() {
-        touchendX - touchstartX < -100 && setHamburgerClicked(false);
-        touchendX - touchstartX > 100 && setHamburgerClicked(true);
-    }
-    document.addEventListener("touchstart", (e)=>{
-        touchstartX = e.changedTouches[0].screenX;
-    });
-    document.addEventListener("touchend", (e)=>{
-        touchendX = e.changedTouches[0].screenX;
-        commenceAction();
-    });
-};
+var _homeScreen = require("./components/HomeScreen");
+var _homeScreenDefault = parcelHelpers.interopDefault(_homeScreen);
+var _s = $RefreshSig$();
 function App() {
-    _s1();
+    _s();
     // Refs
     const serverList = (0, _react.useRef)(undefined);
     // State
@@ -27375,64 +27192,56 @@ function App() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: serverList.current === undefined || server === undefined ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
             fileName: "src/view/App.tsx",
-            lineNumber: 160,
+            lineNumber: 35,
             columnNumber: 17
-        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HomeScreen, {
+        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeScreenDefault.default), {
             server: server,
             setServer: setServer,
             serverList: serverList.current
         }, void 0, false, {
             fileName: "src/view/App.tsx",
-            lineNumber: 162,
+            lineNumber: 37,
             columnNumber: 17
         }, this)
     }, void 0, false, {
         fileName: "src/view/App.tsx",
-        lineNumber: 158,
+        lineNumber: 33,
         columnNumber: 9
     }, this);
 }
-_s1(App, "tbGyGbt3FHKQ/1phZ3NDVL7N5o0=");
-_c1 = App;
+_s(App, "tbGyGbt3FHKQ/1phZ3NDVL7N5o0=");
+_c = App;
 exports.default = App;
-var _c, _c1;
-$RefreshReg$(_c, "HomeScreen");
-$RefreshReg$(_c1, "App");
+var _c;
+$RefreshReg$(_c, "App");
 
   $parcel$ReactRefreshHelpers$8d5d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../model/utils":"aACEy","../model/fallbackConfig.json":"b5qcb","./hooks/useWindowDimensions":"koLZJ","./components/AppContext":"h2OpR","./components/Channels":"6lq8V","../model/Config":"llC9f","../model/DataModelJson":"6pzHR","./components/GlobalStateContext":"aw2vg","../model/IdStore":"1RFum","./components/Messages":"lxM0f","./components/MyProfile":"9EZST","./components/Searchbar":"ihZif","./components/Sidebar":"2t1W6","./components/Shimmer":"1wl7D","../model/AnonymousAnimal":"j51pv","../model/ImageCache":"Jdnpg","../model/Analytics/Analytics":"6IVA3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aACEy":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../model/fallbackConfig.json":"b5qcb","../model/Config":"llC9f","../model/DataModelJson":"6pzHR","../model/IdStore":"1RFum","./components/Shimmer":"1wl7D","../model/ImageCache":"Jdnpg","./components/HomeScreen":"eV1UH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b5qcb":[function(require,module,exports) {
+module.exports = JSON.parse('{"servers":[{"name":"Know Aviral","image":"https://t3.ftcdn.net/jpg/06/09/96/56/360_F_609965643_XAOcB0N9tXgGt2WANQNh48vN2FkGM9Ko.jpg","channelGroups":[{"name":"General","channelItems":[{"name":"Server-Map","messageHeader":["Hi, I\'m Aviral","Software Enginner","*Soon to be"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Click to navigate to a channel\\n\\n;•;<mention>server-map</mention>;           : You are here \\n;•;<mention>about-me</mention>;              : Aviral who? \\n;•;<mention>skills</mention>;                      : Know Aviral\'s skill set \\n;•;<mention>projects</mention>;                 : Aviral\'s cool projects \\n;•;<mention>academic</mention>;              : Aviral\'s acedemic history \\n;•;<mention>work-experience</mention>; : Aviral\'s work experience \\n;•;<mention>linked-in</mention>;               : Aviral\'s socials \\n;•;<mention>sketching</mention>;              : Aviral\'s hobbies \\n;","image":"IMAGE_URL","messageType":"fancy"}]},{"date":"03 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Welcome to my server! :)","image":"IMAGE_URL","messageType":"default"}]}]},{"name":"About-Me","messageHeader":["Hi, I\'m Aviral","Software Enginner","*Soon to be"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I\'m a recent grad of the batch 2023. \uD83C\uDFEB\\nI\'ve completed my Bachelor\'s in ;<i>Computer Science and Engineering.</i>; \uD83D\uDC31‍\uD83D\uDCBB;\\nI\'ve recently completed my 6 month Internship with ;<b>Amazon</b>; as an SDE Intern. \uD83C\uDFB6\\n;Know more about my ;<mention>work-experience</mention>","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I\'m currectly looking for full-time ;<b>SDE/SWE</b>; or ;<b>Developer</b>; roles.\\nHit me up: ;<link>aviral19rana@gmail.com,mailto:aviral19rana@gmail.com</link>; \uD83D\uDCE7","image":"IMAGE_URL","messageType":"default"}]},{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I enjoy solving complex programming challenges and coming up with creative solutions for them.\\nI also enjoy building simulations and visualizations, check some of them out here: ;<mention>projects</mention>","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"When I\'m not building awesome projects, I like to:\\n • play video games \uD83C\uDFAE\\n • watch movies, TV shows and sitcoms (I love FRIENDS) \uD83D\uDCFA\\n • go for a run \uD83C\uDFC3\uD83C\uDFFB","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I love playing ;<b>badminton</b>; as well. \uD83C\uDFF8\\nand I\'m really bad at it\\n.\\n.\\nliving upto it\'s name. \uD83D\uDE42","image":"IMAGE_URL","messageType":"default"}]}]},{"name":"Skills","messageHeader":["Aviral\'s","Technical Skills","Your skills shall never betray you!"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Programming Languages</heading>;\\n;<Skill>C++/C,90,Excellent,<badge>https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white</badge></Skill>;<Skill>JavaScript/TypeScript, 90,Excellent,<badge>https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A</badge></Skill>;<Skill>Python, 85,Advanced, <badge>https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=ffffff</badge></Skill>;<Skill>Java, 75,Intermediate,<badge>https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white</badge></Skill>;<Skill>Kotlin, 60,Intermediate,<badge>https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white</badge></Skill>","image":"IMAGE_URL","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Tools and Frameworks ; https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=ffffff; https://img.shields.io/badge/-Git-%23F05032?style=flat&logo=git&logoColor=%23ffffff ; https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white ; https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white ; https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white ; https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white ; https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white ; https://img.shields.io/badge/-Nodejs-339933?style=flat&logo=Node.js&logoColor=ffffff ; https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white ","image":"IMAGE_URL","messageType":"onlytags"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Academic Coursework:</heading>;\\n; • ;Data Structures and Algorithms;\\n; • ;Object Oriented Programming;\\n; • ;Operating Systems;\\n; • ;Database Management Systems;\\n; • ;Computer Networks;\\n;","image":"IMAGE_URL","messageType":"fancy"}]}]},{"name":"Projects","messageHeader":["Welcome to","my cool Projects","Most of them are useless \uD83E\uDD72"],"messageGroups":[{"date":"26 Nov, 2020","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Beauty in Chaos</headingxl>;\\n\\n;<i>A simple project, written in JS.\\nMade using p5JS, draws random abstract art.</i>;\\n;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • This project made me understand Javascript. ;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Beauty_in_Chaos,https://github.com/aviral10/Beauty_in_Chaos</Link>;\\n;Live: ;<Link>https://aviralrana.me/Beauty_in_Chaos/,https://aviral10.github.io/Beauty_in_Chaos/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Beauty_in_Chaos/main/sample_2.png","messageType":"fancy"}]},{"date":"18 Dec, 2020","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Visualizing Paths</headingxl>;\\n\\n;<i>Visualised Path-Finding Algorithms that I learned on paper during college.\\nCreated an interactive web application built using JavaScript and p5.js library.\\nIncluded two pathfinding algorithms: Breadth-First Search (BFS) and A* (A Star).\\nAdditionally, it features a maze generator based on a randomized DFS.</i>;\\n;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>p5JS</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • First big project that I made entirely from scratch.\\n • Followed Object Oriented Design. ;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Visualizing-Paths,https://github.com/aviral10/Visualizing-Paths</Link>;\\n;Live: ;<Link>https://aviralrana.me/Visualizing-Paths/,https://aviral10.github.io/Visualizing-Paths</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Visualizing-Paths/main/example.gif","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>EKANS - Reverse Snake</headingxl>;\\n\\n;<i>Extended scope of Visualising Paths\' project in this fun game.\\nContrary to classic snake game, you control the food here.\\nSnake uses path-finding algorithms to chase the food.\\n</i>;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>p5JS</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • This project helped me grab my first internship!;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Snake_but_you_the_snack,https://github.com/aviral10/Snake_but_you_the_snack</Link>;\\n;Live: ;<Link>https://aviralrana.me/Snake_but_you_the_snack/,https://aviral10.github.io/Snake_but_you_the_snack/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/ekans.png","messageType":"fancy"}]},{"date":"23 Dec, 2021","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Handwritten Digit Recognition</headingxl>;\\n\\n;<i>Developed a web UI for identification and prediction of hand-drawn digits.\\nRemoved back-end dependency of the model and shifed the computation to the front-end.\\nThis improved overall performance of the project.\\nTrained a CNN model that had an accuracy of 99.74% and used it to identify digits.\\nCreated a 3D visualization of the CNN model that is used under the hood for digit recognition using Three.js\\n</i>;\\n;<b>Tech:</b>; • ;<outline>JavaScript</outline>; • ;<outline>TailwindCSS</outline>; • ;<outline>ThreeJS</outline>; • ;<outline>NodeJS</outline>;\\n\\n;Project highlight:\\n • Fell in love with TailwindCSS with this project.\\n • Tackled and solved a lot of performance issues from shifting backend computation to fixing memory leaks happening in browser.;\\n\\n;GitHub: ;<Link>https://github.com/../Handwritten_Digit_Recognition,https://github.com/aviral10/Handwritten_Digit_Recognition</Link>;\\n;Live: ;<Link>https://handwritten-digit-recognition-eight.vercel.app/,https://handwritten-digit-recognition-eight.vercel.app/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/handwrittenDigRec.png","messageType":"fancy"}]},{"date":"06 Jan, 2022","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Natural Selection Simulator [Abandoned mid-dev]</headingxl>;\\n\\n;<i>Simulated artificial brain cells for creatures and established a demonstration of Natural Selection.\\nThe creatures were able to adapt over generations following survival of the fittest for the natural selection criteria.\\nCouldn\'t fully develop the project, but it still holds significant value. Hence putting it here.\\nThis project had a lot of scope and great research potential, I might pick it up again in the future making better development decisions this time.</i>;\\n\\n;<b>Tech:</b>; • ;<outline>Python</outline>; • ;<outline>Javascript</outline>;\\n\\n;Project highlight:\\n • Simulated artificial brains for creatures. \\n • I understood concepts of multithreading and multiprocessing with this project.\\n • One of the reasons this project was abandoned was the poor choice of coding language, considering the use-case was very computation heavy. I should have used C/C++.;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Natural_Selection_Sim,https://github.com/aviral10/Natural_Selection_Sim</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/naturalSelectionSim_m.png","messageType":"fancy"}]},{"date":"08 Aug, 2022","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>PyStar \uD83C\uDF20</headingxl>;\\n\\n;<i>An innovation project I made while interning at Adobe.\\nCreated an app that automated a task of fetching business data and generating case-review presentations automatically along with elaborated graphs and charts.</i>;\\n;<b>Tech:</b>; • ;<outline>Python</outline>;\\n\\n;Project highlight:\\n • The project is still being used internally.\\n • Received accolades from senior managers.;\\n\\n;Demo Version only:\\nGitHub: ;<Link>https://github.com/aviral10/pystar,https://github.com/aviral10/pystar</Link>;\\n;Live: ;<Link>https://aviral10-pystar-main-is3c43.streamlit.app/,https://aviral10-pystar-main-is3c43.streamlit.app/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/pystar.png","messageType":"fancy"}]},{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Personal Portfolio Website</headingxl>;\\n\\n;<i>Innovated a Discord styled personal portfolio website using ReactJS and TailwindCSS.\\nDecoupled data dependency for UI elements by creating a Config driven UI enabling easy updates to the website.\\nDeveloped an engaging user experience using modern design principles within a responsive single-page application(SPA).</i>;\\n;<b>Tech:</b>; • ;<outline>ReactJS</outline>; • ;<outline>TypeScript</outline>; • ;<outline>JavaScript</outline>; • ;<outline>TailwindCSS</outline>;\\n\\n;Project highlight:\\n • Config driven UI, meaning I can add/update content on the website by making changes to the config file only and no code needs to be touched.\\n • Learned ReactJS with this project.\\n • Website is responsive with slightly different UI for mobile devices, do check it out.\\n • There are no if-else statements in the entire project.;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Portfolio,https://github.com/aviral10/Portfolio</Link>;\\n;Live: ;<Link>https://aviralrana.me/,https://aviralrana.me/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/portfolio_a.png","messageType":"fancy"}]}]}]},{"name":"Professional","channelItems":[{"name":"Academic","messageHeader":["Aviral\'s","Educational background","Mountains • Plains • Valleys"],"messageGroups":[{"date":"12 July, 2016","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Oakland Public School</headingxl>;\\n;Lohaghat, Uttarakhand\\n;Class 10th, 2014-2016;\\n;CGPA: 10.0/10.0;\\n","messageType":"default"}]},{"date":"10 June, 2018","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Beersheba Sr. Sec School</headingxl>;\\n;Haldwani, Uttarakhand\\n;Class 12th, 2016-2018;\\n;Percentage: 85/100;\\n","messageType":"default"}]},{"date":"22 June, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Graphic Era University</headingxl>;\\n;Dehradun, Uttarakhand\\n;B. Tech in Computer Science and Engineering, 2019-2023;\\n;CGPA: 9.40/10.0;\\n","messageType":"default"}]}]},{"name":"Work-Experience","messageHeader":["Aviral\'s","Work Experience","Currently looking for SDE/SWE, Developer roles"],"messageGroups":[{"date":"16 Jan, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Amazon Inc.</headingxl>;\\n\\n;<i>Software Developer Engineer Intern</i>;\\n;January 2023 - June 2023\\n;Location: Bangalore, India\\n\\n; • Collaborated with the;<b> Amazon Music </b>;International Expansion (IX) team.\\n; • Successfully launched a novel Home Tab experience of Amazon Music for Android Automotive clients. \\n; • Migrated the old home experience to a newer architecture.\\n; • Developed a front-end module for handing network calls made to the backend.\\n; • Contributed to the development of the back-end data processing layer as well.\\n; • Orchestrated the deployment of a robust CI/CD pipeline.\\n; • The pipeline was utilized for experimentation, testing and feature development.\\n; • Implemented th new Home Tab support for Navigation Apps such as Google Assistant and Waze.\\n; • Worked on Front-end for the development of a personalised widge (My Presets).\\n; • My Presets was successfully launched to production.\\n; • Skills: C++ \xb7 Java \xb7 Android \xb7 TypeScript \xb7 Kotlin \xb7 Amazon CloudWatch \xb7 Python \xb7 JavaScript\\n\\n","image":"https://res.cloudinary.com/zenbusiness/image/upload/v1670445040/logaster/logaster-2020-03-amazon-gif-logo.gif","messageType":"fancy"}]},{"date":"7 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Adobe Systems</headingxl>;\\n\\n;<i>Technical Support Engineer</i>;\\n;August 2023 - Present\\n;Location: Noida, India\\n\\n; • Working as a Technical Support Engineer with ;<b> Adobe Analytics </b>; global support team.\\n; • During the internship developed a chatbot for Service Desk.\\n; • The bot helped in narrowing down the search space of First Call Resolution queries. \\n; • Developed an automation tool from scratch and deployed it to company servers to be used internally.\\n; • Skills: Python \xb7 Adobe Analytics\\n\\n","image":"https://assets.website-files.com/5ee732bebd9839b494ff27cd/5ee732bebd98398649ff2801_hXrc7y.jpg","messageType":"fancy"}]}]},{"name":"coding-profiles","messageHeader":["","Aviral\'s Coding profiles","Love is temporary, Problem-Solving is forever!"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Coding Profiles: </heading>;\\n;<outline>CodeForces</outline>; : ;<link>https://codeforces.com/profile/aviral10,https://codeforces.com/profile/aviral10</link>;\\n;Highest Rating: 1608 (Blue);\\n\\n;<outline>CodeChef</outline>; : ;<link>https://www.codechef.com/users/aviral19,https://www.codechef.com/users/aviral19</link>;\\n;Highest Rating: 2105 (5 ⭐)\\n\\n;<outline>LeetCode</outline>; : ;<link>https://leetcode.com/aviral19rana/,https://leetcode.com/aviral19rana/</link>;\\n;Highest Rating: 2019 (Knight)\\n;","image":"IMAGE_URL","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/utils/meme_0.jpg","messageType":"fancy"}]}]}]},{"name":"Documents","channelItems":[{"name":"Resume","messageHeader":["Aviral\'s Resume","","Currently looking for SDE/SWE and Development roles"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"This is sample content","image":"IMAGE_URL","messageType":"resume"}]}]}]}]},{"name":"Socials","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKB7T9J876Fx9IRyYAGcxm4U9A2S4_iYQiS-TRg5NIr5lThh_XTgtPguJ4vho6BDcdppk&usqp=CAU","channelGroups":[{"name":"Socials","channelItems":[{"name":"Discord","messageHeader":["Welcome to my","Discord Server","The actual server \uD83D\uDE05"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Discord</heading>;\\n;Click on the link below to join my discord server: \\n;<link>BigPanda\'s Discord Server,https://discord.gg/RvTTbQBtdF</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/discord.png","messageType":"fancy"}]}]},{"name":"Github","messageHeader":["Welcome to my","Github","What I cannot create, I do not understand. ~Richard Feynman"],"messageGroups":[{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>GitHub</heading>;\\n;Link: ;<link>https://github.com/aviral10,https://github.com/aviral10</link>;\\n;Don\'t forget to follow :);\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/github.png","messageType":"fancy"}]}]},{"name":"Linked-In","messageHeader":["Welcome to my","LinkedIn","Onwards and Upwards! \uD83E\uDDD1‍\uD83D\uDE80"],"messageGroups":[{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>LinkedIn</heading>;\\n;Link: ;<link>https://www.linkedin.com/in/aviral-rana/,https://www.linkedin.com/in/aviral-rana/</link>;\\n;Would love to connect with you!;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/linkedIn.png","messageType":"fancy"}]}]},{"name":"X-(Twitter)","messageHeader":["Find me on","X","formerly twitter"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>X</heading>;\\n;Link: ;<link>https://twitter.com/_bigppanda_,https://twitter.com/_bigppanda_</link>;\\n;Don\'t forget to follow :);\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/twitter.png","messageType":"fancy"}]}]},{"name":"Youtube","messageHeader":["Welcome to my","Youtube Channel","Did I get ya?"],"messageGroups":[{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>YouTube</heading>;\\n;Link: ;<link>https://www.youtube.com/@bigppanda,https://www.youtube.com/watch?v=dQw4w9WgXcQ</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/youtube.jpg","messageType":"fancy"}]}]}]},{"name":"Contact","channelItems":[{"name":"Mail-Me","messageHeader":["","Mail-Me","Drop a hi, I\'m usually responsive"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"You can officially reach out to me at: \\n;Email: ;<link>aviral19rana@gmail.com,mailto:aviral19rana@gmail.com</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/email.png","messageType":"fancy"}]}]}]}]},{"name":"Hobbies","image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX///8GBwkAAAD8/Pzs7OwGBgkAAARwcHDl5eXz8/O2trb5+fmqqqqvr6/i4uLX19fV1dXLy8ucnJx8fHx0dHSFhYXExMQXFxeRkZFNTU2+vr4rKyuXl5fv7+9ZWVlUVFQ4OTowMDAjIyNjY2MQEBBCQkKLi4scHBxfX19ISEg8PD4YGRyioqMsLS9oaWsmJiYb0QKCAAAKIklEQVR4nO1diXaqOhQtBxRBEXGetdZabdX7/3/3ggMJkCBiSIgve617l20VzibJmRM/PjQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0CsCULUD5CGQLUDY6M9kSlI0edGSLUC6cDfRky1AuXABoyhaiVCzBAE+2EGWiDYYB3+9sMnaIoQG+bDFKg9kcXRgOZAtSHqYhQQM2jmxBSsPqwtAAV7YgZcG6EqzB8l11zfjKEFFsyxalJGxvDA3YyRalHAzvBA34e0+/5itiWIOpbGHKQAMihgasZEtTBrpQMzBFS7Y4/NFc4yFEDMey5eGPgCRowEi2PPxhkwxrBgxlC8QbFtSN2CDuZUvEG8fYJEUMoSFbJM74TDA0YC5bJL7oJAka8Ptefg3WM9FyhLfKDTcjfwZm0StbtlQ80Ypondz7y/pb+TW/EcPBBx7Oo2yx+KFzd0nr4F/zbReGn7Ll4odeFNyvwhgj0jVvU8JY/ETDFua7J9FPfdmS8YIXURqFysXFg/gmaUVzFR80wnS0ZMvGB+0o9L0Z+V7EcC1XMl4YEMrzkif130zXOEbSAJqH6DdvUS6lKJYolIKfhVTZ+AAbhyjotbYx86E4GljP4MRFlDp9h7TiOCKzxb+M0t/vUMLAxo9IIJobwhVXHFOsZ8jRmuORVT3UX0ZUluSvLbw6FS+XtvEkjTOZvIuuGbMsH2EllU4rOp8s78WkaiD1QFiFpAeKQ32QIhonnCMav8k/Ee63wuVSXKygRIITupZVC12cOUx72C2cnlLXr8F65pz+I+F+K6trcFGUmsHv48hYVb8G65kRrQmKeACKlksd7JlRK2nmOmsSqwBcFGVUKAhFpGYJ45QO7uOw7n5NDbpiReOD4LFJvwUeNQNOKnYrRkVR+MdKbQ+zlW3FYY1yhPGgsq5pYaeb3bk+xm9SroRhYrdzwn5XG09T5UoYROiQlRLFRZtP1XQNrr5ss+afi6epYrrGwW51ZhnUGeV7X/Xg5bMDJjHWI7X8GqxnNtlv7Ciqawgd+cgf+86jc6uHXX47R/jnKu34wvmZh76Khf0ahcql7jOx7TmfXakWsB2fPc5PEDGIMiWMNp6keXJMW/V0TeRP58sTzvEgKpJWdHBwnyvXa2GGipRLp88uLFxjBDXcb9yGsMnXS/L0I5GMBtYzOQ1cE/cuKlEunWN/Jm9P1+A51SQZ5owIanPCx7ljBUoYwyLBAnYRTtUvYSwxw/zC3sPJmgK6hoibnthPQaQeJ1W3F/18wT2nj0kAMhU3pQGzZwaDcL8rXvO28wf3ccwUGUScdak9WTAjQv1KbzRZYTm/nvvkgtjK3qqud9oixHy2SWaPH05166XEmQJwejYjMSSeTmX3CB8iu10k0vsjKFZ0V1ufELFAZnCMP16vpj7tYgkNODz/+TZxqgQYFYwxWrFjL4psMliSj2jUrppC7RInl6BZViRCcIkr1GAracOQRW/obdrkCBaslC02QF4DRRnUUfRLjq8+ac5YZxM/E6Lghq0exC4CZ4rFaezLjpE9gHnCIPtfEBMt7I4phE5sIoQc5wmOHbt8d8DZAsD+2L7d2mkcVwl+L5iz78SV0K16U+s6K5uLYLdGvyh/F39o9dCN/lbnft/en9DLWoLgs043Riv5rJDOAvgN7/T1jV6BkDbG0LuqIRY3JEUyXjkswaFdrn67U/06qjy50IETDiy84JDYtGvHtLSI3qnlA4awLq7Og4dPT0Siav6I4SsHz/w8uriIwOrBc34tbd3NvriY3SdtqnrBQryUSbIeMBSSpsJpe7oQr62Ur+yLi0n6J+1yXIYXd0wOsxmK6SrKfMyvlnGbqSOzYlcXs0VqkCnDq6HrLvPqYpqKsswF/L4auPqJo+vilxeThUseLhcT4fUTBFZZlxfTU5T2jyMUC+7jcOUzzBhDHq1pzW3G9cUwHDMlyF+5z0Ivg6GYXdF9pgRFkohp+BkMxaSn2MEFp+1LG9YNaoJq4Gs2Qz7mir0MxOwAWzAjHFjzUQRsz01Mk20yI0bcn1MAbrIZCqmesu0VtzmUsQ5EpPrP7NvzqhhR0zXXWwjYMZzh/HPzi9net4jvHGAvQ34M2b79ow0qPDBgpUk5NhYysjWXO5du88OsvkEnWS91DC+3RP9K3wA2tYf+wvKn9ijNscR1CLAeB+2F1fH2ZTvfkba25qkYoDRdCnCYRjcWWBpunJMnyfM6hPwECYItMbSc1G1aicIopz4YJ66uYdtOjtyiHMbmMBXAe7HFCH980ihxrwl+kkGh2ShLoTrpyTKNU+QT3MQyNbBOPbZGeY1vjfRCG5IU+WwmaMT6VlapPRuN8hLf5kcnfXGfTPJz0aZEFqMGdmplWINSmzGmab/QIiYVj91nPtH/R9HO1lfJOVOPEoMOCJm8l5cI0aNKiSSc79KTwl1KlZ7QNy9nwyKfFGCySD2uxlZAw9t4mR4la3/nGNa4XxnF4d3E0mYomsEC0onmx5hWqPfuPhzsXyHo3w6ORn4axckdijode06bKpZ9G0Y4m4VH8VZfRv8fKZdoidrPbn4cqVYhWF/kq8GyqDrv1G8E+zR1MgCBHZkevbGrVbtwhFMRfWdefMBajT5BP5pLkQ3uJtKeZ+rj7G7DLjAo4r41e9cQ95uabGobog/mC+CTuiic7gwJWg/n2XMzKjiFH4MVPZnmFZ/6BWF+NP4xqqGOd2my+3mqVrq4pn/ONF1pfjg29MT3RJvOCmx6RsEMzqG4h9xOavM4Cp/JmGHNg42UE+uQSRjAiJWgtcLJCqt8HI+bsGd1yhqlHc17EwIz/C54WqfyFZ1w4q0fqhxrHGqXI/MywYwSIYpDG5lAj71Cgt0nwLjNfkMz+ELuZ4vtijl9kLEECZhIxU+yXCm/tTS+u9QF5gS9n1l/mjFApleHLaNlXxxcpCT6mf7wwu+e7V2wiKWT2m7v3HczhhdheEBLuQLnmVtoosHuwVJpNgLP7dz5OOgH33owNMEKXbciW7zc0DYMHueiTcTJCZMEOaZdJ+R3qMbuJyRusx9y7D2WB4Veuco3w9BpMCr1DS3BIeS4T2dUExjCwzZw0zr+uzywSn3JDjL/3kWs2Y4dwpnXdAdMWMojnLzO8OIPwaqC3wTlzK/7Ig7jDmOdWb1rcPXDMqGLoX15Tii+qNjWvBsW49vmj83ZTQ+lP9jecjBoph5TutcJupPRtUa4Zjpw8nEZx/p1l8v3oDX1L2up2R627C1ZVA39ubHbudBEhsQ9nq9jF8ZPv1X/qgRvfaUCSRgx1JN/Dk+bYMVPVUPQ/2FU+knUkq/CcZ03hFZAi2PhfrHaGRgI1XAvUILcHZZr5yUZvm896FT/cKEUmsF8Qmyso+C2GG2vodToxeG7u8M2pXXu+LfvZkVP6sDxg2lrPLAj9AddbxpUw6/W0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0ND4H+E//l9tLku5DzsAAAAASUVORK5CYII=","channelGroups":[{"name":"Writing","channelItems":[{"name":"Poetry","messageHeader":["Welcome to","Poetry Section \uD83D\uDCDC","Stuff from my teenage years \uD83E\uDE7A"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Here\'s an excerpt from a little poem that I wrote. :)","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>I once drew a friend</headingxl>;\\n;.......\\nI told her to not desire rain\\nShe wasn\'t ready to know \\nWhat the rain would do \\nBut she craved and as of one day\\nI left my window open.\\nIt was raining.\\nIt was raining love.\\n\\nLove that she craved for, so much.\\nShe jumped out of my canvas and \\nTook a leap out in the open\\n\\nI held my breath\\nAnd looked at her,\\nShe was happy, happier than she ever was \\nThe rain of love was making her colors wash.\\n \\nHer glitters, I painted with so much Love \\nWere washed away \\nHer crimson dress was spoilt,\\nHer colors faded\\nAnd she slowly blurred away \\n\\nI cried in grief, cause she was the only friend I had\\nI couldn\'t pick my colors up,\\nI was all wet and soaked in love \\n\\nThe moon showed up and its light paved her way \\nShe crossed oblivion, bidding me goodbye.\\n.......\\n","image":"","messageType":"fancy"}]}]},{"name":"Unfinished Novel","messageHeader":["Welcome to my","Unfinished Novel","~ Aviral \uD83D\uDCD4"],"messageGroups":[{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"And here\'s an excerpt from an unfinished novel that I started writing during college. :)\\nI don\'t know if I will ever \\"finish\\" it.","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Red, Chapter 1: Yo</headingxl>;\\n\\n;“Well, I\'m not here for Red, I\'m here for me, I\'m not here for Red” I said while I looked out for her here and there. I sat down on my usual spot and opened my book, still waiting for Red to show up. I looked up leaning back on the bench, the sky wasn\'t as bright as it usually was, the birds were flying north, and there was a plane leaving a jet trail behind. I was busy staring at the sky and suddenly someone blocks my view from behind. “Yo”, she greets me with. I raised my hand and held her nose don\'t ask me why, I just felt like. “We meet again”, I replied.\\n\\nShe sits next to me and looks happier than yesterday, or maybe she usually is like this, how long have I known her anyway?  We chatted and not once had I taken my eyes off her, her eyes, her big eyes detailed with mascara, I wonder if she put on that for me? Maybe she had a date or something. Is she seeing someone, maybe I should ask her?  My internal thoughts were making it hard to concentrate. Is sh- She interrupts me and asks “Why are you looking at me like that?” giving me a funny look and I got alarmed and apologized for my creepy behavior. She giggled and said “You\'re Cute” to which I had no reply. “Hey maybe we should go out for a coffee next time?” I asked. With a few seconds of silence which felt like hours she replied “Sure”. “I\'m Aviral”, I said, offering my hand. “I\'m Lily” she replied and shook my hand.","image":"","messageType":"fancy"}]}]}]},{"name":"Other","channelItems":[{"name":"Sketching","messageHeader":["Welcome to","My Sketches \uD83C\uDFA8","Doodling here and there"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/draw_1.jpg","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/draw_2.jpg","messageType":"fancy"}]}]},{"name":"video-games","messageHeader":["Welcome to","Video Games! \uD83C\uDFAE","It\'s a-me, Mario! ~Uncle Mario, AC2"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>My absolute favourite games: </heading>;\\n; • GTA V \\n • Witcher 3 \\n; • Read Dead Redemption 2\\n; • Minecraft\\n • Assassins Creed Black Flag \uD83C\uDFF4‍☠️\\n","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Games I\'ve played in the past:</heading>;\\n; • Life Is Strange\\n • The Walking Dead: TellTale series\\n • All Assassins Creed games\\n • Overwatch 2\\n • Cyberpunk 2077\\n • Call of Duty: Mordern Warfare Series\\n • Call of Duty: Black Ops\\n • Hogwarts Legacy\\n • Portal 2\\n • GTA Vice City and San Andreas\\n • Age of Empires/Mythology\\n\\nAnd the list goes on......","image":"","messageType":"default"}]},{"date":"02 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_0.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_1.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_2.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_3.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_4.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_5.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_6.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_7.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_8.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_9.png","messageType":"fancy"}]}]},{"name":"To-do","messageHeader":["Hobbies","bucket list","List of hobbies, I want to develop"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>To-develop in 2024: </heading>;\\n; • Working out \uD83C\uDFCB️‍♂️\\n • Playing an electric guitar \uD83C\uDFB8\\n; • Actively follow a sport ⚽\\n; • Biking \uD83D\uDEB5\\n; • Avid Reading \uD83D\uDCD6\\n; • Travelling to places \uD83C\uDF0D","image":"","messageType":"fancy"}]}]}]},{"name":"Blogging","channelItems":[{"name":"Blogs","messageHeader":["Welcome to","My Blogs","Under construction"],"messageGroups":[{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"This section is under construction,\\nI\'ll update my blogs and articles in this section.","image":"","messageType":"fancy"}]}]}]}]}],"myprofile":{"image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_light.jpg","name":"Aviral Rana \uD83D\uDE80","title":"Aspiring Software Engineer \uD83D\uDCBB","status":"online","locationTitle":"Noida, India","locationLink":"https://goo.gl/maps/zsSAfW4XNR8VSM4S9","email":"aviral19rana@gmail.com","discord":"https://discord.gg/RvTTbQBtdF","discordImage":"https://i.pinimg.com/564x/f6/eb/b9/f6ebb972d1325cbbf6315219a12f0365.jpg"}}');
+
+},{}],"llC9f":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "splitIds", ()=>splitIds);
-parcelHelpers.export(exports, "blobToBase64", ()=>blobToBase64);
-parcelHelpers.export(exports, "smallScreen", ()=>smallScreen);
-parcelHelpers.export(exports, "mediumScreen", ()=>mediumScreen);
-parcelHelpers.export(exports, "largeScreen", ()=>largeScreen);
-parcelHelpers.export(exports, "xlScreen", ()=>xlScreen);
-parcelHelpers.export(exports, "xxlScreen", ()=>xxlScreen);
-const splitIds = (selectedChannel)=>{
-    return selectedChannel.split("-").map((val)=>+val);
-};
-const blobToBase64 = (blob)=>{
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    return new Promise((resolve)=>{
-        reader.onloadend = ()=>{
-            resolve(reader.result);
-        };
-    });
-};
-const smallScreen = 640;
-const mediumScreen = 768;
-const largeScreen = 1024;
-const xlScreen = 1280;
-const xxlScreen = 1536;
+var _fallbackConfigJson = require("./fallbackConfig.json");
+var _fallbackConfigJsonDefault = parcelHelpers.interopDefault(_fallbackConfigJson);
+class Config {
+    static #_ = (()=>{
+        this.config = (0, _fallbackConfigJsonDefault.default);
+    })();
+    static getConfig() {
+        return this.config;
+    }
+    static updateConfig(newConfig) {
+        this.config = newConfig;
+    }
+}
+exports.default = Config;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"./fallbackConfig.json":"b5qcb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27462,48 +27271,206 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"b5qcb":[function(require,module,exports) {
-module.exports = JSON.parse('{"servers":[{"name":"Know Aviral","image":"https://t3.ftcdn.net/jpg/06/09/96/56/360_F_609965643_XAOcB0N9tXgGt2WANQNh48vN2FkGM9Ko.jpg","channelGroups":[{"name":"General","channelItems":[{"name":"Server-Map","messageHeader":["Hi, I\'m Aviral","Software Enginner","*Soon to be"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Click to navigate to a channel\\n\\n;•;<mention>server-map</mention>;           : You are here \\n;•;<mention>about-me</mention>;              : Aviral who? \\n;•;<mention>skills</mention>;                      : Know Aviral\'s skill set \\n;•;<mention>projects</mention>;                 : Aviral\'s cool projects \\n;•;<mention>academic</mention>;              : Aviral\'s acedemic history \\n;•;<mention>work-experience</mention>; : Aviral\'s work experience \\n;•;<mention>linked-in</mention>;               : Aviral\'s socials \\n;•;<mention>sketching</mention>;              : Aviral\'s hobbies \\n;","image":"IMAGE_URL","messageType":"fancy"}]},{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Welcome to my server! :)","image":"IMAGE_URL","messageType":"default"}]}]},{"name":"About-Me","messageHeader":["Hi, I\'m Aviral","Software Enginner","*Soon to be"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I\'m a recent grad of the batch 2023. \uD83C\uDFEB\\nI\'ve completed my Bachelor\'s in ;<i>Computer Science and Engineering.</i>; \uD83D\uDC31‍\uD83D\uDCBB;\\nI\'ve recently completed my 6 month Internship with ;<b>Amazon</b>; as an SDE Intern. \uD83C\uDFB6\\n;Know more about my ;<mention>work-experience</mention>","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I\'m currectly looking for full-time ;<b>SDE/SWE</b>; or ;<b>Developer</b>; roles.\\nHit me up: ;<link>aviral19rana@gmail.com,mailto:aviral19rana@gmail.com</link>; \uD83D\uDCE7","image":"IMAGE_URL","messageType":"default"}]},{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I enjoy solving complex programming challenges and coming up with creative solutions for them.\\nI also enjoy building simulations and visualizations, check some of them out here: ;<mention>projects</mention>","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"When I\'m not building awesome projects, I like to:\\n • play video games \uD83C\uDFAE\\n • watch movies, TV shows and sitcoms (I love FRIENDS) \uD83D\uDCFA\\n • go for a run \uD83C\uDFC3\uD83C\uDFFB","image":"IMAGE_URL","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"I love playing ;<b>badminton</b>; as well. \uD83C\uDFF8\\nand I\'m really bad at it\\n.\\n.\\nliving upto it\'s name. \uD83D\uDE42","image":"IMAGE_URL","messageType":"default"}]}]},{"name":"Skills","messageHeader":["Aviral\'s","Technical Skills","Your skills shall never betray you!"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Programming Languages</heading>;\\n;<Skill>C++/C,90,Excellent,<badge>https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white</badge></Skill>;<Skill>JavaScript/TypeScript, 90,Excellent,<badge>https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A</badge></Skill>;<Skill>Python, 85,Advanced, <badge>https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=ffffff</badge></Skill>;<Skill>Java, 75,Intermediate,<badge>https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white</badge></Skill>;<Skill>Kotlin, 60,Intermediate,<badge>https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white</badge></Skill>","image":"IMAGE_URL","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Tools and Frameworks ; https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=ffffff; https://img.shields.io/badge/-Git-%23F05032?style=flat&logo=git&logoColor=%23ffffff ; https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white ; https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white ; https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white ; https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white ; https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white ; https://img.shields.io/badge/-Nodejs-339933?style=flat&logo=Node.js&logoColor=ffffff ; https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white ","image":"IMAGE_URL","messageType":"onlytags"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Academic Coursework:</heading>;\\n; • ;Data Structures and Algorithms;\\n; • ;Object Oriented Programming;\\n; • ;Operating Systems;\\n; • ;Database Management Systems;\\n; • ;Computer Networks;\\n;","image":"IMAGE_URL","messageType":"fancy"}]}]},{"name":"Projects","messageHeader":["Welcome to","my cool Projects","Most of them are useless \uD83E\uDD72"],"messageGroups":[{"date":"26 Nov, 2020","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Beauty in Chaos</headingxl>;\\n\\n;<i>A simple project, written in JS.\\nMade using p5JS, draws random abstract art.</i>;\\n;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • This project made me understand Javascript. ;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Beauty_in_Chaos,https://github.com/aviral10/Beauty_in_Chaos</Link>;\\n;Live: ;<Link>https://aviralrana.me/Beauty_in_Chaos/,https://aviral10.github.io/Beauty_in_Chaos/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Beauty_in_Chaos/main/sample_2.png","messageType":"fancy"}]},{"date":"18 Dec, 2020","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Visualizing Paths</headingxl>;\\n\\n;<i>Visualised Path-Finding Algorithms that I learned on paper during college.\\nCreated an interactive web application built using JavaScript and p5.js library.\\nIncluded two pathfinding algorithms: Breadth-First Search (BFS) and A* (A Star).\\nAdditionally, it features a maze generator based on a randomized DFS.</i>;\\n;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>p5JS</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • First big project that I made entirely from scratch.\\n • Followed Object Oriented Design. ;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Visualizing-Paths,https://github.com/aviral10/Visualizing-Paths</Link>;\\n;Live: ;<Link>https://aviralrana.me/Visualizing-Paths/,https://aviral10.github.io/Visualizing-Paths</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Visualizing-Paths/main/example.gif","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>EKANS - Reverse Snake</headingxl>;\\n\\n;<i>Extended scope of Visualising Paths\' project in this fun game.\\nContrary to classic snake game, you control the food here.\\nSnake uses path-finding algorithms to chase the food.\\n</i>;<b>Tech:</b>; • ;<outline>Javascript</outline>; • ;<outline>p5JS</outline>; • ;<outline>HTML/CSS</outline>;\\n\\n;Project highlight:\\n • This project helped me grab my first internship!;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Snake_but_you_the_snack,https://github.com/aviral10/Snake_but_you_the_snack</Link>;\\n;Live: ;<Link>https://aviralrana.me/Snake_but_you_the_snack/,https://aviral10.github.io/Snake_but_you_the_snack/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/ekans.png","messageType":"fancy"}]},{"date":"23 Dec, 2021","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Handwritten Digit Recognition</headingxl>;\\n\\n;<i>Developed a web UI for identification and prediction of hand-drawn digits.\\nRemoved back-end dependency of the model and shifed the computation to the front-end.\\nThis improved overall performance of the project.\\nTrained a CNN model that had an accuracy of 99.74% and used it to identify digits.\\nCreated a 3D visualization of the CNN model that is used under the hood for digit recognition using Three.js\\n</i>;\\n;<b>Tech:</b>; • ;<outline>JavaScript</outline>; • ;<outline>TailwindCSS</outline>; • ;<outline>ThreeJS</outline>; • ;<outline>NodeJS</outline>;\\n\\n;Project highlight:\\n • Fell in love with TailwindCSS with this project.\\n • Tackled and solved a lot of performance issues from shifting backend computation to fixing memory leaks happening in browser.;\\n\\n;GitHub: ;<Link>https://github.com/../Handwritten_Digit_Recognition,https://github.com/aviral10/Handwritten_Digit_Recognition</Link>;\\n;Live: ;<Link>https://handwritten-digit-recognition-eight.vercel.app/,https://handwritten-digit-recognition-eight.vercel.app/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/handwrittenDigRec.png","messageType":"fancy"}]},{"date":"06 Jan, 2022","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Natural Selection Simulator [Abandoned mid-dev]</headingxl>;\\n\\n;<i>Simulated artificial brain cells for creatures and established a demonstration of Natural Selection.\\nThe creatures were able to adapt over generations following survival of the fittest for the natural selection criteria.\\nCouldn\'t fully develop the project, but it still holds significant value. Hence putting it here.\\nThis project had a lot of scope and great research potential, I might pick it up again in the future making better development decisions this time.</i>;\\n\\n;<b>Tech:</b>; • ;<outline>Python</outline>; • ;<outline>Javascript</outline>;\\n\\n;Project highlight:\\n • Simulated artificial brains for creatures. \\n • I understood concepts of multithreading and multiprocessing with this project.\\n • One of the reasons this project was abandoned was the poor choice of coding language, considering the use-case was very computation heavy. I should have used C/C++.;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Natural_Selection_Sim,https://github.com/aviral10/Natural_Selection_Sim</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/naturalSelectionSim_m.png","messageType":"fancy"}]},{"date":"08 Aug, 2022","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>PyStar \uD83C\uDF20</headingxl>;\\n\\n;<i>An innovation project I made while interning at Adobe.\\nCreated an app that automated a task of fetching business data and generating case-review presentations automatically along with elaborated graphs and charts.</i>;\\n;<b>Tech:</b>; • ;<outline>Python</outline>;\\n\\n;Project highlight:\\n • The project is still being used internally.\\n • Received accolades from senior managers.;\\n\\n;Demo Version only:\\nGitHub: ;<Link>https://github.com/aviral10/pystar,https://github.com/aviral10/pystar</Link>;\\n;Live: ;<Link>https://aviral10-pystar-main-is3c43.streamlit.app/,https://aviral10-pystar-main-is3c43.streamlit.app/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/pystar.png","messageType":"fancy"}]},{"date":"01 Oct, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Personal Portfolio Website</headingxl>;\\n\\n;<i>Innovated a Discord styled personal portfolio website using ReactJS and TailwindCSS.\\nDecoupled data dependency for UI elements by creating a Config driven UI enabling easy updates to the website.\\nDeveloped an engaging user experience using modern design principles within a responsive single-page application(SPA).</i>;\\n;<b>Tech:</b>; • ;<outline>ReactJS</outline>; • ;<outline>TypeScript</outline>; • ;<outline>JavaScript</outline>; • ;<outline>TailwindCSS</outline>;\\n\\n;Project highlight:\\n • Config driven UI, meaning I can add/update content on the website by making changes to the config file only and no code needs to be touched.\\n • Learned ReactJS with this project.\\n • Website is responsive with slightly different UI for mobile devices, do check it out;\\n\\n;GitHub: ;<Link>https://github.com/aviral10/Portfolio,https://github.com/aviral10/Portfolio</Link>;\\n;Live: ;<Link>https://aviralrana.me/,https://aviralrana.me/</Link>;\\n\\n;","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/projects/portfolio_a.png","messageType":"fancy"}]}]}]},{"name":"Professional","channelItems":[{"name":"Academic","messageHeader":["Aviral\'s","Educational background","Mountains • Plains • Valleys"],"messageGroups":[{"date":"12 July, 2016","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Oakland Public School</headingxl>;\\n;Lohaghat, Uttarakhand\\n;Class 10th, 2014-2016;\\n;CGPA: 10.0/10.0;\\n","messageType":"default"}]},{"date":"10 June, 2018","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Beersheba Sr. Sec School</headingxl>;\\n;Haldwani, Uttarakhand\\n;Class 12th, 2016-2018;\\n;Percentage: 85/100;\\n","messageType":"default"}]},{"date":"22 June, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Graphic Era University</headingxl>;\\n;Dehradun, Uttarakhand\\n;B. Tech in Computer Science and Engineering, 2019-2023;\\n;CGPA: 9.40/10.0;\\n","messageType":"default"}]}]},{"name":"Work-Experience","messageHeader":["Aviral\'s","Work Experience","Currently looking for SDE/SWE, Developer roles"],"messageGroups":[{"date":"16 Jan, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Amazon Inc.</headingxl>;\\n\\n;<i>Software Developer Engineer Intern</i>;\\n;January 2023 - June 2023\\n;Location: Bangalore, India\\n\\n; • Collaborated with the;<b> Amazon Music </b>;International Expansion (IX) team.\\n; • Successfully launched a novel Home Tab experience of Amazon Music for Android Automotive clients. \\n; • Migrated the old home experience to a newer architecture.\\n; • Developed a front-end module for handing network calls made to the backend.\\n; • Contributed to the development of the back-end data processing layer as well.\\n; • Orchestrated the deployment of a robust CI/CD pipeline.\\n; • The pipeline was utilized for experimentation, testing and feature development.\\n; • Implemented th new Home Tab support for Navigation Apps such as Google Assistant and Waze.\\n; • Worked on Front-end for the development of a personalised widge (My Presets).\\n; • My Presets was successfully launched to production.\\n; • Skills: C++ \xb7 Java \xb7 Android \xb7 TypeScript \xb7 Kotlin \xb7 Amazon CloudWatch \xb7 Python \xb7 JavaScript\\n\\n","image":"https://res.cloudinary.com/zenbusiness/image/upload/v1670445040/logaster/logaster-2020-03-amazon-gif-logo.gif","messageType":"fancy"}]},{"date":"7 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Adobe Systems</headingxl>;\\n\\n;<i>Technical Support Engineer</i>;\\n;August 2023 - Present\\n;Location: Noida, India\\n\\n; • Working as a Technical Support Engineer with ;<b> Adobe Analytics </b>; global support team.\\n; • During the internship developed a chatbot for Service Desk.\\n; • The bot helped in narrowing down the search space of First Call Resolution queries. \\n; • Developed an automation tool from scratch and deployed it to company servers to be used internally.\\n; • Skills: Python \xb7 Adobe Analytics\\n\\n","image":"https://assets.website-files.com/5ee732bebd9839b494ff27cd/5ee732bebd98398649ff2801_hXrc7y.jpg","messageType":"fancy"}]}]},{"name":"coding-profiles","messageHeader":["","Aviral\'s Coding profiles","Love is temporary, Problem-Solving is forever!"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Coding Profiles: </heading>;\\n;<outline>CodeForces</outline>; : ;<link>https://codeforces.com/profile/aviral10,https://codeforces.com/profile/aviral10</link>;\\n;Highest Rating: 1608 (Blue);\\n\\n;<outline>CodeChef</outline>; : ;<link>https://www.codechef.com/users/aviral19,https://www.codechef.com/users/aviral19</link>;\\n;Highest Rating: 2105 (5 ⭐)\\n\\n;<outline>LeetCode</outline>; : ;<link>https://leetcode.com/aviral19rana/,https://leetcode.com/aviral19rana/</link>;\\n;Highest Rating: 2019 (Knight)\\n;","image":"IMAGE_URL","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/utils/meme_0.jpg","messageType":"fancy"}]}]}]},{"name":"Documents","channelItems":[{"name":"Resume","messageHeader":["Aviral\'s Resume","","Currently looking for SDE/SWE and Development roles"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"This is sample content","image":"IMAGE_URL","messageType":"resume"}]}]}]}]},{"name":"Socials","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKB7T9J876Fx9IRyYAGcxm4U9A2S4_iYQiS-TRg5NIr5lThh_XTgtPguJ4vho6BDcdppk&usqp=CAU","channelGroups":[{"name":"Socials","channelItems":[{"name":"Discord","messageHeader":["Welcome to my","Discord Server","The actual server \uD83D\uDE05"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Discord</heading>;\\n;Click on the link below to join my discord server: \\n;<link>BigPanda\'s Discord Server,https://discord.gg/RvTTbQBtdF</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/discord.png","messageType":"fancy"}]}]},{"name":"Github","messageHeader":["Welcome to my","Github","What I cannot create, I do not understand. ~Richard Feynman"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>GitHub</heading>;\\n;Link: ;<link>https://github.com/aviral10,https://github.com/aviral10</link>;\\n;Don\'t forget to follow :);\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/github.png","messageType":"fancy"}]}]},{"name":"Linked-In","messageHeader":["Welcome to my","LinkedIn","Onwards and Upwards! \uD83E\uDDD1‍\uD83D\uDE80"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>LinkedIn</heading>;\\n;Link: ;<link>https://www.linkedin.com/in/aviral-rana/,https://www.linkedin.com/in/aviral-rana/</link>;\\n;Would love to connect with you!;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/linkedIn.png","messageType":"fancy"}]}]},{"name":"X-(Twitter)","messageHeader":["Find me on","X","formerly twitter"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>X</heading>;\\n;Link: ;<link>https://twitter.com/_bigppanda_,https://twitter.com/_bigppanda_</link>;\\n;Don\'t forget to follow :);\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/twitter.png","messageType":"fancy"}]}]},{"name":"Youtube","messageHeader":["Welcome to my","Youtube Channel","Did I get ya?"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>YouTube</heading>;\\n;Link: ;<link>https://www.youtube.com/@bigppanda,https://www.youtube.com/watch?v=dQw4w9WgXcQ</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/youtube.jpg","messageType":"fancy"}]}]}]},{"name":"Contact","channelItems":[{"name":"Mail-Me","messageHeader":["","Mail-Me","Drop a hi, I\'m usually responsive"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"You can officially reach out to me at: \\n;Email: ;<link>aviral19rana@gmail.com,mailto:aviral19rana@gmail.com</link>;\\n\\n","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/socials/email.png","messageType":"fancy"}]}]}]}]},{"name":"Hobbies","image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX///8GBwkAAAD8/Pzs7OwGBgkAAARwcHDl5eXz8/O2trb5+fmqqqqvr6/i4uLX19fV1dXLy8ucnJx8fHx0dHSFhYXExMQXFxeRkZFNTU2+vr4rKyuXl5fv7+9ZWVlUVFQ4OTowMDAjIyNjY2MQEBBCQkKLi4scHBxfX19ISEg8PD4YGRyioqMsLS9oaWsmJiYb0QKCAAAKIklEQVR4nO1diXaqOhQtBxRBEXGetdZabdX7/3/3ggMJkCBiSIgve617l20VzibJmRM/PjQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0CsCULUD5CGQLUDY6M9kSlI0edGSLUC6cDfRky1AuXABoyhaiVCzBAE+2EGWiDYYB3+9sMnaIoQG+bDFKg9kcXRgOZAtSHqYhQQM2jmxBSsPqwtAAV7YgZcG6EqzB8l11zfjKEFFsyxalJGxvDA3YyRalHAzvBA34e0+/5itiWIOpbGHKQAMihgasZEtTBrpQMzBFS7Y4/NFc4yFEDMey5eGPgCRowEi2PPxhkwxrBgxlC8QbFtSN2CDuZUvEG8fYJEUMoSFbJM74TDA0YC5bJL7oJAka8Ptefg3WM9FyhLfKDTcjfwZm0StbtlQ80Ypondz7y/pb+TW/EcPBBx7Oo2yx+KFzd0nr4F/zbReGn7Ll4odeFNyvwhgj0jVvU8JY/ETDFua7J9FPfdmS8YIXURqFysXFg/gmaUVzFR80wnS0ZMvGB+0o9L0Z+V7EcC1XMl4YEMrzkif130zXOEbSAJqH6DdvUS6lKJYolIKfhVTZ+AAbhyjotbYx86E4GljP4MRFlDp9h7TiOCKzxb+M0t/vUMLAxo9IIJobwhVXHFOsZ8jRmuORVT3UX0ZUluSvLbw6FS+XtvEkjTOZvIuuGbMsH2EllU4rOp8s78WkaiD1QFiFpAeKQ32QIhonnCMav8k/Ee63wuVSXKygRIITupZVC12cOUx72C2cnlLXr8F65pz+I+F+K6trcFGUmsHv48hYVb8G65kRrQmKeACKlksd7JlRK2nmOmsSqwBcFGVUKAhFpGYJ45QO7uOw7n5NDbpiReOD4LFJvwUeNQNOKnYrRkVR+MdKbQ+zlW3FYY1yhPGgsq5pYaeb3bk+xm9SroRhYrdzwn5XG09T5UoYROiQlRLFRZtP1XQNrr5ss+afi6epYrrGwW51ZhnUGeV7X/Xg5bMDJjHWI7X8GqxnNtlv7Ciqawgd+cgf+86jc6uHXX47R/jnKu34wvmZh76Khf0ahcql7jOx7TmfXakWsB2fPc5PEDGIMiWMNp6keXJMW/V0TeRP58sTzvEgKpJWdHBwnyvXa2GGipRLp88uLFxjBDXcb9yGsMnXS/L0I5GMBtYzOQ1cE/cuKlEunWN/Jm9P1+A51SQZ5owIanPCx7ljBUoYwyLBAnYRTtUvYSwxw/zC3sPJmgK6hoibnthPQaQeJ1W3F/18wT2nj0kAMhU3pQGzZwaDcL8rXvO28wf3ccwUGUScdak9WTAjQv1KbzRZYTm/nvvkgtjK3qqud9oixHy2SWaPH05166XEmQJwejYjMSSeTmX3CB8iu10k0vsjKFZ0V1ufELFAZnCMP16vpj7tYgkNODz/+TZxqgQYFYwxWrFjL4psMliSj2jUrppC7RInl6BZViRCcIkr1GAracOQRW/obdrkCBaslC02QF4DRRnUUfRLjq8+ac5YZxM/E6Lghq0exC4CZ4rFaezLjpE9gHnCIPtfEBMt7I4phE5sIoQc5wmOHbt8d8DZAsD+2L7d2mkcVwl+L5iz78SV0K16U+s6K5uLYLdGvyh/F39o9dCN/lbnft/en9DLWoLgs043Riv5rJDOAvgN7/T1jV6BkDbG0LuqIRY3JEUyXjkswaFdrn67U/06qjy50IETDiy84JDYtGvHtLSI3qnlA4awLq7Og4dPT0Siav6I4SsHz/w8uriIwOrBc34tbd3NvriY3SdtqnrBQryUSbIeMBSSpsJpe7oQr62Ur+yLi0n6J+1yXIYXd0wOsxmK6SrKfMyvlnGbqSOzYlcXs0VqkCnDq6HrLvPqYpqKsswF/L4auPqJo+vilxeThUseLhcT4fUTBFZZlxfTU5T2jyMUC+7jcOUzzBhDHq1pzW3G9cUwHDMlyF+5z0Ivg6GYXdF9pgRFkohp+BkMxaSn2MEFp+1LG9YNaoJq4Gs2Qz7mir0MxOwAWzAjHFjzUQRsz01Mk20yI0bcn1MAbrIZCqmesu0VtzmUsQ5EpPrP7NvzqhhR0zXXWwjYMZzh/HPzi9net4jvHGAvQ34M2b79ow0qPDBgpUk5NhYysjWXO5du88OsvkEnWS91DC+3RP9K3wA2tYf+wvKn9ijNscR1CLAeB+2F1fH2ZTvfkba25qkYoDRdCnCYRjcWWBpunJMnyfM6hPwECYItMbSc1G1aicIopz4YJ66uYdtOjtyiHMbmMBXAe7HFCH980ihxrwl+kkGh2ShLoTrpyTKNU+QT3MQyNbBOPbZGeY1vjfRCG5IU+WwmaMT6VlapPRuN8hLf5kcnfXGfTPJz0aZEFqMGdmplWINSmzGmab/QIiYVj91nPtH/R9HO1lfJOVOPEoMOCJm8l5cI0aNKiSSc79KTwl1KlZ7QNy9nwyKfFGCySD2uxlZAw9t4mR4la3/nGNa4XxnF4d3E0mYomsEC0onmx5hWqPfuPhzsXyHo3w6ORn4axckdijode06bKpZ9G0Y4m4VH8VZfRv8fKZdoidrPbn4cqVYhWF/kq8GyqDrv1G8E+zR1MgCBHZkevbGrVbtwhFMRfWdefMBajT5BP5pLkQ3uJtKeZ+rj7G7DLjAo4r41e9cQ95uabGobog/mC+CTuiic7gwJWg/n2XMzKjiFH4MVPZnmFZ/6BWF+NP4xqqGOd2my+3mqVrq4pn/ONF1pfjg29MT3RJvOCmx6RsEMzqG4h9xOavM4Cp/JmGHNg42UE+uQSRjAiJWgtcLJCqt8HI+bsGd1yhqlHc17EwIz/C54WqfyFZ1w4q0fqhxrHGqXI/MywYwSIYpDG5lAj71Cgt0nwLjNfkMz+ELuZ4vtijl9kLEECZhIxU+yXCm/tTS+u9QF5gS9n1l/mjFApleHLaNlXxxcpCT6mf7wwu+e7V2wiKWT2m7v3HczhhdheEBLuQLnmVtoosHuwVJpNgLP7dz5OOgH33owNMEKXbciW7zc0DYMHueiTcTJCZMEOaZdJ+R3qMbuJyRusx9y7D2WB4Veuco3w9BpMCr1DS3BIeS4T2dUExjCwzZw0zr+uzywSn3JDjL/3kWs2Y4dwpnXdAdMWMojnLzO8OIPwaqC3wTlzK/7Ig7jDmOdWb1rcPXDMqGLoX15Tii+qNjWvBsW49vmj83ZTQ+lP9jecjBoph5TutcJupPRtUa4Zjpw8nEZx/p1l8v3oDX1L2up2R627C1ZVA39ubHbudBEhsQ9nq9jF8ZPv1X/qgRvfaUCSRgx1JN/Dk+bYMVPVUPQ/2FU+knUkq/CcZ03hFZAi2PhfrHaGRgI1XAvUILcHZZr5yUZvm896FT/cKEUmsF8Qmyso+C2GG2vodToxeG7u8M2pXXu+LfvZkVP6sDxg2lrPLAj9AddbxpUw6/W0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0ND4H+E//l9tLku5DzsAAAAASUVORK5CYII=","channelGroups":[{"name":"Writing","channelItems":[{"name":"Poetry","messageHeader":["Welcome to","Poetry Section \uD83D\uDCDC","Stuff from my teenage years \uD83E\uDE7A"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"Here\'s an excerpt from a little poem that I wrote. :)","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>I once drew a friend</headingxl>;\\n;.......\\nI told her to not desire rain\\nShe wasn\'t ready to know \\nWhat the rain would do \\nBut she craved and as of one day\\nI left my window open.\\nIt was raining.\\nIt was raining love.\\n\\nLove that she craved for, so much.\\nShe jumped out of my canvas and \\nTook a leap out in the open\\n\\nI held my breath\\nAnd looked at her,\\nShe was happy, happier than she ever was \\nThe rain of love was making her colors wash.\\n \\nHer glitters, I painted with so much Love \\nWere washed away \\nHer crimson dress was spoilt,\\nHer colors faded\\nAnd she slowly blurred away \\n\\nI cried in grief, cause she was the only friend I had\\nI couldn\'t pick my colors up,\\nI was all wet and soaked in love \\n\\nThe moon showed up and its light paved her way \\nShe crossed oblivion, bidding me goodbye.\\n.......\\n","image":"","messageType":"fancy"}]}]},{"name":"Unfinished Novel","messageHeader":["Welcome to my","Unfinished Novel","~ Aviral \uD83D\uDCD4"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"And here\'s an excerpt from an unfinished novel that I started writing during college. :)\\nI don\'t know if I will ever \\"finish\\" it.","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<headingxl>Red, Chapter 1: Yo</headingxl>;\\n\\n;“Well, I\'m not here for Red, I\'m here for me, I\'m not here for Red” I said while I looked out for her here and there. I sat down on my usual spot and opened my book, still waiting for Red to show up. I looked up leaning back on the bench, the sky wasn\'t as bright as it usually was, the birds were flying north, and there was a plane leaving a jet trail behind. I was busy staring at the sky and suddenly someone blocks my view from behind. “Yo”, she greets me with. I raised my hand and held her nose don\'t ask me why, I just felt like. “We meet again”, I replied.\\n\\nShe sits next to me and looks happier than yesterday, or maybe she usually is like this, how long have I known her anyway?  We chatted and not once had I taken my eyes off her, her eyes, her big eyes detailed with mascara, I wonder if she put on that for me? Maybe she had a date or something. Is she seeing someone, maybe I should ask her?  My internal thoughts were making it hard to concentrate. Is sh- She interrupts me and asks “Why are you looking at me like that?” giving me a funny look and I got alarmed and apologized for my creepy behavior. She giggled and said “You\'re Cute” to which I had no reply. “Hey maybe we should go out for a coffee next time?” I asked. With a few seconds of silence which felt like hours she replied “Sure”. “I\'m Aviral”, I said, offering my hand. “I\'m Lily” she replied and shook my hand.","image":"","messageType":"fancy"}]}]}]},{"name":"Other","channelItems":[{"name":"Sketching","messageHeader":["Welcome to","My Sketches \uD83C\uDFA8","Doodling here and there"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/draw_1.jpg","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/draw_2.jpg","messageType":"fancy"}]}]},{"name":"video-games","messageHeader":["Welcome to","Video Games! \uD83C\uDFAE","It\'s a-me, Mario! ~Uncle Mario, AC2"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>My absolute favourite games: </heading>;\\n; • GTA V \\n • Witcher 3 \\n; • Read Dead Redemption 2\\n; • Minecraft\\n • Assassins Creed Black Flag \uD83C\uDFF4‍☠️\\n","image":"","messageType":"default"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>Games I\'ve played in the past:</heading>;\\n; • Life Is Strange\\n • The Walking Dead: TellTale series\\n • All Assassins Creed games\\n • Overwatch 2\\n • Cyberpunk 2077\\n • Call of Duty: Mordern Warfare Series\\n • Call of Duty: Black Ops\\n • Hogwarts Legacy\\n • Portal 2\\n • GTA Vice City and San Andreas\\n • Age of Empires/Mythology\\n\\nAnd the list goes on......","image":"","messageType":"default"}]},{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_0.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_1.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_2.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_3.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_4.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_5.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_6.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_7.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_8.png","messageType":"fancy"},{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"","image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/hobbies/game_9.png","messageType":"fancy"}]}]},{"name":"To-do","messageHeader":["Hobbies","bucket list","List of hobbies, I want to develop"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"<heading>To-develop in 2024: </heading>;\\n; • Working out \uD83C\uDFCB️‍♂️\\n • Playing an electric guitar \uD83C\uDFB8\\n; • Actively follow a sport ⚽\\n; • Biking \uD83D\uDEB5\\n; • Avid Reading \uD83D\uDCD6\\n; • Travelling to places \uD83C\uDF0D","image":"","messageType":"fancy"}]}]}]},{"name":"Blogging","channelItems":[{"name":"Blogs","messageHeader":["Welcome to","My Blogs","Under construction"],"messageGroups":[{"date":"16 Aug, 2023","messages":[{"sender":{"name":"Aviral","icon":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_blue.jpg"},"content":"This section is under construction,\\nI\'ll update my blogs and articles in this section.","image":"","messageType":"fancy"}]}]}]}]}],"myprofile":{"image":"https://raw.githubusercontent.com/aviral10/Public-assets/main/faces/aviral_light.jpg","name":"Aviral Rana \uD83D\uDE80","title":"Aspiring Software Engineer \uD83D\uDCBB","status":"online","locationTitle":"Noida, India","locationLink":"https://goo.gl/maps/zsSAfW4XNR8VSM4S9","email":"aviral19rana@gmail.com","discord":"https://discord.gg/RvTTbQBtdF","discordImage":"https://i.pinimg.com/564x/f6/eb/b9/f6ebb972d1325cbbf6315219a12f0365.jpg"}}');
+},{}],"6pzHR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _dataConverter = require("./DataConverter");
+var _dataConverterDefault = parcelHelpers.interopDefault(_dataConverter);
+class DataModelJson {
+    constructor(jsonData){
+        this.data = jsonData;
+    }
+    getServerList() {
+        return this.data.servers.map((server)=>{
+            const dataConverter = new (0, _dataConverterDefault.default)();
+            return dataConverter.convertServer(server);
+        });
+    }
+    getMyProfile() {
+        const dataConverter = new (0, _dataConverterDefault.default)();
+        return dataConverter.convertMyProfileTab(this.data.myprofile);
+    }
+}
+exports.default = DataModelJson;
 
-},{}],"koLZJ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6d76 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"./DataConverter":"9VBuc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9VBuc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _interfaces = require("./interfaces");
+class DataConverter {
+    convertMyProfileTab(obj) {
+        let myProfile = {
+            image: obj.image,
+            name: obj.name,
+            title: obj.title,
+            status: obj.status,
+            locationTitle: obj.locationTitle,
+            locationLink: obj.locationLink,
+            email: obj.email,
+            discord: obj.discord,
+            discordImage: obj.discordImage
+        };
+        return myProfile;
+    }
+    convertServer(obj) {
+        let server = {
+            name: obj.name,
+            image: obj.image,
+            channelGroups: obj.channelGroups.map((channelGroup)=>this.convertChannelGroup(channelGroup))
+        };
+        return server;
+    }
+    convertChannelGroup(obj) {
+        let channelGroup = {
+            name: obj.name,
+            channelItems: obj.channelItems.map((channelItem)=>this.convertChannelItem(channelItem))
+        };
+        return channelGroup;
+    }
+    convertChannelItem(obj) {
+        let channelItem = {
+            name: obj.name,
+            messageHeader: obj.messageHeader,
+            messageGroups: obj.messageGroups.map((messageGroup)=>this.convertMessageGroup(messageGroup))
+        };
+        return channelItem;
+    }
+    convertMessageGroup(obj) {
+        let messageGroup = {
+            date: obj.date,
+            messages: obj.messages.map((message)=>this.convertMessage(message))
+        };
+        return messageGroup;
+    }
+    convertMessage(obj) {
+        let message = {
+            content: obj.content,
+            image: obj.image,
+            sender: {
+                name: obj.sender.name,
+                icon: obj.sender.icon
+            },
+            messageType: this.convertMessageType(obj.messageType)
+        };
+        return message;
+    }
+    convertMessageType(messageType) {
+        let types = {
+            default: (0, _interfaces.MessageType).DEFAULT,
+            fancy: (0, _interfaces.MessageType).FANCY,
+            resume: (0, _interfaces.MessageType).RESUME,
+            onlytags: (0, _interfaces.MessageType).ONLYTAGS
+        };
+        return types[messageType] || (0, _interfaces.MessageType).DEFAULT;
+    }
+}
+exports.default = DataConverter;
+
+},{"./interfaces":"hNrdn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNrdn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MessageType", ()=>MessageType);
+var MessageType;
+(function(MessageType) {
+    MessageType[MessageType["DEFAULT"] = 0] = "DEFAULT";
+    MessageType[MessageType["FANCY"] = 1] = "FANCY";
+    MessageType[MessageType["RESUME"] = 2] = "RESUME";
+    MessageType[MessageType["ONLYTAGS"] = 3] = "ONLYTAGS";
+})(MessageType || (MessageType = {}));
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1RFum":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class IdStore {
+    constructor(){
+        this.IdMap = new Map();
+    }
+    static getInstance() {
+        !IdStore.instance && (IdStore.instance = new IdStore());
+        return IdStore.instance;
+    }
+    populate(serverList) {
+        serverList.map((server, serverId)=>{
+            server.channelGroups.map((channelGroup, channelGroupId)=>{
+                channelGroup.channelItems.map((channelItem, channelItemId)=>{
+                    this.IdMap.set(channelItem.name.toLowerCase(), serverId + "-" + channelGroupId + "-" + channelItemId);
+                });
+            });
+        });
+    }
+    getIdOf(name, defaultID = "0-0-0") {
+        let channelID = this.IdMap.get(name);
+        return channelID ? channelID : defaultID;
+    }
+}
+exports.default = IdStore;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1wl7D":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0e4b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6d76.prelude(module);
+$parcel$ReactRefreshHelpers$0e4b.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _s = $RefreshSig$();
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-        width,
-        height
-    };
-}
-function useWindowDimensions() {
-    _s();
-    const [windowDimensions, setWindowDimensions] = (0, _react.useState)(getWindowDimensions());
-    (0, _react.useEffect)(()=>{
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-        window.addEventListener("resize", handleResize);
-        return ()=>window.removeEventListener("resize", handleResize);
-    }, []);
-    return windowDimensions;
-}
-_s(useWindowDimensions, "XalQq70mIWrnM+6Jr3XornfayDc=");
-exports.default = useWindowDimensions;
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Shimmer = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex items-center justify-center w-screen h-screen bg-gray-900",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+            className: "w-64 logo-path",
+            version: "1.1",
+            id: "Layer_1",
+            x: "0px",
+            y: "0px",
+            viewBox: "0 0 200 200",
+            enableBackground: "new 0 0 200 200",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    fill: "#F4F4F4",
+                    opacity: "1.000000",
+                    stroke: "none",
+                    d: " M120.242088,148.593475 C110.393936,152.862961 102.316513,150.331512 97.562233,141.279282 C89.874268,126.641258 82.529984,111.822884 75.011467,97.095528 C73.747910,94.620461 72.337692,92.220276 70.607689,89.082603 C63.019772,104.029663 55.822041,118.208107 48.314236,132.997360 C55.671108,132.997360 62.136738,133.223419 68.578392,132.927597 C73.967583,132.680099 77.445885,134.594940 79.203865,139.808853 C80.193253,142.743240 81.652016,145.519363 83.052246,148.715881 C62.364578,148.715881 41.984432,148.715881 21.024073,148.715881 C37.460445,115.828011 53.855785,83.022247 70.757767,49.202728 C87.443382,82.647385 103.787689,115.407898 120.242088,148.593475 z"
+                }, void 0, false, {
+                    fileName: "src/view/components/Shimmer.tsx",
+                    lineNumber: 5,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    fill: "#F3F3F3",
+                    opacity: "1.000000",
+                    stroke: "none",
+                    d: " M95.417488,61.570004 C93.570343,57.682484 91.959312,54.092426 89.688919,49.033009 C112.837524,50.057629 135.214523,49.501804 157.123322,52.438721 C180.541214,55.577942 190.612778,82.611359 175.775024,99.802673 C171.554993,104.692093 164.754166,107.385735 159.042511,110.934525 C157.546585,111.863976 155.697281,112.224716 153.292496,113.111252 C164.152435,125.266235 174.683746,137.053391 185.215057,148.840546 C185.094452,149.255630 184.973831,149.670715 184.853226,150.085815 C178.012848,149.745956 171.137589,149.696503 164.354233,148.881866 C162.424347,148.650101 160.534332,146.398636 159.014511,144.721359 C150.738174,135.587646 142.657700,126.275414 134.313553,117.205170 C132.914871,115.684761 130.555374,114.177696 128.638474,114.175949 C123.848846,114.171585 120.701935,112.152557 118.602371,108.136215 C116.784027,104.657814 115.106041,101.106064 113.086983,97.022369 C121.777214,97.022369 129.891129,97.315666 137.971268,96.919655 C143.393738,96.653908 148.941605,95.996223 154.121552,94.461479 C160.981171,92.429070 163.552597,87.281403 163.041306,79.146568 C162.668594,73.216797 158.660202,68.301071 152.426300,67.102737 C146.912720,66.042870 141.278015,65.257393 135.675125,65.094162 C125.019539,64.783722 114.341675,65.210892 103.688553,64.860748 C100.980370,64.771736 98.330353,62.913025 95.417488,61.570004 z"
+                }, void 0, false, {
+                    fileName: "src/view/components/Shimmer.tsx",
+                    lineNumber: 6,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/view/components/Shimmer.tsx",
+            lineNumber: 4,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/view/components/Shimmer.tsx",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
 
-  $parcel$ReactRefreshHelpers$6d76.postlude(module);
+  $parcel$ReactRefreshHelpers$0e4b.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -27641,7 +27608,1245 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"h2OpR":[function(require,module,exports) {
+},{"7422ead32dcc1e6b":"786KC"}],"Jdnpg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class ImageCache {
+    static #_ = (()=>{
+        this.cache = new Map();
+    })();
+    static get(key) {
+        let present = this.cache.get(key);
+        return present ? present : key;
+    }
+    static set(key, value) {
+        this.cache.set(key, value);
+    }
+    static reset() {
+        this.cache = new Map();
+    }
+    static async fetchImage(url) {
+        const fetchImageFromUrl = async (response)=>{
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+        };
+        let image = url;
+        try {
+            const response = await fetch(url);
+            image = response.ok ? await fetchImageFromUrl(response) : url;
+        } catch (error) {
+            image = url;
+        }
+        return image;
+    }
+    static async setAsync(key, value) {
+        value.then((resolvedVal)=>this.cache.set(key, resolvedVal));
+    }
+    static async prefetch(serverList) {
+        serverList.map((server)=>[
+                server.channelGroups.map((channelGroup)=>[
+                        channelGroup.channelItems.map((channelItem)=>{
+                            channelItem.messageGroups.map((messageGroup)=>{
+                                messageGroup.messages.map((message)=>{
+                                    let imageUrl = message.image ? message.image === "IMAGE_URL" ? null : message.image : null;
+                                    imageUrl && this.setAsync(message.image, this.fetchImage(message.image));
+                                });
+                            });
+                        })
+                    ])
+            ]);
+    }
+    static getCache() {
+        return this.cache;
+    }
+}
+exports.default = ImageCache;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eV1UH":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$995a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$995a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _analytics = require("../../model/Analytics/Analytics");
+var _analyticsDefault = parcelHelpers.interopDefault(_analytics);
+var _anonymousAnimal = require("../../model/AnonymousAnimal");
+var _anonymousAnimalDefault = parcelHelpers.interopDefault(_anonymousAnimal);
+var _utils = require("../../model/utils");
+var _useWindowDimensions = require("../hooks/useWindowDimensions");
+var _useWindowDimensionsDefault = parcelHelpers.interopDefault(_useWindowDimensions);
+var _appContext = require("./AppContext");
+var _appContextDefault = parcelHelpers.interopDefault(_appContext);
+var _channels = require("./Channels");
+var _channelsDefault = parcelHelpers.interopDefault(_channels);
+var _globalStateContext = require("./GlobalStateContext");
+var _globalStateContextDefault = parcelHelpers.interopDefault(_globalStateContext);
+var _messages = require("./Messages");
+var _messagesDefault = parcelHelpers.interopDefault(_messages);
+var _myProfile = require("./MyProfile");
+var _myProfileDefault = parcelHelpers.interopDefault(_myProfile);
+var _searchbar = require("./Searchbar");
+var _searchbarDefault = parcelHelpers.interopDefault(_searchbar);
+var _sidebar = require("./Sidebar");
+var _sidebarDefault = parcelHelpers.interopDefault(_sidebar);
+var _s = $RefreshSig$();
+const HomeScreen = (props)=>{
+    _s();
+    // Refs
+    const serverList = props.serverList;
+    // State
+    const server = props.server;
+    const setServer = props.setServer;
+    const [hamburgerClicked, setHamburgerClicked] = (0, _react.useState)(true);
+    const [selectedChannel, setSelectedChannel] = (0, _react.useState)("0-0-0");
+    const [selectedServer, setSelectedServer] = (0, _react.useState)(0);
+    const { width } = (0, _useWindowDimensionsDefault.default)();
+    const [serverId, channelGroupId, channelId] = (0, _utils.splitIds)(selectedChannel);
+    // Initialise Anonymous animals, so animal image is prefetched
+    (0, _anonymousAnimalDefault.default).getInstance();
+    // Initialize Analytics
+    (0, _analyticsDefault.default).getInstance();
+    const toShowOrNotToShow = ()=>{
+        return width >= (0, _utils.mediumScreen) ? "translate-x-0" : hamburgerClicked ? "-translate-x-32" : "-translate-x-[calc(100%+80px)]";
+    };
+    (0, _react.useEffect)(()=>{
+        let pageName = serverList[serverId].channelGroups[channelGroupId].channelItems[channelId].name.toLowerCase();
+        (0, _analyticsDefault.default).sendPageView(pageName);
+    }, [
+        selectedChannel
+    ]);
+    width < (0, _utils.mediumScreen) && registerSwipes(setHamburgerClicked);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appContextDefault.default).Provider, {
+        value: {
+            server: server,
+            setServer: setServer,
+            serverList: serverList
+        },
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _globalStateContextDefault.default).Provider, {
+            value: {
+                hamburgerClicked,
+                setHamburgerClicked,
+                selectedChannel,
+                setSelectedChannel,
+                selectedServer,
+                setSelectedServer
+            },
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "fixed md:block flex flex-col h-full w-full bg-gray-900",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "w-full bg-gray-900 flex-shrink-0 h-4 text-gray-500 font-[900] text-[12px] pl-2",
+                        children: "BigPanda"
+                    }, void 0, false, {
+                        fileName: "src/view/components/HomeScreen.tsx",
+                        lineNumber: 70,
+                        columnNumber: 21
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: `flex h-full`,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {
+                                serverList: serverList,
+                                selectedServer: selectedServer,
+                                setSelectedServer: setSelectedServer
+                            }, void 0, false, {
+                                fileName: "src/view/components/HomeScreen.tsx",
+                                lineNumber: 74,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex w-full",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _channelsDefault.default), {
+                                        selectedChannel: selectedChannel,
+                                        setSelectedChannel: setSelectedChannel
+                                    }, void 0, false, {
+                                        fileName: "src/view/components/HomeScreen.tsx",
+                                        lineNumber: 81,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: `flex flex-col h-full w-full ease-in-out duration-300 ${toShowOrNotToShow()}`,
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchbarDefault.default), {}, void 0, false, {
+                                                fileName: "src/view/components/HomeScreen.tsx",
+                                                lineNumber: 88,
+                                                columnNumber: 33
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex w-full h-full overflow-hidden",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _messagesDefault.default), {
+                                                        messageHeader: server.channelGroups[channelGroupId].channelItems[channelId].messageHeader,
+                                                        messageGroups: server.channelGroups[channelGroupId].channelItems[channelId].messageGroups
+                                                    }, void 0, false, {
+                                                        fileName: "src/view/components/HomeScreen.tsx",
+                                                        lineNumber: 90,
+                                                        columnNumber: 37
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _myProfileDefault.default), {}, void 0, false, {
+                                                        fileName: "src/view/components/HomeScreen.tsx",
+                                                        lineNumber: 102,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/view/components/HomeScreen.tsx",
+                                                lineNumber: 89,
+                                                columnNumber: 33
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/view/components/HomeScreen.tsx",
+                                        lineNumber: 85,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/view/components/HomeScreen.tsx",
+                                lineNumber: 80,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/view/components/HomeScreen.tsx",
+                        lineNumber: 73,
+                        columnNumber: 21
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/view/components/HomeScreen.tsx",
+                lineNumber: 69,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/view/components/HomeScreen.tsx",
+            lineNumber: 59,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/view/components/HomeScreen.tsx",
+        lineNumber: 52,
+        columnNumber: 9
+    }, undefined);
+};
+_s(HomeScreen, "sOEtaAMa/Z7wS16yqWN0D6qol+c=", false, function() {
+    return [
+        (0, _useWindowDimensionsDefault.default)
+    ];
+});
+_c = HomeScreen;
+const registerSwipes = (setHamburgerClicked)=>{
+    let touchstartX = 0;
+    let touchendX = 0;
+    function commenceAction() {
+        touchendX - touchstartX < -100 && setHamburgerClicked(false);
+        touchendX - touchstartX > 100 && setHamburgerClicked(true);
+    }
+    document.addEventListener("touchstart", (e)=>{
+        touchstartX = e.changedTouches[0].screenX;
+    });
+    document.addEventListener("touchend", (e)=>{
+        touchendX = e.changedTouches[0].screenX;
+        commenceAction();
+    });
+};
+exports.default = HomeScreen;
+var _c;
+$RefreshReg$(_c, "HomeScreen");
+
+  $parcel$ReactRefreshHelpers$995a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../model/Analytics/Analytics":"6IVA3","../../model/AnonymousAnimal":"j51pv","../../model/utils":"aACEy","../hooks/useWindowDimensions":"koLZJ","./AppContext":"h2OpR","./Channels":"6lq8V","./GlobalStateContext":"aw2vg","./Messages":"lxM0f","./MyProfile":"9EZST","./Searchbar":"ihZif","./Sidebar":"2t1W6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6IVA3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _googleAnalytics = require("./GoogleAnalytics");
+var _googleAnalyticsDefault = parcelHelpers.interopDefault(_googleAnalytics);
+var _adobeAnalytics = require("./AdobeAnalytics");
+var _adobeAnalyticsDefault = parcelHelpers.interopDefault(_adobeAnalytics);
+class Analytics {
+    constructor(){
+        this.analyticsEngines = [
+            new (0, _adobeAnalyticsDefault.default)(),
+            new (0, _googleAnalyticsDefault.default)()
+        ];
+    }
+    static getInstance() {
+        this.instance || (this.instance = new Analytics());
+        return this.instance;
+    }
+    static sendPageView(pageName) {
+        Analytics.getInstance().analyticsEngines.map((engine)=>{
+            try {
+                engine.sendPageView(pageName);
+            } catch (err) {
+            //
+            }
+        });
+    }
+    static sendEvent(obj) {
+        Analytics.getInstance().analyticsEngines.map((engine)=>{
+            try {
+                engine.sendPageView(obj);
+            } catch (err) {
+            //
+            }
+        });
+    }
+    static sendMessage(message, page) {
+        Analytics.getInstance().analyticsEngines.map((engine)=>{
+            try {
+                engine.sendMessage(message, page);
+            } catch (err) {
+            //
+            }
+        });
+    }
+    static sendLinkClick(link, page) {
+        Analytics.getInstance().analyticsEngines.map((engine)=>{
+            try {
+                engine.sendLinkClick(link, page);
+            } catch (err) {
+            //
+            }
+        });
+    }
+}
+exports.default = Analytics;
+
+},{"./GoogleAnalytics":"g6dCM","./AdobeAnalytics":"6XgW4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g6dCM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _reactGa4 = require("react-ga4");
+var _reactGa4Default = parcelHelpers.interopDefault(_reactGa4);
+class GoogleAnalytics {
+    constructor(){
+        const TRACKING_ID = "G-RPB4QQ6X4Z";
+        (0, _reactGa4Default.default).initialize(TRACKING_ID);
+    }
+    sendMessage(message, page) {
+        (0, _reactGa4Default.default).event({
+            category: "User Interaction",
+            action: page,
+            label: message
+        });
+    }
+    sendLinkClick(link, title) {
+        (0, _reactGa4Default.default).event({
+            category: "Link Click",
+            action: title,
+            label: link
+        });
+    }
+    sendPageView(pageName) {
+        (0, _reactGa4Default.default).send({
+            hitType: "pageview",
+            page: pageName,
+            title: pageName.split("-").join(" ")
+        });
+    }
+    sendEvent(event) {
+    // "TO BE IMPLEMENTED"
+    }
+}
+exports.default = GoogleAnalytics;
+
+},{"react-ga4":"PH4ct","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"PH4ct":[function(require,module,exports) {
+"use strict";
+function _typeof(obj) {
+    "@babel/helpers - typeof";
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+        return typeof obj;
+    } : function(obj) {
+        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+}
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = exports.ReactGAImplementation = void 0;
+var _ga = _interopRequireWildcard(require("8aae62742fe02e10"));
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interopRequireWildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) return obj;
+    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") return {
+        "default": obj
+    };
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) return cache.get(obj);
+    var newObj = {};
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj)if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+        if (desc && (desc.get || desc.set)) Object.defineProperty(newObj, key, desc);
+        else newObj[key] = obj[key];
+    }
+    newObj["default"] = obj;
+    if (cache) cache.set(obj, newObj);
+    return newObj;
+}
+var ReactGAImplementation = _ga.GA4;
+exports.ReactGAImplementation = ReactGAImplementation;
+var _default = _ga["default"];
+exports["default"] = _default;
+
+},{"8aae62742fe02e10":"eV1B9"}],"eV1B9":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = exports.GA4 = void 0;
+var _gtag = _interopRequireDefault(require("19166929ae4d5e05"));
+var _format = _interopRequireDefault(require("2e61426181aa7cb3"));
+var _excluded = [
+    "eventCategory",
+    "eventAction",
+    "eventLabel",
+    "eventValue",
+    "hitType"
+], _excluded2 = [
+    "title",
+    "location"
+], _excluded3 = [
+    "page",
+    "hitType"
+];
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        "default": obj
+    };
+}
+function _objectWithoutProperties(source, excluded) {
+    if (source == null) return {};
+    var target = _objectWithoutPropertiesLoose(source, excluded);
+    var key, i;
+    if (Object.getOwnPropertySymbols) {
+        var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+        for(i = 0; i < sourceSymbolKeys.length; i++){
+            key = sourceSymbolKeys[i];
+            if (excluded.indexOf(key) >= 0) continue;
+            if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+            target[key] = source[key];
+        }
+    }
+    return target;
+}
+function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for(i = 0; i < sourceKeys.length; i++){
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+    }
+    return target;
+}
+function _typeof(obj) {
+    "@babel/helpers - typeof";
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+        return typeof obj;
+    } : function(obj) {
+        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+}
+function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _iterableToArray(iter) {
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+    }
+    return keys;
+}
+function _objectSpread(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
+            _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+    }
+    return target;
+}
+function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+function _iterableToArrayLimit(arr, i) {
+    var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+    if (null != _i) {
+        var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
+        try {
+            if (_x = (_i = _i.call(arr)).next, 0 === i) {
+                if (Object(_i) !== _i) return;
+                _n = !1;
+            } else for(; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
+        } catch (err) {
+            _d = !0, _e = err;
+        } finally{
+            try {
+                if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+            } finally{
+                if (_d) throw _e;
+            }
+        }
+        return _arr;
+    }
+}
+function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+}
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+}
+function _defineProperties(target, props) {
+    for(var i = 0; i < props.length; i++){
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+    }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+        writable: false
+    });
+    return Constructor;
+}
+function _defineProperty(obj, key, value) {
+    key = _toPropertyKey(key);
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+function _toPropertyKey(arg) {
+    var key = _toPrimitive(arg, "string");
+    return _typeof(key) === "symbol" ? key : String(key);
+}
+function _toPrimitive(input, hint) {
+    if (_typeof(input) !== "object" || input === null) return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== undefined) {
+        var res = prim.call(input, hint || "default");
+        if (_typeof(res) !== "object") return res;
+        throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+}
+/*
+Links
+https://developers.google.com/gtagjs/reference/api
+https://developers.google.com/tag-platform/gtagjs/reference
+*/ /**
+ * @typedef GaOptions
+ * @type {Object}
+ * @property {boolean} [cookieUpdate=true]
+ * @property {number} [cookieExpires=63072000] Default two years
+ * @property {string} [cookieDomain="auto"]
+ * @property {string} [cookieFlags]
+ * @property {string} [userId]
+ * @property {string} [clientId]
+ * @property {boolean} [anonymizeIp]
+ * @property {string} [contentGroup1]
+ * @property {string} [contentGroup2]
+ * @property {string} [contentGroup3]
+ * @property {string} [contentGroup4]
+ * @property {string} [contentGroup5]
+ * @property {boolean} [allowAdFeatures=true]
+ * @property {boolean} [allowAdPersonalizationSignals]
+ * @property {boolean} [nonInteraction]
+ * @property {string} [page]
+ */ /**
+ * @typedef UaEventOptions
+ * @type {Object}
+ * @property {string} action
+ * @property {string} category
+ * @property {string} [label]
+ * @property {number} [value]
+ * @property {boolean} [nonInteraction]
+ * @property {('beacon'|'xhr'|'image')} [transport]
+ */ /**
+ * @typedef InitOptions
+ * @type {Object}
+ * @property {string} trackingId
+ * @property {GaOptions|any} [gaOptions]
+ * @property {Object} [gtagOptions] New parameter
+ */ var GA4 = /*#__PURE__*/ function() {
+    function GA4() {
+        var _this = this;
+        _classCallCheck(this, GA4);
+        _defineProperty(this, "reset", function() {
+            _this.isInitialized = false;
+            _this._testMode = false;
+            _this._currentMeasurementId;
+            _this._hasLoadedGA = false;
+            _this._isQueuing = false;
+            _this._queueGtag = [];
+        });
+        _defineProperty(this, "_gtag", function() {
+            for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+            if (!_this._testMode) {
+                if (_this._isQueuing) _this._queueGtag.push(args);
+                else _gtag["default"].apply(void 0, args);
+            } else _this._queueGtag.push(args);
+        });
+        _defineProperty(this, "_loadGA", function(GA_MEASUREMENT_ID, nonce) {
+            var gtagUrl = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "https://www.googletagmanager.com/gtag/js";
+            if (typeof window === "undefined" || typeof document === "undefined") return;
+            if (!_this._hasLoadedGA) {
+                // Global Site Tag (gtag.js) - Google Analytics
+                var script = document.createElement("script");
+                script.async = true;
+                script.src = "".concat(gtagUrl, "?id=").concat(GA_MEASUREMENT_ID);
+                if (nonce) script.setAttribute("nonce", nonce);
+                document.body.appendChild(script);
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function gtag() {
+                    window.dataLayer.push(arguments);
+                };
+                _this._hasLoadedGA = true;
+            }
+        });
+        _defineProperty(this, "_toGtagOptions", function(gaOptions) {
+            if (!gaOptions) return;
+            var mapFields = {
+                // Old https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#cookieUpdate
+                // New https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id#cookie_update
+                cookieUpdate: "cookie_update",
+                cookieExpires: "cookie_expires",
+                cookieDomain: "cookie_domain",
+                cookieFlags: "cookie_flags",
+                // must be in set method?
+                userId: "user_id",
+                clientId: "client_id",
+                anonymizeIp: "anonymize_ip",
+                // https://support.google.com/analytics/answer/2853546?hl=en#zippy=%2Cin-this-article
+                contentGroup1: "content_group1",
+                contentGroup2: "content_group2",
+                contentGroup3: "content_group3",
+                contentGroup4: "content_group4",
+                contentGroup5: "content_group5",
+                // https://support.google.com/analytics/answer/9050852?hl=en
+                allowAdFeatures: "allow_google_signals",
+                allowAdPersonalizationSignals: "allow_ad_personalization_signals",
+                nonInteraction: "non_interaction",
+                page: "page_path",
+                hitCallback: "event_callback"
+            };
+            var gtagOptions = Object.entries(gaOptions).reduce(function(prev, _ref) {
+                var _ref2 = _slicedToArray(_ref, 2), key = _ref2[0], value = _ref2[1];
+                if (mapFields[key]) prev[mapFields[key]] = value;
+                else prev[key] = value;
+                return prev;
+            }, {});
+            return gtagOptions;
+        });
+        _defineProperty(this, "initialize", function(GA_MEASUREMENT_ID) {
+            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+            if (!GA_MEASUREMENT_ID) throw new Error("Require GA_MEASUREMENT_ID");
+            var initConfigs = typeof GA_MEASUREMENT_ID === "string" ? [
+                {
+                    trackingId: GA_MEASUREMENT_ID
+                }
+            ] : GA_MEASUREMENT_ID;
+            _this._currentMeasurementId = initConfigs[0].trackingId;
+            var gaOptions = options.gaOptions, gtagOptions = options.gtagOptions, nonce = options.nonce, _options$testMode = options.testMode, testMode = _options$testMode === void 0 ? false : _options$testMode, gtagUrl = options.gtagUrl;
+            _this._testMode = testMode;
+            if (!testMode) _this._loadGA(_this._currentMeasurementId, nonce, gtagUrl);
+            if (!_this.isInitialized) {
+                _this._gtag("js", new Date());
+                initConfigs.forEach(function(config) {
+                    var mergedGtagOptions = _objectSpread(_objectSpread(_objectSpread({}, _this._toGtagOptions(_objectSpread(_objectSpread({}, gaOptions), config.gaOptions))), gtagOptions), config.gtagOptions);
+                    if (Object.keys(mergedGtagOptions).length) _this._gtag("config", config.trackingId, mergedGtagOptions);
+                    else _this._gtag("config", config.trackingId);
+                });
+            }
+            _this.isInitialized = true;
+            if (!testMode) {
+                var queues = _toConsumableArray(_this._queueGtag);
+                _this._queueGtag = [];
+                _this._isQueuing = false;
+                while(queues.length){
+                    var queue = queues.shift();
+                    _this._gtag.apply(_this, _toConsumableArray(queue));
+                    if (queue[0] === "get") _this._isQueuing = true;
+                }
+            }
+        });
+        _defineProperty(this, "set", function(fieldsObject) {
+            if (!fieldsObject) {
+                console.warn("`fieldsObject` is required in .set()");
+                return;
+            }
+            if (_typeof(fieldsObject) !== "object") {
+                console.warn("Expected `fieldsObject` arg to be an Object");
+                return;
+            }
+            if (Object.keys(fieldsObject).length === 0) console.warn("empty `fieldsObject` given to .set()");
+            _this._gaCommand("set", fieldsObject);
+        });
+        _defineProperty(this, "_gaCommandSendEvent", function(eventCategory, eventAction, eventLabel, eventValue, fieldsObject) {
+            _this._gtag("event", eventAction, _objectSpread(_objectSpread({
+                event_category: eventCategory,
+                event_label: eventLabel,
+                value: eventValue
+            }, fieldsObject && {
+                non_interaction: fieldsObject.nonInteraction
+            }), _this._toGtagOptions(fieldsObject)));
+        });
+        _defineProperty(this, "_gaCommandSendEventParameters", function() {
+            for(var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++)args[_key2] = arguments[_key2];
+            if (typeof args[0] === "string") _this._gaCommandSendEvent.apply(_this, _toConsumableArray(args.slice(1)));
+            else {
+                var _args$ = args[0], eventCategory = _args$.eventCategory, eventAction = _args$.eventAction, eventLabel = _args$.eventLabel, eventValue = _args$.eventValue, hitType = _args$.hitType, rest = _objectWithoutProperties(_args$, _excluded);
+                _this._gaCommandSendEvent(eventCategory, eventAction, eventLabel, eventValue, rest);
+            }
+        });
+        _defineProperty(this, "_gaCommandSendTiming", function(timingCategory, timingVar, timingValue, timingLabel) {
+            _this._gtag("event", "timing_complete", {
+                name: timingVar,
+                value: timingValue,
+                event_category: timingCategory,
+                event_label: timingLabel
+            });
+        });
+        _defineProperty(this, "_gaCommandSendPageview", function(page, fieldsObject) {
+            if (fieldsObject && Object.keys(fieldsObject).length) {
+                var _this$_toGtagOptions = _this._toGtagOptions(fieldsObject), title = _this$_toGtagOptions.title, location = _this$_toGtagOptions.location, rest = _objectWithoutProperties(_this$_toGtagOptions, _excluded2);
+                _this._gtag("event", "page_view", _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, page && {
+                    page_path: page
+                }), title && {
+                    page_title: title
+                }), location && {
+                    page_location: location
+                }), rest));
+            } else if (page) _this._gtag("event", "page_view", {
+                page_path: page
+            });
+            else _this._gtag("event", "page_view");
+        });
+        _defineProperty(this, "_gaCommandSendPageviewParameters", function() {
+            for(var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++)args[_key3] = arguments[_key3];
+            if (typeof args[0] === "string") _this._gaCommandSendPageview.apply(_this, _toConsumableArray(args.slice(1)));
+            else {
+                var _args$2 = args[0], page = _args$2.page, hitType = _args$2.hitType, rest = _objectWithoutProperties(_args$2, _excluded3);
+                _this._gaCommandSendPageview(page, rest);
+            }
+        });
+        _defineProperty(this, "_gaCommandSend", function() {
+            for(var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++)args[_key4] = arguments[_key4];
+            var hitType = typeof args[0] === "string" ? args[0] : args[0].hitType;
+            switch(hitType){
+                case "event":
+                    _this._gaCommandSendEventParameters.apply(_this, args);
+                    break;
+                case "pageview":
+                    _this._gaCommandSendPageviewParameters.apply(_this, args);
+                    break;
+                case "timing":
+                    _this._gaCommandSendTiming.apply(_this, _toConsumableArray(args.slice(1)));
+                    break;
+                case "screenview":
+                case "transaction":
+                case "item":
+                case "social":
+                case "exception":
+                    console.warn("Unsupported send command: ".concat(hitType));
+                    break;
+                default:
+                    console.warn("Send command doesn't exist: ".concat(hitType));
+            }
+        });
+        _defineProperty(this, "_gaCommandSet", function() {
+            for(var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++)args[_key5] = arguments[_key5];
+            if (typeof args[0] === "string") args[0] = _defineProperty({}, args[0], args[1]);
+            _this._gtag("set", _this._toGtagOptions(args[0]));
+        });
+        _defineProperty(this, "_gaCommand", function(command) {
+            for(var _len6 = arguments.length, args = new Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++)args[_key6 - 1] = arguments[_key6];
+            switch(command){
+                case "send":
+                    _this._gaCommandSend.apply(_this, args);
+                    break;
+                case "set":
+                    _this._gaCommandSet.apply(_this, args);
+                    break;
+                default:
+                    console.warn("Command doesn't exist: ".concat(command));
+            }
+        });
+        _defineProperty(this, "ga", function() {
+            for(var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++)args[_key7] = arguments[_key7];
+            if (typeof args[0] === "string") _this._gaCommand.apply(_this, args);
+            else {
+                var readyCallback = args[0];
+                _this._gtag("get", _this._currentMeasurementId, "client_id", function(clientId) {
+                    _this._isQueuing = false;
+                    var queues = _this._queueGtag;
+                    readyCallback({
+                        get: function get(property) {
+                            return property === "clientId" ? clientId : property === "trackingId" ? _this._currentMeasurementId : property === "apiVersion" ? "1" : undefined;
+                        }
+                    });
+                    while(queues.length){
+                        var queue = queues.shift();
+                        _this._gtag.apply(_this, _toConsumableArray(queue));
+                    }
+                });
+                _this._isQueuing = true;
+            }
+            return _this.ga;
+        });
+        _defineProperty(this, "event", function(optionsOrName, params) {
+            if (typeof optionsOrName === "string") _this._gtag("event", optionsOrName, _this._toGtagOptions(params));
+            else {
+                var action = optionsOrName.action, category = optionsOrName.category, label = optionsOrName.label, value = optionsOrName.value, nonInteraction = optionsOrName.nonInteraction, transport = optionsOrName.transport;
+                if (!category || !action) {
+                    console.warn("args.category AND args.action are required in event()");
+                    return;
+                }
+                // Required Fields
+                var fieldObject = {
+                    hitType: "event",
+                    eventCategory: (0, _format["default"])(category),
+                    eventAction: (0, _format["default"])(action)
+                };
+                // Optional Fields
+                if (label) fieldObject.eventLabel = (0, _format["default"])(label);
+                if (typeof value !== "undefined") {
+                    if (typeof value !== "number") console.warn("Expected `args.value` arg to be a Number.");
+                    else fieldObject.eventValue = value;
+                }
+                if (typeof nonInteraction !== "undefined") {
+                    if (typeof nonInteraction !== "boolean") console.warn("`args.nonInteraction` must be a boolean.");
+                    else fieldObject.nonInteraction = nonInteraction;
+                }
+                if (typeof transport !== "undefined") {
+                    if (typeof transport !== "string") console.warn("`args.transport` must be a string.");
+                    else {
+                        if ([
+                            "beacon",
+                            "xhr",
+                            "image"
+                        ].indexOf(transport) === -1) console.warn("`args.transport` must be either one of these values: `beacon`, `xhr` or `image`");
+                        fieldObject.transport = transport;
+                    }
+                }
+                _this._gaCommand("send", fieldObject);
+            }
+        });
+        _defineProperty(this, "send", function(fieldObject) {
+            _this._gaCommand("send", fieldObject);
+        });
+        this.reset();
+    }
+    _createClass(GA4, [
+        {
+            key: "gtag",
+            value: function gtag() {
+                this._gtag.apply(this, arguments);
+            }
+        }
+    ]);
+    return GA4;
+}();
+exports.GA4 = GA4;
+var _default = new GA4();
+exports["default"] = _default;
+
+},{"19166929ae4d5e05":"kmJ7t","2e61426181aa7cb3":"9mKVa"}],"kmJ7t":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = void 0;
+var gtag = function gtag() {
+    for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+    if (typeof window !== "undefined") {
+        var _window;
+        if (typeof window.gtag === "undefined") {
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function gtag() {
+                window.dataLayer.push(arguments);
+            };
+        }
+        (_window = window).gtag.apply(_window, args);
+    }
+};
+var _default = gtag;
+exports["default"] = _default;
+
+},{}],"9mKVa":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = format;
+var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+function toTitleCase(string) {
+    return string.toString().trim().replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
+        if (index > 0 && index + match.length !== title.length && match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" && (title.charAt(index + match.length) !== "-" || title.charAt(index - 1) === "-") && title.charAt(index - 1).search(/[^\s-]/) < 0) return match.toLowerCase();
+        if (match.substr(1).search(/[A-Z]|\../) > -1) return match;
+        return match.charAt(0).toUpperCase() + match.substr(1);
+    });
+}
+// See if s could be an email address. We don't want to send personal data like email.
+// https://support.google.com/analytics/answer/2795983?hl=en
+function mightBeEmail(s) {
+    // There's no point trying to validate rfc822 fully, just look for ...@...
+    return typeof s === "string" && s.indexOf("@") !== -1;
+}
+var redacted = "REDACTED (Potential Email Address)";
+function redactEmail(string) {
+    if (mightBeEmail(string)) {
+        console.warn("This arg looks like an email address, redacting.");
+        return redacted;
+    }
+    return string;
+}
+function format() {
+    var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+    var titleCase = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+    var redactingEmail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+    var _str = s || "";
+    if (titleCase) _str = toTitleCase(s);
+    if (redactingEmail) _str = redactEmail(_str);
+    return _str;
+}
+
+},{}],"6XgW4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class AdobeAnalytics {
+    constructor(){
+        this.TRACKING_ID = "lscsaviraldup";
+        this.s = s_gi(this.TRACKING_ID);
+        this.s.trackingServer = "cardgage.sc.omtrdc.net";
+        this.s.prop8 = navigator.userAgent;
+    }
+    sendPageView(pageName) {
+        this.s.prop6 = pageName;
+        this.s.pageName = pageName;
+        this.s.t();
+    }
+    sendEvent(event) {
+    // To be implemented
+    }
+    sendMessage(message, page) {
+        this.s.eVar8 = message;
+        this.s.pageName = page;
+        this.s.tl(true, "o", "Message Sent");
+    }
+    sendLinkClick(link, title) {
+        this.s.prop7 = link;
+        this.s.pageName = title;
+        this.s.tl(true, "e", link);
+    }
+}
+exports.default = AdobeAnalytics;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j51pv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _pandaPng = require("../assets/Panda.png");
+var _pandaPngDefault = parcelHelpers.interopDefault(_pandaPng);
+class AnonymousAnimal {
+    constructor(){
+        this.anonymousAnimals = [
+            "Alligator.png",
+            "Anteater.png",
+            "Armadillo.png",
+            "Auroch.png",
+            "Axolotl.png",
+            "Badger.png",
+            "Bat.png",
+            "Beaver.png",
+            "Buffalo.png",
+            "Camel.png",
+            "Capybara.png",
+            "Chameleon.png",
+            "Cheetah.png",
+            "Chinchilla.png",
+            "Chipmunk.png",
+            "Chupacabra.png",
+            "Cormorant.png",
+            "Coyote.png",
+            "Crow.png",
+            "Dingo.png",
+            "Dinosaur.png",
+            "Dolphin.png",
+            "Duck.png",
+            "Elephant.png",
+            "Ferret.png",
+            "Fox.png",
+            "Frog.png",
+            "Giraffe.png",
+            "Gopher.png",
+            "Grizzly.png",
+            "Hedgehog.png",
+            "Hippo.png",
+            "Hyena.png",
+            "Ibex.png",
+            "Ifrit.png",
+            "Iguana.png",
+            "Jackal.png",
+            "Kangaroo.png",
+            "Koala.png",
+            "Kraken.png",
+            "Lemur.png",
+            "Leopard.png",
+            "Liger.png",
+            "Llama.png",
+            "Manatee.png",
+            "Mink.png",
+            "Monkey.png",
+            "Moose.png",
+            "Narwhal.png",
+            "Nyan Cat.png",
+            "Orangutan.png",
+            "Otter.png",
+            "Panda.png",
+            "Penguin.png",
+            "Platypus.png",
+            "Pumpkin.png",
+            "Python.png",
+            "Quagga.png",
+            "Rabbit.png",
+            "Raccoon.png",
+            "Rhino.png",
+            "Sheep.png",
+            "Shrew.png",
+            "Skunk.png",
+            "Squirrel.png",
+            "Tiger.png",
+            "Turtle.png",
+            "Walrus.png",
+            "Wolf.png",
+            "Wolverine.png",
+            "Wombat.png"
+        ];
+        this.currentAnimalName = this.anonymousAnimals[0];
+        this.currentAnimal = (0, _pandaPngDefault.default);
+        this.fetchAnimal();
+    }
+    async fetchAnimal() {
+        let animalNameUrl = this.anonymousAnimals[Math.floor(Math.random() * this.anonymousAnimals.length)];
+        let imageUrl = `https://raw.githubusercontent.com/aviral10/Public-assets/main/animals/${animalNameUrl}`;
+        let animalName = `Anonymous ${animalNameUrl.split(".")[0]}`;
+        async function fetchImageFromUrl(response) {
+            const blob = await response.blob();
+            AnonymousAnimal.getInstance().setAnimal(animalName, URL.createObjectURL(blob));
+        }
+        try {
+            const response = await fetch(imageUrl);
+            response.ok ? fetchImageFromUrl(response) : console.error("Failed to fetch animal logo");
+        } catch (error) {
+            console.error("Error fetching animal logo:", error);
+        }
+    }
+    setAnimal(animalName, animal) {
+        this.currentAnimalName = animalName;
+        this.currentAnimal = animal;
+    }
+    static getInstance() {
+        this.instance || (this.instance = new AnonymousAnimal());
+        return this.instance;
+    }
+    getAnimal() {
+        return {
+            name: this.currentAnimalName,
+            randomAnimal: this.currentAnimal
+        };
+    }
+}
+exports.default = AnonymousAnimal;
+
+},{"../assets/Panda.png":"mKYkK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"mKYkK":[function(require,module,exports) {
+module.exports = require("74660537eb2f69d3").getBundleURL("6EXJA") + "Panda.205c8b61.png" + "?" + Date.now();
+
+},{"74660537eb2f69d3":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"aACEy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "splitIds", ()=>splitIds);
+parcelHelpers.export(exports, "blobToBase64", ()=>blobToBase64);
+parcelHelpers.export(exports, "getTodaysDate", ()=>getTodaysDate);
+parcelHelpers.export(exports, "getISTTime", ()=>getISTTime);
+parcelHelpers.export(exports, "smallScreen", ()=>smallScreen);
+parcelHelpers.export(exports, "mediumScreen", ()=>mediumScreen);
+parcelHelpers.export(exports, "largeScreen", ()=>largeScreen);
+parcelHelpers.export(exports, "xlScreen", ()=>xlScreen);
+parcelHelpers.export(exports, "xxlScreen", ()=>xxlScreen);
+const splitIds = (selectedChannel)=>{
+    return selectedChannel.split("-").map((val)=>+val);
+};
+const blobToBase64 = (blob)=>{
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    return new Promise((resolve)=>{
+        reader.onloadend = ()=>{
+            resolve(reader.result);
+        };
+    });
+};
+const getTodaysDate = ()=>{
+    const today = new Date();
+    const date = today.getDate();
+    const month = today.toLocaleString("default", {
+        month: "short"
+    });
+    const year = today.getFullYear();
+    return `${date} ${month}, ${year}`;
+};
+const getISTTime = ()=>{
+    let currentTime = new Date();
+    let currentOffset = currentTime.getTimezoneOffset();
+    let ISTOffset = 330; // IST offset UTC +5:30
+    let ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset) * 60000);
+    let hoursIST = ISTTime.getHours();
+    let meridian = hoursIST >= 12 ? "PM" : "AM";
+    hoursIST = hoursIST % 12;
+    hoursIST = (hoursIST ? hoursIST : 12).toString().padStart(2, "0");
+    let minutesIST = ISTTime.getMinutes().toString().padStart(2, "0");
+    return [
+        hoursIST,
+        minutesIST,
+        meridian
+    ];
+};
+const smallScreen = 640;
+const mediumScreen = 768;
+const largeScreen = 1024;
+const xlScreen = 1280;
+const xxlScreen = 1536;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"koLZJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6d76 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6d76.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _s = $RefreshSig$();
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+function useWindowDimensions() {
+    _s();
+    const [windowDimensions, setWindowDimensions] = (0, _react.useState)(getWindowDimensions());
+    (0, _react.useEffect)(()=>{
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+        window.addEventListener("resize", handleResize);
+        return ()=>window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowDimensions;
+}
+_s(useWindowDimensions, "XalQq70mIWrnM+6Jr3XornfayDc=");
+exports.default = useWindowDimensions;
+
+  $parcel$ReactRefreshHelpers$6d76.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h2OpR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d2cb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27670,7 +28875,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _keyGenerator = require("../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
 var _appContext = require("./AppContext");
@@ -27690,7 +28894,16 @@ var _config = require("../../model/Config");
 var _configDefault = parcelHelpers.interopDefault(_config);
 var _analytics = require("../../model/Analytics/Analytics");
 var _analyticsDefault = parcelHelpers.interopDefault(_analytics);
-var _s = $RefreshSig$(), _s1 = $RefreshSig$(), _s2 = $RefreshSig$();
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const ChannelTitle = (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex items-center p-4 flex-shrink-0 shadow-sm shadow-gray-900 h-14 text-lg",
+        children: props.name
+    }, void 0, false, {
+        fileName: "src/view/components/Channels.tsx",
+        lineNumber: 20,
+        columnNumber: 5
+    }, undefined);
+_c = ChannelTitle;
 const Channels = (props)=>{
     _s();
     const { server } = (0, _react.useContext)((0, _appContextDefault.default));
@@ -27702,7 +28915,7 @@ const Channels = (props)=>{
                 name: server.name
             }, void 0, false, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 25,
+                lineNumber: 31,
                 columnNumber: 13
             }, undefined),
             server.channelGroups.map((channelGroup, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ChannelGroup, {
@@ -27712,32 +28925,115 @@ const Channels = (props)=>{
                     setSelectedChannel: setSelectedChannel
                 }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
                     fileName: "src/view/components/Channels.tsx",
-                    lineNumber: 27,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ChannelFooter, {}, void 0, false, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 35,
+                lineNumber: 41,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Channels.tsx",
-        lineNumber: 24,
+        lineNumber: 30,
         columnNumber: 9
     }, undefined);
 };
 _s(Channels, "dYMEhDOjAnXuAHmYe8rcxtb3Bu0=");
-_c = Channels;
-const ChannelTitle = (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex items-center p-4 flex-shrink-0 shadow-sm shadow-gray-900 h-14 text-lg",
-        children: props.name
+_c1 = Channels;
+const ChannelGroup = (props)=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "space-y-1 w-full p-4 pb-0 text-gray-500",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex text-xs font-bold pb-1",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: `text-base transform transition-transform duration-150`
+                    }, void 0, false, {
+                        fileName: "src/view/components/Channels.tsx",
+                        lineNumber: 50,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _tfi.TfiAngleDoubleRight), {
+                        className: "mt-[1.5px] mr-1"
+                    }, void 0, false, {
+                        fileName: "src/view/components/Channels.tsx",
+                        lineNumber: 53,
+                        columnNumber: 17
+                    }, undefined),
+                    props.channelGroup.name.toUpperCase()
+                ]
+            }, void 0, true, {
+                fileName: "src/view/components/Channels.tsx",
+                lineNumber: 49,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ChannelItems, {
+                items: props.channelGroup.channelItems,
+                parent: props.index,
+                selectedChannel: props.selectedChannel,
+                setSelectedChannel: props.setSelectedChannel
+            }, void 0, false, {
+                fileName: "src/view/components/Channels.tsx",
+                lineNumber: 56,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/view/components/Channels.tsx",
+        lineNumber: 48,
+        columnNumber: 9
+    }, undefined);
+};
+_c2 = ChannelGroup;
+const ChannelItems = (props)=>{
+    _s1();
+    const globalStateContext = (0, _react.useContext)((0, _globalStateContextDefault.default));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: props.items.map((item, index)=>{
+            const itemIndex = `${globalStateContext.selectedServer}-${props.parent}-${index}`;
+            const handleClick = ()=>{
+                props.setSelectedChannel(itemIndex);
+                globalStateContext.setHamburgerClicked(false);
+            };
+            const isItemSelected = props.selectedChannel === itemIndex;
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: `p-1 flex space-x-2 rounded-md hover:text-gray-200 cursor-pointer ${isItemSelected ? "bg-gray-650 text-gray-200" : "text-gray-500 hover:bg-gray-700"}`,
+                onClick: handleClick,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "text-base ml-2 text-gray-500 font-bold",
+                        children: "@"
+                    }, void 0, false, {
+                        fileName: "src/view/components/Channels.tsx",
+                        lineNumber: 90,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "text-base pt-[0.5]",
+                        children: item.name.toLowerCase()
+                    }, void 0, false, {
+                        fileName: "src/view/components/Channels.tsx",
+                        lineNumber: 93,
+                        columnNumber: 25
+                    }, undefined)
+                ]
+            }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), true, {
+                fileName: "src/view/components/Channels.tsx",
+                lineNumber: 81,
+                columnNumber: 21
+            }, undefined);
+        })
     }, void 0, false, {
         fileName: "src/view/components/Channels.tsx",
-        lineNumber: 41,
-        columnNumber: 5
+        lineNumber: 69,
+        columnNumber: 9
     }, undefined);
-_c1 = ChannelTitle;
+};
+_s1(ChannelItems, "JNdQmi+ZQNUAr3F5L9ALf2Fb0Ag=");
+_c3 = ChannelItems;
 const ChannelFooter = ()=>{
     const model = new (0, _dataModelJsonDefault.default)((0, _configDefault.default).getConfig());
     const myProfile = model.getMyProfile();
@@ -27750,7 +29046,7 @@ const ChannelFooter = ()=>{
                 alt: ""
             }, void 0, false, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 53,
+                lineNumber: 109,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27759,7 +29055,7 @@ const ChannelFooter = ()=>{
                 alt: ""
             }, void 0, false, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 54,
+                lineNumber: 114,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27770,7 +29066,7 @@ const ChannelFooter = ()=>{
                         children: "Koro Sensei"
                     }, void 0, false, {
                         fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 56,
+                        lineNumber: 116,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27778,13 +29074,13 @@ const ChannelFooter = ()=>{
                         children: "_bigppanda_"
                     }, void 0, false, {
                         fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 57,
+                        lineNumber: 117,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 55,
+                lineNumber: 115,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27802,12 +29098,12 @@ const ChannelFooter = ()=>{
                             alt: ""
                         }, void 0, false, {
                             fileName: "src/view/components/Channels.tsx",
-                            lineNumber: 60,
-                            columnNumber: 136
+                            lineNumber: 130,
+                            columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 60,
+                        lineNumber: 120,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27816,128 +29112,30 @@ const ChannelFooter = ()=>{
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 61,
+                        lineNumber: 136,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Channels.tsx",
-                lineNumber: 59,
+                lineNumber: 119,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Channels.tsx",
-        lineNumber: 52,
+        lineNumber: 108,
         columnNumber: 9
     }, undefined);
 };
-_c2 = ChannelFooter;
-const ChannelGroup = (props)=>{
-    _s1();
-    const [showFull, setShowFull] = (0, _react.useState)(true);
-    const toggleShowFull = ()=>{
-        setShowFull(!showFull);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "space-y-1 w-full p-4 pb-0 text-gray-500",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex text-xs font-bold pb-1",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: `text-base transform transition-transform duration-150`
-                    }, void 0, false, {
-                        fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 77,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _tfi.TfiAngleDoubleRight), {
-                        className: "mt-[1.5px] mr-1"
-                    }, void 0, false, {
-                        fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 80,
-                        columnNumber: 17
-                    }, undefined),
-                    props.channelGroup.name.toUpperCase()
-                ]
-            }, void 0, true, {
-                fileName: "src/view/components/Channels.tsx",
-                lineNumber: 76,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ChannelItems, {
-                items: showFull ? props.channelGroup.channelItems : [],
-                parent: props.index,
-                selectedChannel: props.selectedChannel,
-                setSelectedChannel: props.setSelectedChannel
-            }, void 0, false, {
-                fileName: "src/view/components/Channels.tsx",
-                lineNumber: 83,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/view/components/Channels.tsx",
-        lineNumber: 75,
-        columnNumber: 9
-    }, undefined);
-};
-_s1(ChannelGroup, "q6Bsowd8j9YeIoY9q6v/F+14qdM=");
-_c3 = ChannelGroup;
-const ChannelItems = (props)=>{
-    _s2();
-    const { hamburgerClicked, setHamburgerClicked, selectedChannel, setSelectedChannel, selectedServer, setSelectedServer } = (0, _react.useContext)((0, _globalStateContextDefault.default));
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: props.items.map((item, index)=>{
-            const itemIndex = `${selectedServer}-${props.parent}-${index}`;
-            const handleClick = ()=>{
-                props.setSelectedChannel(itemIndex);
-                setHamburgerClicked(false);
-            };
-            const isItemSelected = props.selectedChannel === itemIndex;
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: `p-1 flex space-x-2 rounded-md hover:text-gray-200 cursor-pointer ${isItemSelected ? "bg-gray-650 text-gray-200" : "text-gray-500 hover:bg-gray-700"}`,
-                onClick: handleClick,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        className: "text-base ml-2 text-gray-500 font-bold",
-                        children: "@"
-                    }, void 0, false, {
-                        fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 120,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-base pt-[0.5]",
-                        children: item.name.toLowerCase()
-                    }, void 0, false, {
-                        fileName: "src/view/components/Channels.tsx",
-                        lineNumber: 123,
-                        columnNumber: 25
-                    }, undefined)
-                ]
-            }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), true, {
-                fileName: "src/view/components/Channels.tsx",
-                lineNumber: 111,
-                columnNumber: 21
-            }, undefined);
-        })
-    }, void 0, false, {
-        fileName: "src/view/components/Channels.tsx",
-        lineNumber: 99,
-        columnNumber: 9
-    }, undefined);
-};
-_s2(ChannelItems, "q5bvMrMBSqfwY2sj98Zkstfjx18=");
-_c4 = ChannelItems;
+_c4 = ChannelFooter;
 exports.default = Channels;
 var _c, _c1, _c2, _c3, _c4;
-$RefreshReg$(_c, "Channels");
-$RefreshReg$(_c1, "ChannelTitle");
-$RefreshReg$(_c2, "ChannelFooter");
-$RefreshReg$(_c3, "ChannelGroup");
-$RefreshReg$(_c4, "ChannelItems");
+$RefreshReg$(_c, "ChannelTitle");
+$RefreshReg$(_c1, "Channels");
+$RefreshReg$(_c2, "ChannelGroup");
+$RefreshReg$(_c3, "ChannelItems");
+$RefreshReg$(_c4, "ChannelFooter");
 
   $parcel$ReactRefreshHelpers$f185.postlude(module);
 } finally {
@@ -36490,935 +37688,13 @@ exports.default = GlobalStateContext;
 },{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4lhaT":[function(require,module,exports) {
 module.exports = require("bf4aecc5b3982a3f").getBundleURL("6EXJA") + "discord-logo-b.f7cff80e.png" + "?" + Date.now();
 
-},{"bf4aecc5b3982a3f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"34SXO":[function(require,module,exports) {
+},{"bf4aecc5b3982a3f":"lgJ39"}],"34SXO":[function(require,module,exports) {
 module.exports = require("78e917c9e2748caf").getBundleURL("6EXJA") + "cat_9.85021ab9.gif" + "?" + Date.now();
 
 },{"78e917c9e2748caf":"lgJ39"}],"iqbvw":[function(require,module,exports) {
 module.exports = require("ffa6c93a08cafcfb").getBundleURL("6EXJA") + "cat_10.0578e192.gif" + "?" + Date.now();
 
-},{"ffa6c93a08cafcfb":"lgJ39"}],"6pzHR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _dataConverter = require("./DataConverter");
-var _dataConverterDefault = parcelHelpers.interopDefault(_dataConverter);
-class DataModelJson {
-    constructor(jsonData){
-        this.data = jsonData;
-    }
-    getServerList() {
-        return this.data.servers.map((server)=>{
-            const dataConverter = new (0, _dataConverterDefault.default)();
-            return dataConverter.convertServer(server);
-        });
-    }
-    getMyProfile() {
-        const dataConverter = new (0, _dataConverterDefault.default)();
-        return dataConverter.convertMyProfileTab(this.data.myprofile);
-    }
-}
-exports.default = DataModelJson;
-
-},{"./DataConverter":"9VBuc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9VBuc":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _interfaces = require("./interfaces");
-class DataConverter {
-    convertMyProfileTab(obj) {
-        let myProfile = {
-            image: obj.image,
-            name: obj.name,
-            title: obj.title,
-            status: obj.status,
-            locationTitle: obj.locationTitle,
-            locationLink: obj.locationLink,
-            email: obj.email,
-            discord: obj.discord,
-            discordImage: obj.discordImage
-        };
-        return myProfile;
-    }
-    convertServer(obj) {
-        let server = {
-            name: obj.name,
-            image: obj.image,
-            channelGroups: obj.channelGroups.map((channelGroup)=>this.convertChannelGroup(channelGroup))
-        };
-        return server;
-    }
-    convertChannelGroup(obj) {
-        let channelGroup = {
-            name: obj.name,
-            channelItems: obj.channelItems.map((channelItem)=>this.convertChannelItem(channelItem))
-        };
-        return channelGroup;
-    }
-    convertChannelItem(obj) {
-        let channelItem = {
-            name: obj.name,
-            messageHeader: obj.messageHeader,
-            messageGroups: obj.messageGroups.map((messageGroup)=>this.convertMessageGroup(messageGroup))
-        };
-        return channelItem;
-    }
-    convertMessageGroup(obj) {
-        let messageGroup = {
-            date: obj.date,
-            messages: obj.messages.map((message)=>this.convertMessage(message))
-        };
-        return messageGroup;
-    }
-    convertMessage(obj) {
-        let message = {
-            content: obj.content,
-            image: obj.image,
-            sender: {
-                name: obj.sender.name,
-                icon: obj.sender.icon
-            },
-            messageType: this.convertMessageType(obj.messageType)
-        };
-        return message;
-    }
-    convertMessageType(messageType) {
-        let types = {
-            "default": (0, _interfaces.MessageType).DEFAULT,
-            "fancy": (0, _interfaces.MessageType).FANCY,
-            "resume": (0, _interfaces.MessageType).RESUME,
-            "onlytags": (0, _interfaces.MessageType).ONLYTAGS
-        };
-        return types[messageType] || (0, _interfaces.MessageType).DEFAULT;
-    }
-}
-exports.default = DataConverter;
-
-},{"./interfaces":"hNrdn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNrdn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MessageType", ()=>MessageType);
-var MessageType;
-(function(MessageType) {
-    MessageType[MessageType["DEFAULT"] = 0] = "DEFAULT";
-    MessageType[MessageType["FANCY"] = 1] = "FANCY";
-    MessageType[MessageType["RESUME"] = 2] = "RESUME";
-    MessageType[MessageType["ONLYTAGS"] = 3] = "ONLYTAGS";
-})(MessageType || (MessageType = {}));
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"llC9f":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _fallbackConfigJson = require("./fallbackConfig.json");
-var _fallbackConfigJsonDefault = parcelHelpers.interopDefault(_fallbackConfigJson);
-class Config {
-    static #_ = (()=>{
-        this.config = (0, _fallbackConfigJsonDefault.default);
-    })();
-    static getConfig() {
-        return this.config;
-    }
-    static updateConfig(newConfig) {
-        this.config = newConfig;
-    }
-}
-exports.default = Config;
-
-},{"./fallbackConfig.json":"b5qcb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6IVA3":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _googleAnalytics = require("./GoogleAnalytics");
-var _googleAnalyticsDefault = parcelHelpers.interopDefault(_googleAnalytics);
-var _adobeAnalytics = require("./AdobeAnalytics");
-var _adobeAnalyticsDefault = parcelHelpers.interopDefault(_adobeAnalytics);
-class Analytics {
-    constructor(){
-        this.analyticsEngines = [
-            new (0, _adobeAnalyticsDefault.default)(),
-            new (0, _googleAnalyticsDefault.default)()
-        ];
-    }
-    static getInstance() {
-        this.instance || (this.instance = new Analytics());
-        return this.instance;
-    }
-    static sendPageView(pageName) {
-        Analytics.getInstance().analyticsEngines.map((engine)=>{
-            try {
-                engine.sendPageView(pageName);
-            } catch (err) {
-            //
-            }
-        });
-    }
-    static sendEvent(obj) {
-        Analytics.getInstance().analyticsEngines.map((engine)=>{
-            try {
-                engine.sendPageView(obj);
-            } catch (err) {
-            //
-            }
-        });
-    }
-    static sendMessage(message, page) {
-        Analytics.getInstance().analyticsEngines.map((engine)=>{
-            try {
-                engine.sendMessage(message, page);
-            } catch (err) {
-            //
-            }
-        });
-    }
-    static sendLinkClick(link, page) {
-        Analytics.getInstance().analyticsEngines.map((engine)=>{
-            try {
-                engine.sendLinkClick(link, page);
-            } catch (err) {
-            //
-            }
-        });
-    }
-}
-exports.default = Analytics;
-
-},{"./GoogleAnalytics":"g6dCM","./AdobeAnalytics":"6XgW4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g6dCM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _reactGa4 = require("react-ga4");
-var _reactGa4Default = parcelHelpers.interopDefault(_reactGa4);
-class GoogleAnalytics {
-    constructor(){
-        const TRACKING_ID = "G-RPB4QQ6X4Z";
-        (0, _reactGa4Default.default).initialize(TRACKING_ID);
-    }
-    sendMessage(message, page) {
-        (0, _reactGa4Default.default).event({
-            category: "User Interaction",
-            action: page,
-            label: message
-        });
-    }
-    sendLinkClick(link, title) {
-        (0, _reactGa4Default.default).event({
-            category: "Link Click",
-            action: title,
-            label: link
-        });
-    }
-    sendPageView(pageName) {
-        (0, _reactGa4Default.default).send({
-            hitType: "pageview",
-            page: pageName,
-            title: pageName.split("-").join(" ")
-        });
-    }
-    sendEvent(event) {
-    // "TO BE IMPLEMENTED"
-    }
-}
-exports.default = GoogleAnalytics;
-
-},{"react-ga4":"PH4ct","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"PH4ct":[function(require,module,exports) {
-"use strict";
-function _typeof(obj) {
-    "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-        return typeof obj;
-    } : function(obj) {
-        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    }, _typeof(obj);
-}
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = exports.ReactGAImplementation = void 0;
-var _ga = _interopRequireWildcard(require("8aae62742fe02e10"));
-function _getRequireWildcardCache(nodeInterop) {
-    if (typeof WeakMap !== "function") return null;
-    var cacheBabelInterop = new WeakMap();
-    var cacheNodeInterop = new WeakMap();
-    return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
-        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
-    })(nodeInterop);
-}
-function _interopRequireWildcard(obj, nodeInterop) {
-    if (!nodeInterop && obj && obj.__esModule) return obj;
-    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") return {
-        "default": obj
-    };
-    var cache = _getRequireWildcardCache(nodeInterop);
-    if (cache && cache.has(obj)) return cache.get(obj);
-    var newObj = {};
-    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-    for(var key in obj)if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
-        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-        if (desc && (desc.get || desc.set)) Object.defineProperty(newObj, key, desc);
-        else newObj[key] = obj[key];
-    }
-    newObj["default"] = obj;
-    if (cache) cache.set(obj, newObj);
-    return newObj;
-}
-var ReactGAImplementation = _ga.GA4;
-exports.ReactGAImplementation = ReactGAImplementation;
-var _default = _ga["default"];
-exports["default"] = _default;
-
-},{"8aae62742fe02e10":"eV1B9"}],"eV1B9":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = exports.GA4 = void 0;
-var _gtag = _interopRequireDefault(require("19166929ae4d5e05"));
-var _format = _interopRequireDefault(require("2e61426181aa7cb3"));
-var _excluded = [
-    "eventCategory",
-    "eventAction",
-    "eventLabel",
-    "eventValue",
-    "hitType"
-], _excluded2 = [
-    "title",
-    "location"
-], _excluded3 = [
-    "page",
-    "hitType"
-];
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        "default": obj
-    };
-}
-function _objectWithoutProperties(source, excluded) {
-    if (source == null) return {};
-    var target = _objectWithoutPropertiesLoose(source, excluded);
-    var key, i;
-    if (Object.getOwnPropertySymbols) {
-        var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-        for(i = 0; i < sourceSymbolKeys.length; i++){
-            key = sourceSymbolKeys[i];
-            if (excluded.indexOf(key) >= 0) continue;
-            if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-            target[key] = source[key];
-        }
-    }
-    return target;
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-function _typeof(obj) {
-    "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-        return typeof obj;
-    } : function(obj) {
-        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    }, _typeof(obj);
-}
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-}
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-        var symbols = Object.getOwnPropertySymbols(object);
-        enumerableOnly && (symbols = symbols.filter(function(sym) {
-            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-        })), keys.push.apply(keys, symbols);
-    }
-    return keys;
-}
-function _objectSpread(target) {
-    for(var i = 1; i < arguments.length; i++){
-        var source = null != arguments[i] ? arguments[i] : {};
-        i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
-            _defineProperty(target, key, source[key]);
-        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
-            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-    }
-    return target;
-}
-function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-function _iterableToArrayLimit(arr, i) {
-    var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-    if (null != _i) {
-        var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
-        try {
-            if (_x = (_i = _i.call(arr)).next, 0 === i) {
-                if (Object(_i) !== _i) return;
-                _n = !1;
-            } else for(; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
-        } catch (err) {
-            _d = !0, _e = err;
-        } finally{
-            try {
-                if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
-            } finally{
-                if (_d) throw _e;
-            }
-        }
-        return _arr;
-    }
-}
-function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-}
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties(target, props) {
-    for(var i = 0; i < props.length; i++){
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
-    }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    Object.defineProperty(Constructor, "prototype", {
-        writable: false
-    });
-    return Constructor;
-}
-function _defineProperty(obj, key, value) {
-    key = _toPropertyKey(key);
-    if (key in obj) Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-    });
-    else obj[key] = value;
-    return obj;
-}
-function _toPropertyKey(arg) {
-    var key = _toPrimitive(arg, "string");
-    return _typeof(key) === "symbol" ? key : String(key);
-}
-function _toPrimitive(input, hint) {
-    if (_typeof(input) !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-        var res = prim.call(input, hint || "default");
-        if (_typeof(res) !== "object") return res;
-        throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-}
-/*
-Links
-https://developers.google.com/gtagjs/reference/api
-https://developers.google.com/tag-platform/gtagjs/reference
-*/ /**
- * @typedef GaOptions
- * @type {Object}
- * @property {boolean} [cookieUpdate=true]
- * @property {number} [cookieExpires=63072000] Default two years
- * @property {string} [cookieDomain="auto"]
- * @property {string} [cookieFlags]
- * @property {string} [userId]
- * @property {string} [clientId]
- * @property {boolean} [anonymizeIp]
- * @property {string} [contentGroup1]
- * @property {string} [contentGroup2]
- * @property {string} [contentGroup3]
- * @property {string} [contentGroup4]
- * @property {string} [contentGroup5]
- * @property {boolean} [allowAdFeatures=true]
- * @property {boolean} [allowAdPersonalizationSignals]
- * @property {boolean} [nonInteraction]
- * @property {string} [page]
- */ /**
- * @typedef UaEventOptions
- * @type {Object}
- * @property {string} action
- * @property {string} category
- * @property {string} [label]
- * @property {number} [value]
- * @property {boolean} [nonInteraction]
- * @property {('beacon'|'xhr'|'image')} [transport]
- */ /**
- * @typedef InitOptions
- * @type {Object}
- * @property {string} trackingId
- * @property {GaOptions|any} [gaOptions]
- * @property {Object} [gtagOptions] New parameter
- */ var GA4 = /*#__PURE__*/ function() {
-    function GA4() {
-        var _this = this;
-        _classCallCheck(this, GA4);
-        _defineProperty(this, "reset", function() {
-            _this.isInitialized = false;
-            _this._testMode = false;
-            _this._currentMeasurementId;
-            _this._hasLoadedGA = false;
-            _this._isQueuing = false;
-            _this._queueGtag = [];
-        });
-        _defineProperty(this, "_gtag", function() {
-            for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-            if (!_this._testMode) {
-                if (_this._isQueuing) _this._queueGtag.push(args);
-                else _gtag["default"].apply(void 0, args);
-            } else _this._queueGtag.push(args);
-        });
-        _defineProperty(this, "_loadGA", function(GA_MEASUREMENT_ID, nonce) {
-            var gtagUrl = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "https://www.googletagmanager.com/gtag/js";
-            if (typeof window === "undefined" || typeof document === "undefined") return;
-            if (!_this._hasLoadedGA) {
-                // Global Site Tag (gtag.js) - Google Analytics
-                var script = document.createElement("script");
-                script.async = true;
-                script.src = "".concat(gtagUrl, "?id=").concat(GA_MEASUREMENT_ID);
-                if (nonce) script.setAttribute("nonce", nonce);
-                document.body.appendChild(script);
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = function gtag() {
-                    window.dataLayer.push(arguments);
-                };
-                _this._hasLoadedGA = true;
-            }
-        });
-        _defineProperty(this, "_toGtagOptions", function(gaOptions) {
-            if (!gaOptions) return;
-            var mapFields = {
-                // Old https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#cookieUpdate
-                // New https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id#cookie_update
-                cookieUpdate: "cookie_update",
-                cookieExpires: "cookie_expires",
-                cookieDomain: "cookie_domain",
-                cookieFlags: "cookie_flags",
-                // must be in set method?
-                userId: "user_id",
-                clientId: "client_id",
-                anonymizeIp: "anonymize_ip",
-                // https://support.google.com/analytics/answer/2853546?hl=en#zippy=%2Cin-this-article
-                contentGroup1: "content_group1",
-                contentGroup2: "content_group2",
-                contentGroup3: "content_group3",
-                contentGroup4: "content_group4",
-                contentGroup5: "content_group5",
-                // https://support.google.com/analytics/answer/9050852?hl=en
-                allowAdFeatures: "allow_google_signals",
-                allowAdPersonalizationSignals: "allow_ad_personalization_signals",
-                nonInteraction: "non_interaction",
-                page: "page_path",
-                hitCallback: "event_callback"
-            };
-            var gtagOptions = Object.entries(gaOptions).reduce(function(prev, _ref) {
-                var _ref2 = _slicedToArray(_ref, 2), key = _ref2[0], value = _ref2[1];
-                if (mapFields[key]) prev[mapFields[key]] = value;
-                else prev[key] = value;
-                return prev;
-            }, {});
-            return gtagOptions;
-        });
-        _defineProperty(this, "initialize", function(GA_MEASUREMENT_ID) {
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-            if (!GA_MEASUREMENT_ID) throw new Error("Require GA_MEASUREMENT_ID");
-            var initConfigs = typeof GA_MEASUREMENT_ID === "string" ? [
-                {
-                    trackingId: GA_MEASUREMENT_ID
-                }
-            ] : GA_MEASUREMENT_ID;
-            _this._currentMeasurementId = initConfigs[0].trackingId;
-            var gaOptions = options.gaOptions, gtagOptions = options.gtagOptions, nonce = options.nonce, _options$testMode = options.testMode, testMode = _options$testMode === void 0 ? false : _options$testMode, gtagUrl = options.gtagUrl;
-            _this._testMode = testMode;
-            if (!testMode) _this._loadGA(_this._currentMeasurementId, nonce, gtagUrl);
-            if (!_this.isInitialized) {
-                _this._gtag("js", new Date());
-                initConfigs.forEach(function(config) {
-                    var mergedGtagOptions = _objectSpread(_objectSpread(_objectSpread({}, _this._toGtagOptions(_objectSpread(_objectSpread({}, gaOptions), config.gaOptions))), gtagOptions), config.gtagOptions);
-                    if (Object.keys(mergedGtagOptions).length) _this._gtag("config", config.trackingId, mergedGtagOptions);
-                    else _this._gtag("config", config.trackingId);
-                });
-            }
-            _this.isInitialized = true;
-            if (!testMode) {
-                var queues = _toConsumableArray(_this._queueGtag);
-                _this._queueGtag = [];
-                _this._isQueuing = false;
-                while(queues.length){
-                    var queue = queues.shift();
-                    _this._gtag.apply(_this, _toConsumableArray(queue));
-                    if (queue[0] === "get") _this._isQueuing = true;
-                }
-            }
-        });
-        _defineProperty(this, "set", function(fieldsObject) {
-            if (!fieldsObject) {
-                console.warn("`fieldsObject` is required in .set()");
-                return;
-            }
-            if (_typeof(fieldsObject) !== "object") {
-                console.warn("Expected `fieldsObject` arg to be an Object");
-                return;
-            }
-            if (Object.keys(fieldsObject).length === 0) console.warn("empty `fieldsObject` given to .set()");
-            _this._gaCommand("set", fieldsObject);
-        });
-        _defineProperty(this, "_gaCommandSendEvent", function(eventCategory, eventAction, eventLabel, eventValue, fieldsObject) {
-            _this._gtag("event", eventAction, _objectSpread(_objectSpread({
-                event_category: eventCategory,
-                event_label: eventLabel,
-                value: eventValue
-            }, fieldsObject && {
-                non_interaction: fieldsObject.nonInteraction
-            }), _this._toGtagOptions(fieldsObject)));
-        });
-        _defineProperty(this, "_gaCommandSendEventParameters", function() {
-            for(var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++)args[_key2] = arguments[_key2];
-            if (typeof args[0] === "string") _this._gaCommandSendEvent.apply(_this, _toConsumableArray(args.slice(1)));
-            else {
-                var _args$ = args[0], eventCategory = _args$.eventCategory, eventAction = _args$.eventAction, eventLabel = _args$.eventLabel, eventValue = _args$.eventValue, hitType = _args$.hitType, rest = _objectWithoutProperties(_args$, _excluded);
-                _this._gaCommandSendEvent(eventCategory, eventAction, eventLabel, eventValue, rest);
-            }
-        });
-        _defineProperty(this, "_gaCommandSendTiming", function(timingCategory, timingVar, timingValue, timingLabel) {
-            _this._gtag("event", "timing_complete", {
-                name: timingVar,
-                value: timingValue,
-                event_category: timingCategory,
-                event_label: timingLabel
-            });
-        });
-        _defineProperty(this, "_gaCommandSendPageview", function(page, fieldsObject) {
-            if (fieldsObject && Object.keys(fieldsObject).length) {
-                var _this$_toGtagOptions = _this._toGtagOptions(fieldsObject), title = _this$_toGtagOptions.title, location = _this$_toGtagOptions.location, rest = _objectWithoutProperties(_this$_toGtagOptions, _excluded2);
-                _this._gtag("event", "page_view", _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, page && {
-                    page_path: page
-                }), title && {
-                    page_title: title
-                }), location && {
-                    page_location: location
-                }), rest));
-            } else if (page) _this._gtag("event", "page_view", {
-                page_path: page
-            });
-            else _this._gtag("event", "page_view");
-        });
-        _defineProperty(this, "_gaCommandSendPageviewParameters", function() {
-            for(var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++)args[_key3] = arguments[_key3];
-            if (typeof args[0] === "string") _this._gaCommandSendPageview.apply(_this, _toConsumableArray(args.slice(1)));
-            else {
-                var _args$2 = args[0], page = _args$2.page, hitType = _args$2.hitType, rest = _objectWithoutProperties(_args$2, _excluded3);
-                _this._gaCommandSendPageview(page, rest);
-            }
-        });
-        _defineProperty(this, "_gaCommandSend", function() {
-            for(var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++)args[_key4] = arguments[_key4];
-            var hitType = typeof args[0] === "string" ? args[0] : args[0].hitType;
-            switch(hitType){
-                case "event":
-                    _this._gaCommandSendEventParameters.apply(_this, args);
-                    break;
-                case "pageview":
-                    _this._gaCommandSendPageviewParameters.apply(_this, args);
-                    break;
-                case "timing":
-                    _this._gaCommandSendTiming.apply(_this, _toConsumableArray(args.slice(1)));
-                    break;
-                case "screenview":
-                case "transaction":
-                case "item":
-                case "social":
-                case "exception":
-                    console.warn("Unsupported send command: ".concat(hitType));
-                    break;
-                default:
-                    console.warn("Send command doesn't exist: ".concat(hitType));
-            }
-        });
-        _defineProperty(this, "_gaCommandSet", function() {
-            for(var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++)args[_key5] = arguments[_key5];
-            if (typeof args[0] === "string") args[0] = _defineProperty({}, args[0], args[1]);
-            _this._gtag("set", _this._toGtagOptions(args[0]));
-        });
-        _defineProperty(this, "_gaCommand", function(command) {
-            for(var _len6 = arguments.length, args = new Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++)args[_key6 - 1] = arguments[_key6];
-            switch(command){
-                case "send":
-                    _this._gaCommandSend.apply(_this, args);
-                    break;
-                case "set":
-                    _this._gaCommandSet.apply(_this, args);
-                    break;
-                default:
-                    console.warn("Command doesn't exist: ".concat(command));
-            }
-        });
-        _defineProperty(this, "ga", function() {
-            for(var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++)args[_key7] = arguments[_key7];
-            if (typeof args[0] === "string") _this._gaCommand.apply(_this, args);
-            else {
-                var readyCallback = args[0];
-                _this._gtag("get", _this._currentMeasurementId, "client_id", function(clientId) {
-                    _this._isQueuing = false;
-                    var queues = _this._queueGtag;
-                    readyCallback({
-                        get: function get(property) {
-                            return property === "clientId" ? clientId : property === "trackingId" ? _this._currentMeasurementId : property === "apiVersion" ? "1" : undefined;
-                        }
-                    });
-                    while(queues.length){
-                        var queue = queues.shift();
-                        _this._gtag.apply(_this, _toConsumableArray(queue));
-                    }
-                });
-                _this._isQueuing = true;
-            }
-            return _this.ga;
-        });
-        _defineProperty(this, "event", function(optionsOrName, params) {
-            if (typeof optionsOrName === "string") _this._gtag("event", optionsOrName, _this._toGtagOptions(params));
-            else {
-                var action = optionsOrName.action, category = optionsOrName.category, label = optionsOrName.label, value = optionsOrName.value, nonInteraction = optionsOrName.nonInteraction, transport = optionsOrName.transport;
-                if (!category || !action) {
-                    console.warn("args.category AND args.action are required in event()");
-                    return;
-                }
-                // Required Fields
-                var fieldObject = {
-                    hitType: "event",
-                    eventCategory: (0, _format["default"])(category),
-                    eventAction: (0, _format["default"])(action)
-                };
-                // Optional Fields
-                if (label) fieldObject.eventLabel = (0, _format["default"])(label);
-                if (typeof value !== "undefined") {
-                    if (typeof value !== "number") console.warn("Expected `args.value` arg to be a Number.");
-                    else fieldObject.eventValue = value;
-                }
-                if (typeof nonInteraction !== "undefined") {
-                    if (typeof nonInteraction !== "boolean") console.warn("`args.nonInteraction` must be a boolean.");
-                    else fieldObject.nonInteraction = nonInteraction;
-                }
-                if (typeof transport !== "undefined") {
-                    if (typeof transport !== "string") console.warn("`args.transport` must be a string.");
-                    else {
-                        if ([
-                            "beacon",
-                            "xhr",
-                            "image"
-                        ].indexOf(transport) === -1) console.warn("`args.transport` must be either one of these values: `beacon`, `xhr` or `image`");
-                        fieldObject.transport = transport;
-                    }
-                }
-                _this._gaCommand("send", fieldObject);
-            }
-        });
-        _defineProperty(this, "send", function(fieldObject) {
-            _this._gaCommand("send", fieldObject);
-        });
-        this.reset();
-    }
-    _createClass(GA4, [
-        {
-            key: "gtag",
-            value: function gtag() {
-                this._gtag.apply(this, arguments);
-            }
-        }
-    ]);
-    return GA4;
-}();
-exports.GA4 = GA4;
-var _default = new GA4();
-exports["default"] = _default;
-
-},{"19166929ae4d5e05":"kmJ7t","2e61426181aa7cb3":"9mKVa"}],"kmJ7t":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = void 0;
-var gtag = function gtag() {
-    for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-    if (typeof window !== "undefined") {
-        var _window;
-        if (typeof window.gtag === "undefined") {
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function gtag() {
-                window.dataLayer.push(arguments);
-            };
-        }
-        (_window = window).gtag.apply(_window, args);
-    }
-};
-var _default = gtag;
-exports["default"] = _default;
-
-},{}],"9mKVa":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = format;
-var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
-function toTitleCase(string) {
-    return string.toString().trim().replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
-        if (index > 0 && index + match.length !== title.length && match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" && (title.charAt(index + match.length) !== "-" || title.charAt(index - 1) === "-") && title.charAt(index - 1).search(/[^\s-]/) < 0) return match.toLowerCase();
-        if (match.substr(1).search(/[A-Z]|\../) > -1) return match;
-        return match.charAt(0).toUpperCase() + match.substr(1);
-    });
-}
-// See if s could be an email address. We don't want to send personal data like email.
-// https://support.google.com/analytics/answer/2795983?hl=en
-function mightBeEmail(s) {
-    // There's no point trying to validate rfc822 fully, just look for ...@...
-    return typeof s === "string" && s.indexOf("@") !== -1;
-}
-var redacted = "REDACTED (Potential Email Address)";
-function redactEmail(string) {
-    if (mightBeEmail(string)) {
-        console.warn("This arg looks like an email address, redacting.");
-        return redacted;
-    }
-    return string;
-}
-function format() {
-    var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-    var titleCase = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-    var redactingEmail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-    var _str = s || "";
-    if (titleCase) _str = toTitleCase(s);
-    if (redactingEmail) _str = redactEmail(_str);
-    return _str;
-}
-
-},{}],"6XgW4":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class AdobeAnalytics {
-    constructor(){
-        this.TRACKING_ID = "lscsaviraldup";
-        console.log(this.TRACKING_ID);
-        this.s = s_gi(this.TRACKING_ID);
-        this.s.trackingServer = "cardgage.sc.omtrdc.net";
-        this.s.prop8 = navigator.userAgent;
-    }
-    sendPageView(pageName) {
-        this.s.prop6 = pageName;
-        this.s.pageName = pageName;
-        this.s.t();
-    }
-    sendEvent(event) {
-    // To be implemented
-    }
-    sendMessage(message, page) {
-        this.s.eVar8 = message;
-        this.s.pageName = page;
-        this.s.tl(true, "o", "Message Sent");
-    }
-    sendLinkClick(link, title) {
-        this.s.prop7 = link;
-        this.s.pageName = title;
-        this.s.tl(true, "e", link);
-    }
-}
-exports.default = AdobeAnalytics;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1RFum":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class IdStore {
-    constructor(){
-        this.IdMap = new Map();
-    }
-    static getInstance() {
-        !IdStore.instance && (IdStore.instance = new IdStore());
-        return IdStore.instance;
-    }
-    populate(serverList) {
-        serverList.map((server, serverId)=>{
-            server.channelGroups.map((channelGroup, channelGroupId)=>{
-                channelGroup.channelItems.map((channelItem, channelItemId)=>{
-                    this.IdMap.set(channelItem.name.toLowerCase(), serverId + "-" + channelGroupId + "-" + channelItemId);
-                });
-            });
-        });
-    }
-    getIdOf(name, defaultID = "0-0-0") {
-        let channelID = this.IdMap.get(name);
-        return channelID ? channelID : defaultID;
-    }
-}
-exports.default = IdStore;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lxM0f":[function(require,module,exports) {
+},{"ffa6c93a08cafcfb":"lgJ39"}],"lxM0f":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$87f4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37427,7 +37703,6 @@ $parcel$ReactRefreshHelpers$87f4.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Mention", ()=>Mention);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _interfaces = require("../../model/interfaces");
@@ -37440,7 +37715,7 @@ var _globalStateContextDefault = parcelHelpers.interopDefault(_globalStateContex
 var _utils = require("../../model/utils");
 var _appContext = require("./AppContext");
 var _appContextDefault = parcelHelpers.interopDefault(_appContext);
-var _messageProcessor = require("./MessageProcessor");
+var _messageProcessor = require("./converters/MessageProcessor");
 var _inputComponent = require("./InputComponent");
 var _inputComponentDefault = parcelHelpers.interopDefault(_inputComponent);
 var _anonymousAnimal = require("../../model/AnonymousAnimal");
@@ -37449,7 +37724,7 @@ var _imageCache = require("../../model/ImageCache");
 var _imageCacheDefault = parcelHelpers.interopDefault(_imageCache);
 var _analytics = require("../../model/Analytics/Analytics");
 var _analyticsDefault = parcelHelpers.interopDefault(_analytics);
-var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+var _s = $RefreshSig$();
 const scrollToBottom = (ref)=>{
     ref.current?.scrollIntoView({
         behavior: "smooth"
@@ -37482,7 +37757,7 @@ const Messages = (props)=>{
         let sample = createUserMessage(e.value);
         let messageGroups = server.channelGroups[channelGroupId].channelItems[channelId].messageGroups;
         e.value = "";
-        const displayDate = getTodaysDate();
+        const displayDate = (0, _utils.getTodaysDate)();
         messageGroups[messageGroups.length - 1].date === displayDate || server.channelGroups[channelGroupId].channelItems[channelId].messageGroups.push({
             date: displayDate,
             messages: []
@@ -37502,35 +37777,25 @@ const Messages = (props)=>{
                 endRef: ref
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 82,
+                lineNumber: 83,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputComponentDefault.default), {
                 onSend: (e)=>handleMessageSent(e)
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 87,
+                lineNumber: 88,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 81,
+        lineNumber: 82,
         columnNumber: 9
     }, undefined);
 };
 _s(Messages, "EFFWZiaWoTflRp46CT7FBdxNEbM=");
 _c = Messages;
-const getTodaysDate = ()=>{
-    const today = new Date();
-    const date = today.getDate();
-    const month = today.toLocaleString("default", {
-        month: "short"
-    });
-    const year = today.getFullYear();
-    return `${date} ${month}, ${year}`;
-};
-// Pulling a prank on a friend
 const createUserMessage = (content)=>{
     let { name, randomAnimal } = (0, _anonymousAnimalDefault.default).getInstance().getAnimal();
     return {
@@ -37558,14 +37823,14 @@ const ScrollableComponent = (props)=>{
                             children: header1
                         }, void 0, false, {
                             fileName: "src/view/components/Messages.tsx",
-                            lineNumber: 125,
+                            lineNumber: 115,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: header2
                         }, void 0, false, {
                             fileName: "src/view/components/Messages.tsx",
-                            lineNumber: 126,
+                            lineNumber: 116,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -37573,20 +37838,20 @@ const ScrollableComponent = (props)=>{
                             children: header3
                         }, void 0, false, {
                             fileName: "src/view/components/Messages.tsx",
-                            lineNumber: 127,
+                            lineNumber: 117,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/view/components/Messages.tsx",
-                    lineNumber: 124,
+                    lineNumber: 114,
                     columnNumber: 17
                 }, undefined),
                 messageGroups.map((messageGroup)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MessageGroup, {
                         messageGroup: messageGroup
                     }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 133,
+                        lineNumber: 123,
                         columnNumber: 21
                     }, undefined)),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37594,18 +37859,18 @@ const ScrollableComponent = (props)=>{
                     className: "LAST"
                 }, void 0, false, {
                     fileName: "src/view/components/Messages.tsx",
-                    lineNumber: 138,
+                    lineNumber: 128,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/view/components/Messages.tsx",
-            lineNumber: 123,
+            lineNumber: 113,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 122,
+        lineNumber: 112,
         columnNumber: 9
     }, undefined);
 };
@@ -37624,12 +37889,12 @@ const MessageGroup = (props)=>{
                             className: "h-px border-0 bg-gray-600"
                         }, void 0, false, {
                             fileName: "src/view/components/Messages.tsx",
-                            lineNumber: 151,
+                            lineNumber: 141,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 150,
+                        lineNumber: 140,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37637,7 +37902,7 @@ const MessageGroup = (props)=>{
                         children: date
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 153,
+                        lineNumber: 143,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37646,18 +37911,18 @@ const MessageGroup = (props)=>{
                             className: "h-px border-0 bg-gray-600"
                         }, void 0, false, {
                             fileName: "src/view/components/Messages.tsx",
-                            lineNumber: 157,
+                            lineNumber: 147,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 156,
+                        lineNumber: 146,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 149,
+                lineNumber: 139,
                 columnNumber: 13
             }, undefined),
             messages.map((message)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MessageItemNormal, {
@@ -37665,19 +37930,19 @@ const MessageGroup = (props)=>{
                     messageType: message.messageType
                 }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
                     fileName: "src/view/components/Messages.tsx",
-                    lineNumber: 161,
+                    lineNumber: 151,
                     columnNumber: 17
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 148,
+        lineNumber: 138,
         columnNumber: 9
     }, undefined);
 };
 _c2 = MessageGroup;
 const MessageItemDefault = ({ message })=>{
-    const { sender, content, image } = message;
+    const { sender, content } = message;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex flex-col",
         children: [
@@ -37686,7 +37951,7 @@ const MessageItemDefault = ({ message })=>{
                 children: message.sender.name
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 180,
+                lineNumber: 165,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37696,18 +37961,18 @@ const MessageItemDefault = ({ message })=>{
                     children: (0, _messageProcessor.parseMessage)(content)
                 }, void 0, false, {
                     fileName: "src/view/components/Messages.tsx",
-                    lineNumber: 182,
+                    lineNumber: 167,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 181,
+                lineNumber: 166,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 179,
+        lineNumber: 164,
         columnNumber: 9
     }, undefined);
 };
@@ -37723,7 +37988,7 @@ const MessageItemFancy = ({ message })=>{
                 children: message.sender.name
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 195,
+                lineNumber: 182,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37734,7 +37999,7 @@ const MessageItemFancy = ({ message })=>{
                         children: (0, _messageProcessor.parseMessage)(content)
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 197,
+                        lineNumber: 186,
                         columnNumber: 17
                     }, undefined),
                     imageUrl ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37743,25 +38008,25 @@ const MessageItemFancy = ({ message })=>{
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 201,
+                        lineNumber: 190,
                         columnNumber: 21
                     }, undefined) : null
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 196,
+                lineNumber: 183,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 194,
+        lineNumber: 181,
         columnNumber: 9
     }, undefined);
 };
 _c4 = MessageItemFancy;
 const MessageItemOnlyTags = ({ message })=>{
-    const { sender, content, image } = message;
+    const { sender, content } = message;
     const links = content.split(";");
     const heading = links.splice(0, 1);
     const imageElements = links.map((link)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37770,7 +38035,7 @@ const MessageItemOnlyTags = ({ message })=>{
             alt: ""
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/Messages.tsx",
-            lineNumber: 218,
+            lineNumber: 206,
             columnNumber: 9
         }, undefined));
     const imageContainers = [];
@@ -37786,7 +38051,7 @@ const MessageItemOnlyTags = ({ message })=>{
                 children: message.sender.name
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 232,
+                lineNumber: 222,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37797,7 +38062,7 @@ const MessageItemOnlyTags = ({ message })=>{
                         children: heading
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 234,
+                        lineNumber: 224,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37808,25 +38073,25 @@ const MessageItemOnlyTags = ({ message })=>{
                                 children: container
                             }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
                                 fileName: "src/view/components/Messages.tsx",
-                                lineNumber: 238,
+                                lineNumber: 228,
                                 columnNumber: 29
                             }, undefined);
                         })
                     }, void 0, false, {
                         fileName: "src/view/components/Messages.tsx",
-                        lineNumber: 235,
+                        lineNumber: 225,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 233,
+                lineNumber: 223,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 231,
+        lineNumber: 221,
         columnNumber: 9
     }, undefined);
 };
@@ -37840,7 +38105,7 @@ const MessageItemResume = ({ message })=>{
                 children: message.sender.name
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 255,
+                lineNumber: 245,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("iframe", {
@@ -37848,13 +38113,13 @@ const MessageItemResume = ({ message })=>{
                 className: "h-[575] md:h-[1058] w-full"
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 256,
+                lineNumber: 246,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 254,
+        lineNumber: 244,
         columnNumber: 9
     }, undefined);
 };
@@ -37878,52 +38143,31 @@ const MessageItemNormal = (props)=>{
                     alt: "AVATAR"
                 }, void 0, false, {
                     fileName: "src/view/components/Messages.tsx",
-                    lineNumber: 276,
+                    lineNumber: 266,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 275,
+                lineNumber: 265,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CurrentMessageItem, {
                 message: props.message
             }, void 0, false, {
                 fileName: "src/view/components/Messages.tsx",
-                lineNumber: 283,
+                lineNumber: 273,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Messages.tsx",
-        lineNumber: 274,
+        lineNumber: 264,
         columnNumber: 9
     }, undefined);
 };
 _c7 = MessageItemNormal;
-const Mention = ({ content, selectedChannel })=>{
-    _s1();
-    const { server, setServer, serverList } = (0, _react.useContext)((0, _appContextDefault.default));
-    const globalStateContext = (0, _react.useContext)((0, _globalStateContextDefault.default));
-    const [serverId, channelGroupId, channelId] = (0, _utils.splitIds)(selectedChannel);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-        className: "bg-starblue-100 opacity-75 rounded-md font-medium pr-1 cursor-pointe ml-1 mr-1 cursor-pointer",
-        onClick: ()=>{
-            setServer(serverList[serverId]);
-            globalStateContext.setSelectedChannel(serverId + "-" + channelGroupId + "-" + channelId);
-            globalStateContext.setSelectedServer(serverId);
-        },
-        children: " @ " + content
-    }, void 0, false, {
-        fileName: "src/view/components/Messages.tsx",
-        lineNumber: 299,
-        columnNumber: 9
-    }, undefined);
-};
-_s1(Mention, "YrI7k/ajw+Fb+nua682TFQkesWk=");
-_c8 = Mention;
 exports.default = Messages;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7;
 $RefreshReg$(_c, "Messages");
 $RefreshReg$(_c1, "ScrollableComponent");
 $RefreshReg$(_c2, "MessageGroup");
@@ -37932,23 +38176,22 @@ $RefreshReg$(_c4, "MessageItemFancy");
 $RefreshReg$(_c5, "MessageItemOnlyTags");
 $RefreshReg$(_c6, "MessageItemResume");
 $RefreshReg$(_c7, "MessageItemNormal");
-$RefreshReg$(_c8, "Mention");
 
   $parcel$ReactRefreshHelpers$87f4.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../model/interfaces":"hNrdn","../../model/KeyGenerator":"aAIJo","../../assets/AviralRana_Resume.pdf":"krgvz","./GlobalStateContext":"aw2vg","../../model/utils":"aACEy","./AppContext":"h2OpR","./MessageProcessor":"c1ZSL","./InputComponent":"kCMxW","../../model/AnonymousAnimal":"j51pv","../../model/ImageCache":"Jdnpg","../../model/Analytics/Analytics":"6IVA3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"krgvz":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../model/interfaces":"hNrdn","../../model/KeyGenerator":"aAIJo","../../assets/AviralRana_Resume.pdf":"krgvz","./GlobalStateContext":"aw2vg","../../model/utils":"aACEy","./AppContext":"h2OpR","./converters/MessageProcessor":"8CbiS","./InputComponent":"kCMxW","../../model/AnonymousAnimal":"j51pv","../../model/ImageCache":"Jdnpg","../../model/Analytics/Analytics":"6IVA3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"krgvz":[function(require,module,exports) {
 module.exports = require("65c6f5c0183ffc94").getBundleURL("6EXJA") + "AviralRana_Resume.6c65cc10.pdf" + "?" + Date.now();
 
-},{"65c6f5c0183ffc94":"lgJ39"}],"c1ZSL":[function(require,module,exports) {
+},{"65c6f5c0183ffc94":"lgJ39"}],"8CbiS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "parseMessage", ()=>parseMessage);
 parcelHelpers.export(exports, "extractTaggedContent", ()=>extractTaggedContent);
 parcelHelpers.export(exports, "extractTag", ()=>extractTag);
-var _tagFactory = require("./converters/TagFactory");
+var _tagFactory = require("./TagFactory");
 var _tagFactoryDefault = parcelHelpers.interopDefault(_tagFactory);
 const parseMessage = (content)=>{
     let contents = content.split(";");
@@ -37958,7 +38201,6 @@ const parseMessage = (content)=>{
     });
 };
 const extractTaggedContent = (tag, text)=>{
-    // const pattern = new RegExp(`<${tag}>(.*?)<\/${tag}>`, "g");
     const pattern = new RegExp(`<${tag}>((.|\n)*)<\/${tag}>`, "g");
     const matches = text?.match(pattern);
     const extractedContent = matches?.map((match)=>{
@@ -37972,7 +38214,7 @@ const extractTag = (text)=>{
     return matches ? matches[1] : "";
 };
 
-},{"./converters/TagFactory":"48tX0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"48tX0":[function(require,module,exports) {
+},{"./TagFactory":"48tX0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"48tX0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _badgeConverter = require("./BadgeConverter");
@@ -37998,16 +38240,16 @@ var _textConverterDefault = parcelHelpers.interopDefault(_textConverter);
 class TagFactory {
     static #_ = (()=>{
         this.converterList = {
-            "mention": new (0, _mentionConverterDefault.default)(),
-            "text": new (0, _textConverterDefault.default)(),
-            "link": new (0, _linkConverterDefault.default)(),
-            "skill": new (0, _skillConverterDefault.default)(),
-            "heading": new (0, _headingConverterDefault.default)(),
-            "headingxl": new (0, _headingXLConverterDefault.default)(),
-            "badge": new (0, _badgeConverterDefault.default)(),
-            "outline": new (0, _outlineConverterDefault.default)(),
-            "b": new (0, _boldConverterDefault.default)(),
-            "i": new (0, _italicsConverterDefault.default)()
+            mention: new (0, _mentionConverterDefault.default)(),
+            text: new (0, _textConverterDefault.default)(),
+            link: new (0, _linkConverterDefault.default)(),
+            skill: new (0, _skillConverterDefault.default)(),
+            heading: new (0, _headingConverterDefault.default)(),
+            headingxl: new (0, _headingXLConverterDefault.default)(),
+            badge: new (0, _badgeConverterDefault.default)(),
+            outline: new (0, _outlineConverterDefault.default)(),
+            b: new (0, _boldConverterDefault.default)(),
+            i: new (0, _italicsConverterDefault.default)()
         };
     })();
     static #_1 = (()=>{
@@ -38030,15 +38272,17 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _keyGenerator = require("../../../model/KeyGenerator");
+var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _badge = require("../../atomicComponents/Badge");
+var _badgeDefault = parcelHelpers.interopDefault(_badge);
 class BadgeConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-            className: "max-w-[64px] max-h-[20px] rounded-sm",
-            src: content,
-            alt: ""
-        }, void 0, false, {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
+            content: content
+        }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/BadgeConverter.tsx",
-            lineNumber: 6,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38046,6 +38290,37 @@ class BadgeConverter {
 exports.default = BadgeConverter;
 
   $parcel$ReactRefreshHelpers$5197.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Badge":"kEOSD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kEOSD":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4aa1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4aa1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Badge = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+        className: "max-w-[64px] max-h-[20px] rounded-sm",
+        src: content,
+        alt: ""
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Badge.tsx",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Badge;
+exports.default = Badge;
+var _c;
+$RefreshReg$(_c, "Badge");
+
+  $parcel$ReactRefreshHelpers$4aa1.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -38062,14 +38337,15 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _bold = require("../../atomicComponents/Bold");
+var _boldDefault = parcelHelpers.interopDefault(_bold);
 class BoldConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-            className: "font-bold",
-            children: content
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _boldDefault.default), {
+            content: content
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/BoldConverter.tsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38081,7 +38357,37 @@ exports.default = BoldConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lCSje":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Bold":"h3ITZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h3ITZ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a8ec = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a8ec.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Bold = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "font-bold",
+        children: content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Bold.tsx",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = Bold;
+exports.default = Bold;
+var _c;
+$RefreshReg$(_c, "Bold");
+
+  $parcel$ReactRefreshHelpers$a8ec.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lCSje":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4500 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38093,14 +38399,15 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _heading = require("../../atomicComponents/Heading");
+var _headingDefault = parcelHelpers.interopDefault(_heading);
 class HeadingConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-            className: "font-medium",
-            children: content
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headingDefault.default), {
+            content: content
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/HeadingConverter.tsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38112,7 +38419,37 @@ exports.default = HeadingConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9FeMR":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Heading":"hAnvp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hAnvp":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$12b8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$12b8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Heading = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "font-medium",
+        children: content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Heading.tsx",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = Heading;
+exports.default = Heading;
+var _c;
+$RefreshReg$(_c, "Heading");
+
+  $parcel$ReactRefreshHelpers$12b8.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9FeMR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4e2b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38124,14 +38461,15 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _headingXL = require("../../atomicComponents/HeadingXL");
+var _headingXLDefault = parcelHelpers.interopDefault(_headingXL);
 class HeadingXLConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-            className: "text-xl md:text-2xl",
-            children: content
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headingXLDefault.default), {
+            content: content
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/HeadingXLConverter.tsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38143,7 +38481,37 @@ exports.default = HeadingXLConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iQhSQ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/HeadingXL":"fSvRj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fSvRj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$eff1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$eff1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const HeadingXL = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "text-xl md:text-2xl",
+        children: content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/HeadingXL.tsx",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = HeadingXL;
+exports.default = HeadingXL;
+var _c;
+$RefreshReg$(_c, "HeadingXL");
+
+  $parcel$ReactRefreshHelpers$eff1.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iQhSQ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$36b5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38155,14 +38523,15 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _italics = require("../../atomicComponents/Italics");
+var _italicsDefault = parcelHelpers.interopDefault(_italics);
 class ItalicsConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-            className: "italic",
-            children: content
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _italicsDefault.default), {
+            content: content
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/ItalicsConverter.tsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38174,7 +38543,37 @@ exports.default = ItalicsConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2ZVnZ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Italics":"lV6uq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lV6uq":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$029f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$029f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Italics = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "italic",
+        children: content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Italics.tsx",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = Italics;
+exports.default = Italics;
+var _c;
+$RefreshReg$(_c, "Italics");
+
+  $parcel$ReactRefreshHelpers$029f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2ZVnZ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$912b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38196,8 +38595,8 @@ class LinkConverter {
             title: title
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/LinkConverter.tsx",
-            lineNumber: 8,
-            columnNumber: 16
+            lineNumber: 9,
+            columnNumber: 13
         }, this);
     }
 }
@@ -38232,12 +38631,12 @@ const Link = ({ link, title, noUnderline = false })=>{
             children: title
         }, void 0, false, {
             fileName: "src/view/atomicComponents/Link.tsx",
-            lineNumber: 8,
+            lineNumber: 14,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/view/atomicComponents/Link.tsx",
-        lineNumber: 5,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
@@ -38265,10 +38664,11 @@ var _idStore = require("../../../model/IdStore");
 var _idStoreDefault = parcelHelpers.interopDefault(_idStore);
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
-var _messages = require("../Messages");
+var _mention = require("../../atomicComponents/Mention");
+var _mentionDefault = parcelHelpers.interopDefault(_mention);
 class MentionConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _messages.Mention), {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mentionDefault.default), {
             content: content,
             selectedChannel: (0, _idStoreDefault.default).getInstance().getIdOf(content)
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
@@ -38285,7 +38685,55 @@ exports.default = MentionConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/IdStore":"1RFum","../../../model/KeyGenerator":"aAIJo","../Messages":"lxM0f","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5wGGS":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/IdStore":"1RFum","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Mention":"eoWAu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eoWAu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f02a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f02a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Mention", ()=>Mention);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _utils = require("../../model/utils");
+var _appContext = require("../components/AppContext");
+var _appContextDefault = parcelHelpers.interopDefault(_appContext);
+var _globalStateContext = require("../components/GlobalStateContext");
+var _globalStateContextDefault = parcelHelpers.interopDefault(_globalStateContext);
+var _s = $RefreshSig$();
+const Mention = ({ content, selectedChannel })=>{
+    _s();
+    const { server, setServer, serverList } = (0, _react.useContext)((0, _appContextDefault.default));
+    const globalStateContext = (0, _react.useContext)((0, _globalStateContextDefault.default));
+    const [serverId, channelGroupId, channelId] = (0, _utils.splitIds)(selectedChannel);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "bg-starblue-100 opacity-75 rounded-md font-medium pr-1 cursor-pointe ml-1 mr-1 cursor-pointer",
+        onClick: ()=>{
+            setServer(serverList[serverId]);
+            globalStateContext.setSelectedChannel(serverId + "-" + channelGroupId + "-" + channelId);
+            globalStateContext.setSelectedServer(serverId);
+        },
+        children: " @ " + content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Mention.tsx",
+        lineNumber: 17,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Mention, "YrI7k/ajw+Fb+nua682TFQkesWk=");
+_c = Mention;
+exports.default = Mention;
+var _c;
+$RefreshReg$(_c, "Mention");
+
+  $parcel$ReactRefreshHelpers$f02a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../model/utils":"aACEy","../components/AppContext":"h2OpR","../components/GlobalStateContext":"aw2vg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5wGGS":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$42b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38297,14 +38745,15 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
+var _outline = require("../../atomicComponents/Outline");
+var _outlineDefault = parcelHelpers.interopDefault(_outline);
 class OutlineConverter {
     convert(content) {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-            className: "rounded-2xl pl-2 pr-2 bg-cyan-500 opacity-90 text-xs md:text-sm",
-            children: content
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _outlineDefault.default), {
+            content: content
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/converters/OutlineConverter.tsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 13
         }, this);
     }
@@ -38316,7 +38765,37 @@ exports.default = OutlineConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"02fVL":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../../atomicComponents/Outline":"4YMY9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4YMY9":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e963 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e963.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Outline = ({ content })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        className: "rounded-2xl pl-2 pr-2 bg-cyan-500 opacity-90 text-xs md:text-sm",
+        children: content
+    }, void 0, false, {
+        fileName: "src/view/atomicComponents/Outline.tsx",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Outline;
+exports.default = Outline;
+var _c;
+$RefreshReg$(_c, "Outline");
+
+  $parcel$ReactRefreshHelpers$e963.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"02fVL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$bb94 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38328,7 +38807,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _keyGenerator = require("../../../model/KeyGenerator");
 var _keyGeneratorDefault = parcelHelpers.interopDefault(_keyGenerator);
-var _messageProcessor = require("../MessageProcessor");
+var _messageProcessor = require("./MessageProcessor");
 var _tagFactory = require("./TagFactory");
 var _tagFactoryDefault = parcelHelpers.interopDefault(_tagFactory);
 class SkillConverter {
@@ -38357,7 +38836,7 @@ class SkillConverter {
                             children: profeciency
                         }, void 0, false, {
                             fileName: "src/view/components/converters/SkillConverter.tsx",
-                            lineNumber: 21,
+                            lineNumber: 23,
                             columnNumber: 21
                         }, this)
                     ]
@@ -38375,12 +38854,12 @@ class SkillConverter {
                         }
                     }, void 0, false, {
                         fileName: "src/view/components/converters/SkillConverter.tsx",
-                        lineNumber: 24,
+                        lineNumber: 28,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "src/view/components/converters/SkillConverter.tsx",
-                    lineNumber: 23,
+                    lineNumber: 27,
                     columnNumber: 17
                 }, this)
             ]
@@ -38398,7 +38877,7 @@ exports.default = SkillConverter;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","../MessageProcessor":"c1ZSL","./TagFactory":"48tX0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"avQqt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../model/KeyGenerator":"aAIJo","./MessageProcessor":"8CbiS","./TagFactory":"48tX0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"avQqt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a34c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -54455,179 +54934,7 @@ function AiTwotoneWarning(props) {
     })(props);
 }
 
-},{"../lib":"6Q2Cv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j51pv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _pandaPng = require("../assets/Panda.png");
-var _pandaPngDefault = parcelHelpers.interopDefault(_pandaPng);
-class AnonymousAnimal {
-    constructor(){
-        this.anonymousAnimals = [
-            "Alligator.png",
-            "Anteater.png",
-            "Armadillo.png",
-            "Auroch.png",
-            "Axolotl.png",
-            "Badger.png",
-            "Bat.png",
-            "Beaver.png",
-            "Buffalo.png",
-            "Camel.png",
-            "Capybara.png",
-            "Chameleon.png",
-            "Cheetah.png",
-            "Chinchilla.png",
-            "Chipmunk.png",
-            "Chupacabra.png",
-            "Cormorant.png",
-            "Coyote.png",
-            "Crow.png",
-            "Dingo.png",
-            "Dinosaur.png",
-            "Dolphin.png",
-            "Duck.png",
-            "Elephant.png",
-            "Ferret.png",
-            "Fox.png",
-            "Frog.png",
-            "Giraffe.png",
-            "Gopher.png",
-            "Grizzly.png",
-            "Hedgehog.png",
-            "Hippo.png",
-            "Hyena.png",
-            "Ibex.png",
-            "Ifrit.png",
-            "Iguana.png",
-            "Jackal.png",
-            "Kangaroo.png",
-            "Koala.png",
-            "Kraken.png",
-            "Lemur.png",
-            "Leopard.png",
-            "Liger.png",
-            "Llama.png",
-            "Manatee.png",
-            "Mink.png",
-            "Monkey.png",
-            "Moose.png",
-            "Narwhal.png",
-            "Nyan Cat.png",
-            "Orangutan.png",
-            "Otter.png",
-            "Panda.png",
-            "Penguin.png",
-            "Platypus.png",
-            "Pumpkin.png",
-            "Python.png",
-            "Quagga.png",
-            "Rabbit.png",
-            "Raccoon.png",
-            "Rhino.png",
-            "Sheep.png",
-            "Shrew.png",
-            "Skunk.png",
-            "Squirrel.png",
-            "Tiger.png",
-            "Turtle.png",
-            "Walrus.png",
-            "Wolf.png",
-            "Wolverine.png",
-            "Wombat.png"
-        ];
-        this.currentAnimalName = this.anonymousAnimals[0];
-        this.currentAnimal = (0, _pandaPngDefault.default);
-        this.fetchAnimal();
-    }
-    async fetchAnimal() {
-        let animalNameUrl = this.anonymousAnimals[Math.floor(Math.random() * this.anonymousAnimals.length)];
-        let imageUrl = `https://raw.githubusercontent.com/aviral10/Public-assets/main/animals/${animalNameUrl}`;
-        let animalName = `Anonymous ${animalNameUrl.split(".")[0]}`;
-        async function fetchImageFromUrl(response) {
-            const blob = await response.blob();
-            AnonymousAnimal.getInstance().setAnimal(animalName, URL.createObjectURL(blob));
-        }
-        try {
-            const response = await fetch(imageUrl);
-            response.ok ? fetchImageFromUrl(response) : console.error("Failed to fetch animal logo");
-        } catch (error) {
-            console.error("Error fetching animal logo:", error);
-        }
-    }
-    setAnimal(animalName, animal) {
-        this.currentAnimalName = animalName;
-        this.currentAnimal = animal;
-    }
-    static getInstance() {
-        this.instance || (this.instance = new AnonymousAnimal());
-        return this.instance;
-    }
-    getAnimal() {
-        return {
-            name: this.currentAnimalName,
-            randomAnimal: this.currentAnimal
-        };
-    }
-}
-exports.default = AnonymousAnimal;
-
-},{"../assets/Panda.png":"mKYkK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"mKYkK":[function(require,module,exports) {
-module.exports = require("74660537eb2f69d3").getBundleURL("6EXJA") + "Panda.205c8b61.png" + "?" + Date.now();
-
-},{"74660537eb2f69d3":"lgJ39"}],"Jdnpg":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class ImageCache {
-    static #_ = (()=>{
-        this.cache = new Map();
-    })();
-    static get(key) {
-        let present = this.cache.get(key);
-        return present ? present : key;
-    }
-    static set(key, value) {
-        this.cache.set(key, value);
-    }
-    static reset() {
-        this.cache = new Map();
-    }
-    static async fetchImage(url) {
-        const fetchImageFromUrl = async (response)=>{
-            const blob = await response.blob();
-            return URL.createObjectURL(blob);
-        };
-        let image = url;
-        try {
-            const response = await fetch(url);
-            image = response.ok ? await fetchImageFromUrl(response) : url;
-        } catch (error) {
-            image = url;
-        }
-        return image;
-    }
-    static async setAsync(key, value) {
-        value.then((resolvedVal)=>this.cache.set(key, resolvedVal));
-    }
-    static async prefetch(serverList) {
-        serverList.map((server)=>[
-                server.channelGroups.map((channelGroup)=>[
-                        channelGroup.channelItems.map((channelItem)=>{
-                            channelItem.messageGroups.map((messageGroup)=>{
-                                messageGroup.messages.map((message)=>{
-                                    this.setAsync(message.image, this.fetchImage(message.image));
-                                });
-                            });
-                        })
-                    ])
-            ]);
-    }
-    static getCache() {
-        return this.cache;
-    }
-}
-exports.default = ImageCache;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9EZST":[function(require,module,exports) {
+},{"../lib":"6Q2Cv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9EZST":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7fa4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -54638,7 +54945,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _ai = require("react-icons/ai");
 var _hi = require("react-icons/hi");
 var _go = require("react-icons/go");
@@ -54650,6 +54956,7 @@ var _config = require("../../model/Config");
 var _configDefault = parcelHelpers.interopDefault(_config);
 var _link = require("../atomicComponents/Link");
 var _linkDefault = parcelHelpers.interopDefault(_link);
+var _utils = require("../../model/utils");
 var _s = $RefreshSig$();
 const MyProfile = ()=>{
     const model = new (0, _dataModelJsonDefault.default)((0, _configDefault.default).getConfig());
@@ -54666,7 +54973,7 @@ const MyProfile = ()=>{
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 19,
+                        lineNumber: 18,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -54675,13 +54982,13 @@ const MyProfile = ()=>{
                         alt: "PROFILE"
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 20,
+                        lineNumber: 23,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/MyProfile.tsx",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54691,7 +54998,7 @@ const MyProfile = ()=>{
                         children: myProfile.name
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 27,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -54699,14 +55006,14 @@ const MyProfile = ()=>{
                         children: myProfile.title
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 28,
+                        lineNumber: 31,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "w-full h-4"
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 29,
+                        lineNumber: 32,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(StatusBox, {
@@ -54717,42 +55024,26 @@ const MyProfile = ()=>{
                         email: myProfile.email
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 30,
+                        lineNumber: 33,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/MyProfile.tsx",
-                lineNumber: 26,
+                lineNumber: 29,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/MyProfile.tsx",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 9
     }, undefined);
 };
 _c = MyProfile;
-const getISTTime = ()=>{
-    let currentTime = new Date();
-    let currentOffset = currentTime.getTimezoneOffset();
-    let ISTOffset = 330; // IST offset UTC +5:30
-    let ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset) * 60000);
-    let hoursIST = ISTTime.getHours();
-    let meridian = hoursIST >= 12 ? "PM" : "AM";
-    hoursIST = hoursIST % 12;
-    hoursIST = (hoursIST ? hoursIST : 12).toString().padStart(2, "0");
-    let minutesIST = ISTTime.getMinutes().toString().padStart(2, "0");
-    return [
-        hoursIST,
-        minutesIST,
-        meridian
-    ];
-};
 const DynamicClock = ()=>{
     _s();
-    let [hoursIST, minutesIST, meridian] = getISTTime();
+    let [hoursIST, minutesIST, meridian] = (0, _utils.getISTTime)();
     const [currTime, setCurrTime] = (0, _react.useState)({
         hours: hoursIST,
         minutes: minutesIST,
@@ -54760,7 +55051,7 @@ const DynamicClock = ()=>{
     });
     (0, _react.useEffect)(()=>{
         const intervalId = setInterval(()=>{
-            let [hoursIST, minutesIST, meridian] = getISTTime();
+            let [hoursIST, minutesIST, meridian] = (0, _utils.getISTTime)();
             setCurrTime({
                 hours: hoursIST,
                 minutes: minutesIST,
@@ -54773,11 +55064,11 @@ const DynamicClock = ()=>{
         children: `${currTime.hours}:${currTime.minutes} ${meridian} IST local time`
     }, void 0, false, {
         fileName: "src/view/components/MyProfile.tsx",
-        lineNumber: 81,
+        lineNumber: 67,
         columnNumber: 9
     }, undefined);
 };
-_s(DynamicClock, "IuHAgxBD9YvQWjQbdaGsgBG+lyc=");
+_s(DynamicClock, "S04OjsX0kzkxus/IM0eJZrm63IE=");
 _c1 = DynamicClock;
 const StatusBox = (props)=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54790,58 +55081,58 @@ const StatusBox = (props)=>{
                         className: "flex items-center h-8 w-8 ",
                         children: props.status === "online" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(OnlineStatusIcon, {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 90,
+                            lineNumber: 77,
                             columnNumber: 25
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(OfflineStatusIcon, {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 92,
+                            lineNumber: 79,
                             columnNumber: 25
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 88,
+                        lineNumber: 75,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "flex items-center h-8 w-8",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _ai.AiOutlineClockCircle), {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 96,
+                            lineNumber: 83,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 95,
+                        lineNumber: 82,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "flex items-center h-8 w-8",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hi.HiOutlineOfficeBuilding), {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 99,
+                            lineNumber: 86,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 98,
+                        lineNumber: 85,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "flex items-center h-8 w-8",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hi.HiOutlineMail), {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 102,
+                            lineNumber: 89,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 101,
+                        lineNumber: 88,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/MyProfile.tsx",
-                lineNumber: 87,
+                lineNumber: 74,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54852,19 +55143,19 @@ const StatusBox = (props)=>{
                         children: props.status
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 106,
+                        lineNumber: 93,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "flex items-center h-8 min-w-[200px]",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DynamicClock, {}, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 107,
-                            columnNumber: 71
+                            lineNumber: 95,
+                            columnNumber: 22
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 107,
+                        lineNumber: 94,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54875,12 +55166,12 @@ const StatusBox = (props)=>{
                             noUnderline: true
                         }, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 109,
+                            lineNumber: 98,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 108,
+                        lineNumber: 97,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54891,24 +55182,24 @@ const StatusBox = (props)=>{
                             noUnderline: true
                         }, void 0, false, {
                             fileName: "src/view/components/MyProfile.tsx",
-                            lineNumber: 112,
+                            lineNumber: 105,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/view/components/MyProfile.tsx",
-                        lineNumber: 111,
+                        lineNumber: 104,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/MyProfile.tsx",
-                lineNumber: 105,
+                lineNumber: 92,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/MyProfile.tsx",
-        lineNumber: 86,
+        lineNumber: 73,
         columnNumber: 9
     }, undefined);
 };
@@ -54918,7 +55209,7 @@ const OnlineStatusIcon = ()=>{
         className: "w-3 h-3 bg-green-700 rounded-3xl"
     }, void 0, false, {
         fileName: "src/view/components/MyProfile.tsx",
-        lineNumber: 120,
+        lineNumber: 117,
         columnNumber: 12
     }, undefined);
 };
@@ -54926,7 +55217,7 @@ _c3 = OnlineStatusIcon;
 const OfflineStatusIcon = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _go.GoCloudOffline), {}, void 0, false, {
         fileName: "src/view/components/MyProfile.tsx",
-        lineNumber: 123,
+        lineNumber: 120,
         columnNumber: 12
     }, undefined);
 };
@@ -54944,7 +55235,7 @@ $RefreshReg$(_c4, "OfflineStatusIcon");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-icons/ai":"47mDn","react-icons/hi":"lBxqJ","react-icons/go":"l0Gl8","../../model/DataModelJson":"6pzHR","../../assets/cat_8.gif":"eRYf0","../../model/Config":"llC9f","../atomicComponents/Link":"awv5n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lBxqJ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-icons/ai":"47mDn","react-icons/hi":"lBxqJ","react-icons/go":"l0Gl8","../../model/DataModelJson":"6pzHR","../../assets/cat_8.gif":"eRYf0","../../model/Config":"llC9f","../atomicComponents/Link":"awv5n","../../model/utils":"aACEy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lBxqJ":[function(require,module,exports) {
 // THIS FILE IS AUTO GENERATED
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -70392,7 +70683,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _globalStateContext = require("./GlobalStateContext");
 var _globalStateContextDefault = parcelHelpers.interopDefault(_globalStateContext);
 var _appContext = require("./AppContext");
@@ -70411,7 +70701,7 @@ const Searchbar = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HamburgerIcon, {}, void 0, false, {
                 fileName: "src/view/components/Searchbar.tsx",
-                lineNumber: 13,
+                lineNumber: 14,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -70419,7 +70709,7 @@ const Searchbar = ()=>{
                 children: "@"
             }, void 0, false, {
                 fileName: "src/view/components/Searchbar.tsx",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -70427,7 +70717,7 @@ const Searchbar = ()=>{
                 children: server.channelGroups[channelGroupId].channelItems[channelId].name.toLowerCase()
             }, void 0, false, {
                 fileName: "src/view/components/Searchbar.tsx",
-                lineNumber: 17,
+                lineNumber: 16,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -70438,18 +70728,18 @@ const Searchbar = ()=>{
                     alt: ""
                 }, void 0, false, {
                     fileName: "src/view/components/Searchbar.tsx",
-                    lineNumber: 23,
+                    lineNumber: 22,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/view/components/Searchbar.tsx",
-                lineNumber: 22,
+                lineNumber: 21,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Searchbar.tsx",
-        lineNumber: 12,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
@@ -70468,6 +70758,13 @@ const HamburgerIcon = ()=>{
                 className: "w-full h-1/3 bg-gray-500"
             }, void 0, false, {
                 fileName: "src/view/components/Searchbar.tsx",
+                lineNumber: 38,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "w-full h-1/3 bg-gray-500"
+            }, void 0, false, {
+                fileName: "src/view/components/Searchbar.tsx",
                 lineNumber: 39,
                 columnNumber: 13
             }, undefined),
@@ -70477,18 +70774,11 @@ const HamburgerIcon = ()=>{
                 fileName: "src/view/components/Searchbar.tsx",
                 lineNumber: 40,
                 columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-full h-1/3 bg-gray-500"
-            }, void 0, false, {
-                fileName: "src/view/components/Searchbar.tsx",
-                lineNumber: 41,
-                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Searchbar.tsx",
-        lineNumber: 33,
+        lineNumber: 32,
         columnNumber: 9
     }, undefined);
 };
@@ -70518,7 +70808,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _appContext = require("./AppContext");
 var _appContextDefault = parcelHelpers.interopDefault(_appContext);
 var _keyGenerator = require("../../model/KeyGenerator");
@@ -70537,7 +70826,7 @@ const Sidebar = (props)=>{
             setSelectedState: props.setSelectedServer
         }, (0, _keyGeneratorDefault.default).getInstance().getNewKey(), false, {
             fileName: "src/view/components/Sidebar.tsx",
-            lineNumber: 11,
+            lineNumber: 10,
             columnNumber: 13
         }, undefined);
     });
@@ -70546,7 +70835,7 @@ const Sidebar = (props)=>{
         children: elements
     }, void 0, false, {
         fileName: "src/view/components/Sidebar.tsx",
-        lineNumber: 24,
+        lineNumber: 23,
         columnNumber: 9
     }, undefined);
 };
@@ -70571,7 +70860,7 @@ const SideIcon = (props)=>{
                                 group-hover:scale-100 ${props.isSelectedState === props.index ? "h-5/6 mt-1 scale-100" : "h-3/6 mt-3"}`
                     }, void 0, false, {
                         fileName: "src/view/components/Sidebar.tsx",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -70584,13 +70873,13 @@ const SideIcon = (props)=>{
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/view/components/Sidebar.tsx",
-                        lineNumber: 54,
+                        lineNumber: 53,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/view/components/Sidebar.tsx",
-                lineNumber: 38,
+                lineNumber: 37,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -70598,17 +70887,17 @@ const SideIcon = (props)=>{
                 children: props.tooltip
             }, void 0, false, {
                 fileName: "src/view/components/Sidebar.tsx",
-                lineNumber: 68,
+                lineNumber: 67,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/view/components/Sidebar.tsx",
-        lineNumber: 37,
+        lineNumber: 36,
         columnNumber: 9
     }, undefined);
 };
-_s(SideIcon, "V/rZ5qmM0uSsb47kc/Cb6WWhcBo=");
+_s(SideIcon, "FuErTij3xy+H7kF+1kjvC0x0zWA=");
 _c1 = SideIcon;
 exports.default = Sidebar;
 var _c, _c1;
@@ -70620,71 +70909,6 @@ $RefreshReg$(_c1, "SideIcon");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AppContext":"h2OpR","../../model/KeyGenerator":"aAIJo","./GlobalStateContext":"aw2vg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1wl7D":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$0e4b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0e4b.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Shimmer = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex items-center justify-center w-screen h-screen bg-gray-900",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-            className: "w-64 logo-path",
-            version: "1.1",
-            id: "Layer_1",
-            x: "0px",
-            y: "0px",
-            viewBox: "0 0 200 200",
-            enableBackground: "new 0 0 200 200",
-            xmlns: "http://www.w3.org/2000/svg",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                    fill: "#F4F4F4",
-                    opacity: "1.000000",
-                    stroke: "none",
-                    d: " M120.242088,148.593475 C110.393936,152.862961 102.316513,150.331512 97.562233,141.279282 C89.874268,126.641258 82.529984,111.822884 75.011467,97.095528 C73.747910,94.620461 72.337692,92.220276 70.607689,89.082603 C63.019772,104.029663 55.822041,118.208107 48.314236,132.997360 C55.671108,132.997360 62.136738,133.223419 68.578392,132.927597 C73.967583,132.680099 77.445885,134.594940 79.203865,139.808853 C80.193253,142.743240 81.652016,145.519363 83.052246,148.715881 C62.364578,148.715881 41.984432,148.715881 21.024073,148.715881 C37.460445,115.828011 53.855785,83.022247 70.757767,49.202728 C87.443382,82.647385 103.787689,115.407898 120.242088,148.593475 z"
-                }, void 0, false, {
-                    fileName: "src/view/components/Shimmer.tsx",
-                    lineNumber: 9,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                    fill: "#F3F3F3",
-                    opacity: "1.000000",
-                    stroke: "none",
-                    d: " M95.417488,61.570004 C93.570343,57.682484 91.959312,54.092426 89.688919,49.033009 C112.837524,50.057629 135.214523,49.501804 157.123322,52.438721 C180.541214,55.577942 190.612778,82.611359 175.775024,99.802673 C171.554993,104.692093 164.754166,107.385735 159.042511,110.934525 C157.546585,111.863976 155.697281,112.224716 153.292496,113.111252 C164.152435,125.266235 174.683746,137.053391 185.215057,148.840546 C185.094452,149.255630 184.973831,149.670715 184.853226,150.085815 C178.012848,149.745956 171.137589,149.696503 164.354233,148.881866 C162.424347,148.650101 160.534332,146.398636 159.014511,144.721359 C150.738174,135.587646 142.657700,126.275414 134.313553,117.205170 C132.914871,115.684761 130.555374,114.177696 128.638474,114.175949 C123.848846,114.171585 120.701935,112.152557 118.602371,108.136215 C116.784027,104.657814 115.106041,101.106064 113.086983,97.022369 C121.777214,97.022369 129.891129,97.315666 137.971268,96.919655 C143.393738,96.653908 148.941605,95.996223 154.121552,94.461479 C160.981171,92.429070 163.552597,87.281403 163.041306,79.146568 C162.668594,73.216797 158.660202,68.301071 152.426300,67.102737 C146.912720,66.042870 141.278015,65.257393 135.675125,65.094162 C125.019539,64.783722 114.341675,65.210892 103.688553,64.860748 C100.980370,64.771736 98.330353,62.913025 95.417488,61.570004 z"
-                }, void 0, false, {
-                    fileName: "src/view/components/Shimmer.tsx",
-                    lineNumber: 10,
-                    columnNumber: 17
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/view/components/Shimmer.tsx",
-            lineNumber: 8,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/view/components/Shimmer.tsx",
-        lineNumber: 6,
-        columnNumber: 9
-    }, undefined);
-};
-_c = Shimmer;
-exports.default = Shimmer;
-var _c;
-$RefreshReg$(_c, "Shimmer");
-
-  $parcel$ReactRefreshHelpers$0e4b.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["dm2Ou","1xC6H","4aBH6"], "4aBH6", "parcelRequire09fa")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AppContext":"h2OpR","../../model/KeyGenerator":"aAIJo","./GlobalStateContext":"aw2vg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["dm2Ou","1xC6H","4aBH6"], "4aBH6", "parcelRequire09fa")
 
 //# sourceMappingURL=index.2d3ace14.js.map
