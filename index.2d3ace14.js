@@ -27967,8 +27967,12 @@ class GoogleAnalytics {
             title: pageName.split("-").join(" ")
         });
     }
-    sendEvent(event) {
-    // "TO BE IMPLEMENTED"
+    sendEvent(width, height) {
+        (0, _reactGa4Default.default).event({
+            category: "Screen",
+            action: width,
+            label: height
+        });
     }
 }
 exports.default = GoogleAnalytics;
@@ -28595,10 +28599,14 @@ class AdobeAnalytics {
     sendPageView(pageName) {
         this.s.prop6 = pageName;
         this.s.pageName = pageName;
+        this.s.prop8 = window.innerWidth;
+        this.s.prop9 = window.innerHeight;
         this.s.t();
     }
-    sendEvent(event) {
-    // To be implemented
+    sendEvent(width, height) {
+        this.s.prop8 = width;
+        this.s.prop9 = height;
+        this.s.t();
     }
     sendMessage(message, page) {
         this.s.eVar8 = message;
