@@ -28599,7 +28599,7 @@ class AdobeAnalytics {
     sendPageView(pageName) {
         this.s.prop6 = pageName;
         this.s.pageName = pageName;
-        this.s.prop8 = window.innerWidth;
+        this.s.prop10 = window.innerWidth;
         this.s.prop9 = window.innerHeight;
         this.s.t();
     }
