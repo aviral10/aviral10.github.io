@@ -515,6 +515,10 @@ html {
   width: 1rem;
 }
 
+.w-56 {
+  width: 14rem;
+}
+
 .w-64 {
   width: 16rem;
 }
@@ -585,6 +589,11 @@ html {
 
 .-translate-y-10 {
   --tw-translate-y: -2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-12 {
+  --tw-translate-y: -3rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -813,6 +822,10 @@ html {
 
 .pl-2 {
   padding-left: .5rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
 }
 
 .pr-1 {
@@ -1048,7 +1061,7 @@ html {
 @keyframes letter-animation {
   0% {
     stroke-dashoffset: 500px;
-    stroke-width: 2px;
+    stroke-width: 1px;
     fill-opacity: 0;
   }
 
@@ -1149,6 +1162,10 @@ html {
     width: 3.5rem;
   }
 
+  .md\:w-56 {
+    width: 14rem;
+  }
+
   .md\:w-96 {
     width: 24rem;
   }
@@ -1175,6 +1192,11 @@ html {
 
   .md\:max-w-md {
     max-width: 28rem;
+  }
+
+  .md\:translate-y-0 {
+    --tw-translate-y: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
