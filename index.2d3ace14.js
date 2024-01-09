@@ -27188,6 +27188,7 @@ function App() {
         (0, _idStoreDefault.default).getInstance().populate(serverList.current);
         (0, _imageCacheDefault.default).prefetch(serverList.current);
     };
+    let x = 1;
     (0, _react.useEffect)(()=>{
         setTimeout(()=>{
             // Attempt fetching remote Config
